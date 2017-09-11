@@ -19,6 +19,11 @@ h3 {
         text-align: center;
 }
 
+h2 {
+    color: #a9a9a9;
+}
+
 p {
         padding-left: 10%;
+        color: #ece8b2;
 }
