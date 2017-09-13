@@ -32,15 +32,34 @@ var API_CALL_ID = new API(
     "format=json"
 );
 
+var API_CALL_LATEST = new API(
+    "https://api.themoviedb.org/3/movie/",
+    "latest",
+    "?",
+    "api_key=06f6d11f6cf9b366cb459ecbdfdc75a3",
+    "&",
+    "format=json"
+);
+
+
 API.prototype.call = async function(response, responseArray, callType) {
+    var txt = $("#calltype option:selected").text();
+    console.log(txt);
+    var caller;
+        if(txt == "latest") {
+            caller = API_CALL_LATEST;
+    } else {
+        alert("not hooked up.");
+    }
     this.responseArray = [];
-    this.callType = API_CALL_POPULAR;
+    this.callType = caller;
+
     try {
         const response = await fetch(this.callType.url);
         const text = await response.json()
         this.responseArray.push(text);
-        console.log(this.responseArray[0].results);
-        this.renderPopular();
+
+        this.renderLatest();
 
 
     } catch (err) {
@@ -51,7 +70,10 @@ API.prototype.call = async function(response, responseArray, callType) {
 API.prototype.renderPopular = function(responseArray, imgUrl) {
     const self = this;
     self.imgUrl = "https://image.tmdb.org/t/p/w500";
+
     console.log(self.imgUrl);
+    console.log(this.callType);
+    console.log(this.responseArray);
 
     $('.content').html('');
     $('.content').append('<div class="container" id="movie-container"></div>');
@@ -67,9 +89,43 @@ API.prototype.renderPopular = function(responseArray, imgUrl) {
         $(card).append('<label>Overview:</label><p>' + item.overview + '</p>');
         $(card).append('<label>Popularity:</label><p>' + item.popularity + '</p>');
         $(card).append('<label>Release Date:</label><p>' + item.release_date + '</p>');
-        $(card).append('<img src="' + self.imgUrl + item.backdrop_path + '">');
+        $(card).append('<img id="popular" src="' + self.imgUrl + item.backdrop_path + '">');
         console.log(self.imgUrl);
     })
+
+    $(card).append('<hr>');
+};
+
+API.prototype.renderLatest = function(responseArray, imgUrl) {
+    const self = this;
+    self.imgUrl = "https://image.tmdb.org/t/p/w500";
+    console.log(self.imgUrl);
+    console.log(this.callType);
+    console.log(this.responseArray);
+    $('.content').html('');
+    $('.content').append('<div class="container" id="movie-container"></div>');
+    const card = $('#movie-container');
+
+    $(card).append('<h2>Latest Movie</h2>');
+    $(card).append('<h3>' + this.responseArray[0].title + '</h3>');
+
+    // Warn user content is adult.
+    if (this.responseArray[0].adult === true) {
+        alert("Warning this movie is ADULT");
+        $(card).append('<p>Movie is rated adult.</p>');
+    };
+
+    // Check if there is a poster.
+    if (this.responseArray[0].poster_path === null) {
+        $(card).append('<p>Poster not available.</p>');
+
+    } else {
+        $(card).append('<img id="latest" src="' + self.imgUrl + this.responseArray[0].poster_path + '">');
+    };
+
+    $(card).append('<p>' + this.responseArray[0].overview + '</p>')
+
+    $(card).append('<p>' + this.responseArray[0].status + '</p>')
 
     $(card).append('<hr>');
 };

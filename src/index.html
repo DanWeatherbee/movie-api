@@ -13,10 +13,15 @@
 <body>
     <div id="root">
         <h1>Available Api Methods</h1>
-        <button id="run-script" onClick="API_CALL_POPULAR.call()">Popular Movies</button>
+        <button id="run-script" onClick="API_CALL_LATEST.call()">Call API</button>
         <br />
         <section class="content"></section>
     </div>
+        <select id="calltype" name="call">
+            <option value="API_CALL_LATEST">latest</option>
+            <option value="API_CALL_POPULAR">popular</option>
+            <option value="API_CALL_ID">id</option>
+        </select>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
     <script src="index.js"></script>
 </body>
