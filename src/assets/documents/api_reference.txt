@@ -1,0 +1,27 @@
+Movie reducer using async functions  PREFAB for React
+
+Methods.
+https://api.themoviedb.org/3/search/movie?api_key={api_key}&query=Jack+Reacher
+
+2. Query For Details
+
+With the item above in hand, you can see the id of the movie is 343611. You can use that id to query the movie details method:
+
+https://api.themoviedb.org/3/movie/343611?api_key={api_key}
+
+This will return all of the main movie details as outlined in the movie details documentation.
+ I would also suggest taking a read through the append to response document as it outlines
+  how you can make multiple sub requests in one. For example, with videos:
+
+https://api.themoviedb.org/3/movie/343611?api_key={api_key}&append_to_response=videos
+
+Popular TV.
+https://api.themoviedb.org/3/tv/top_rated?api_key=<<api_key>>&language=en-US&page=1
+
+Latest TV
+https://api.themoviedb.org/3/tv/latest?api_key=<<api_key>>&language=en-US
+
+Videos
+https://api.themoviedb.org/3/tv/{tv_id}/videos?api_key=<<api_key>>&language=en-US
+
+

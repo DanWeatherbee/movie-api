@@ -7,23 +7,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Dan Weatherbee Web Developer - api Prefab">
     <meta name="theme-color" content="#ffffff">
-    <link rel=stylesheet href="styles.css">
+    <link rel=stylesheet href="assets/css/styles/style.css">
 </head>
 
 <body>
     <div id="root">
-        <h1>Available Api Methods</h1>
-        <button id="run-script" onClick="API_CALL_LATEST.call()">Call API</button>
-        <br />
-        <section class="content"></section>
+        <div class="container" id="movie-card">
+            <div class="fixed-top" id="selector">
+                <h1>Movie API</h1>
+                <h2>Available Methods</h2>
+                <select id="calltype" name="call">
+                    <option value="API_CALL_LATEST">latest</option>
+                    <option value="API_CALL_POPULAR">popular</option>
+                    <option value="API_CALL_ID">id</option>
+                </select>
+                <button id="run-script" class="fixed" onClick="API_CALL_POPULAR.call()">Call API</button>
+            </div>
+        </div>
+        <section class="content container" id="content-movies"></section>
     </div>
-        <select id="calltype" name="call">
-            <option value="API_CALL_LATEST">latest</option>
-            <option value="API_CALL_POPULAR">popular</option>
-            <option value="API_CALL_ID">id</option>
-        </select>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
-    <script src="index.js"></script>
+    <script src="assets/js/models/script1_api_model.js"></script>
+    <script src="assets/js/objects/script2_api_obj_popular.js"></script>
+    <script src="assets/js/objects/script3_api_obj_id.js"></script>
+    <script src="assets/js/objects/script4_api_obj_latest.js"></script>
+    <script src="assets/js/methods/script5_api_caller.js"></script>
+    <script src="assets/js/methods/script6_api_method_popular.js"></script>
+    <script src="assets/js/methods/script7_api_method_latest.js"></script>
+    <script src="assets/js/methods/script8_api_method_ID.js"></script>
 </body>
 
 </html>
