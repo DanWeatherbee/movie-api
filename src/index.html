@@ -17,9 +17,10 @@
                 <h1>Movie API</h1>
                 <h2>Available Methods</h2>
                 <select id="calltype" name="call">
-                    <option value="API_CALL_LATEST">latest</option>
-                    <option value="API_CALL_POPULAR">popular</option>
-                    <option value="API_CALL_ID">id</option>
+                    <option value="API_CALL_LATEST">Latest Movies</option>
+                    <option value="API_CALL_POPULAR">Popular Movies</option>
+                    <option value="API_CALL_ID">Search by ID</option>
+                    <option value="API_CALL_LATEST_TV">Latest Tv</option>
                 </select>
                 <button id="run-script" class="fixed" onClick="API_CALL_POPULAR.call()">Call API</button>
             </div>
@@ -31,10 +32,12 @@
     <script src="assets/js/objects/script2_api_obj_popular.js"></script>
     <script src="assets/js/objects/script3_api_obj_id.js"></script>
     <script src="assets/js/objects/script4_api_obj_latest.js"></script>
+    <script src="assets/js/objects/script4_api_obj_latest_tv.js"></script>
     <script src="assets/js/methods/script5_api_caller.js"></script>
     <script src="assets/js/methods/script6_api_method_popular.js"></script>
     <script src="assets/js/methods/script7_api_method_latest.js"></script>
     <script src="assets/js/methods/script8_api_method_ID.js"></script>
+    <script src="assets/js/methods/script9_api_method_latest_tv.js"></script>
 </body>
 
 </html>
