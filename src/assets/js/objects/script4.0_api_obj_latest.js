@@ -6,3 +6,4 @@ var API_CALL_LATEST = new API(
     "&",
     "format=json"
 );
+console.log(API_CALL_LATEST);

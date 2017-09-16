@@ -15,6 +15,7 @@ API.prototype.renderPopular = function(responseArray, imgUrl) {
     this.responseArray[0].results.forEach(function(item) {
 
         $(card).append('<h3>' + item.title + '</h3>');
+        $(card).append('<label>ID:</label><p>' + item.id + '</p>');
         $(card).append('<label>Votes:</label><p>' + item.vote_count + '</p>');
         $(card).append('<label>Vote average:</label><p>' + item.vote_average + '</p>');
         $(card).append('<label>Overview:</label><p>' + item.overview + '</p>');
