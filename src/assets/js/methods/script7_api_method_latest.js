@@ -25,12 +25,20 @@ API.prototype.renderLatest = function(responseArray, imgUrl) {
         $(card).append('<img id="latest" src="' + self.imgUrl + this.responseArray[0].poster_path + '">');
     };
 
+        // Check if there is a Home Page.
+    if (this.responseArray[0].homepage === "") {
+        $(card).append('<p>Home page not available.</p>');
+
+    } else {
+        $(card).append('<br /><label>Home Page:</label><br /><a href="' + this.responseArray[0].homepage + '">Website</a>');
+    };
+
     // Check if there is a overview.
     if (this.responseArray[0].overview === null) {
         $(card).append('<p>Over View not available.</p>');
 
     } else {
-        $(card).append('<p>' + this.responseArray[0].overview + '</p>')
+        $(card).append('<label>Overview:</label><p>' + this.responseArray[0].overview + '</p>')
     };
 
     // Check if there is a status.
@@ -38,7 +46,7 @@ API.prototype.renderLatest = function(responseArray, imgUrl) {
         $(card).append('<p>Over View not available.</p>');
 
     } else {
-        $(card).append('<p>' + this.responseArray[0].status + '</p>')
+        $(card).append('<label>Status:</label><p>' + this.responseArray[0].status + '</p>')
     };
 
     $(card).append('<hr>');
