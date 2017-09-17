@@ -34,6 +34,16 @@ API.prototype.call = async function(response, responseArray, callType) {
                 return;
             }
             break;
+        case "Movies in Theaters":
+            if (txt === "Movies in Theaters") {
+                caller = API_CALL_MOVIES_THEATERS;
+            }
+            break;
+        case "Popular Tv":
+            if (txt === "Popular Tv") {
+                caller = API_CALL_TV_POPULAR;
+            }
+            break;
         default:
             //Statements executed when none of the values match the value of the expression.
             alert("option not hooked up.");
@@ -60,7 +70,12 @@ API.prototype.call = async function(response, responseArray, callType) {
             case "Latest Tv":
                 this.renderLatestTv();
                 break;
-
+            case "Movies in Theaters":
+                this.renderMoviesTheaters();
+                break;
+            case "Popular Tv":
+                this.renderTvPopular();
+                break;
             default:
                 //Statements executed when none of the values match the value of the expression.
                 alert("call back not hooked up.");

@@ -25,8 +25,8 @@ API.prototype.renderLatest = function(responseArray, imgUrl) {
         $(card).append('<img id="latest" src="' + self.imgUrl + this.responseArray[0].poster_path + '">');
     };
 
-        // Check if there is a Home Page.
-    if (this.responseArray[0].homepage === "") {
+    // Check if there is a Home Page.
+    if (this.responseArray[0].homepage === null || this.responseArray[0].homepage === "") {
         $(card).append('<p>Home page not available.</p>');
 
     } else {
@@ -38,7 +38,7 @@ API.prototype.renderLatest = function(responseArray, imgUrl) {
         $(card).append('<p>Over View not available.</p>');
 
     } else {
-        $(card).append('<label>Overview:</label><p>' + this.responseArray[0].overview + '</p>')
+        $(card).append('<br /><label>Overview:</label><p>' + this.responseArray[0].overview + '</p>')
     };
 
     // Check if there is a status.

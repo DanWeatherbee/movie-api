@@ -1,4 +1,4 @@
-API.prototype.renderPopular = function(responseArray, imgUrl) {
+API.prototype.renderMoviesTheaters = function(responseArray, imgUrl) {
     const self = this;
     self.imgUrl = "https://image.tmdb.org/t/p/w500";
 
@@ -10,7 +10,7 @@ API.prototype.renderPopular = function(responseArray, imgUrl) {
     $('.content').append('<div class="container" id="movie-container"></div>');
     const card = $('#movie-container');
 
-    $(card).append('<h2>Popular Movies</h2>');
+    $(card).append('<h2>Movies in Theaters</h2>');
 
     if (this.responseArray[0].results === undefined) {
         return;
