@@ -44,6 +44,17 @@ API.prototype.call = async function(response, responseArray, callType) {
                 caller = API_CALL_TV_POPULAR;
             }
             break;
+        case "Restaurant Menu":
+            if (txt === "Restaurant Menu") {
+                caller = API_RESTERAUNT_MENU;
+            }
+            break;
+        case "FDA":
+            if (txt === "FDA") {
+                caller = API_FDA;
+            }
+            break;
+
         default:
             //Statements executed when none of the values match the value of the expression.
             alert("option not hooked up.");
@@ -76,6 +87,13 @@ API.prototype.call = async function(response, responseArray, callType) {
             case "Popular Tv":
                 this.renderTvPopular();
                 break;
+            case "Restaurant Menu":
+                this.renderNutritionRestMenu();
+                break;
+            case "FDA":
+                this.renderFDA();
+                break;
+
             default:
                 //Statements executed when none of the values match the value of the expression.
                 alert("call back not hooked up.");
