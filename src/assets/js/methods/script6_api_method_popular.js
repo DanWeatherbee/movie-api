@@ -1,37 +1,44 @@
-API.prototype.renderPopular = function(responseArray, imgUrl) {
-    const self = this;
-    self.imgUrl = "https://image.tmdb.org/t/p/w500";
-
-    console.log(self.imgUrl);
+API.prototype.renderPopular = function(
+    responseArray,
+    imgUrl,
+    card,
+    formattedHTMLName,
+    formattedHTMLPoster,
+    formattedHTMLOverview,
+    formattedHTMLVotes,
+    formattedHTMLContainer,
+    content
+) {
     console.log(this.callType);
     console.log(this.responseArray);
-
-    $('.content').html('');
-    $('.content').append('<div class="container" id="movie-container"></div>');
-    const card = $('#movie-container');
-
-    $(card).append('<h2>Popular Movies</h2>');
-
+    var self = this;
+    self.imgUrl = "https://image.tmdb.org/t/p/w500";
+    self.formattedHTMLContainer = '<div class="container" id="movie-container"></div>';
+    self.content = $('.content');
+    self.content.html('');
+    self.content.append(self.formattedHTMLContainer);
+    self.card = $('#movie-container');
+    self.card.append('<h2>Popular Movies</h2>');
     if (this.responseArray[0].results === undefined) {
         return;
     } else {
         this.responseArray[0].results.forEach(function(item) {
-
-            $(card).append('<h3>' + item.title + '</h3>');
-            $(card).append('<img id="popular" src="' + self.imgUrl + item.backdrop_path + '">');
-            $(card).append('<br /><img id="popular" src="' + self.imgUrl + item.poster_path + '">');
-            $(card).append('<br /><label>Overview:</label><p>' + item.overview + '</p>');
-            $(card).append('<br /><label>ID:</label><p>' + item.id + '</p>');
-            $(card).append('<label>Votes:</label><p>' + item.vote_count + '</p>');
-            $(card).append('<label>Vote average:</label><p>' + item.vote_average + '</p>');
-            $(card).append('<label>Popularity:</label><p>' + item.popularity + '</p>');
-            $(card).append('<label>Release Date:</label><p>' + item.release_date + '</p>');
-            $(card).append('<hr>');
-            console.log(self.imgUrl);
+            self.formattedHTMLName = '<h3>' + item.title + '</h3>';
+            self.formattedHTMLPoster = '<div id="poster-container"><img id="popular-lg" src="' +
+                self.imgUrl +
+                item.poster_path +
+                '">';
+            self.formattedHTMLOverview = '<p id="item-overview">' + item.overview + '</p></div>';
+            self.formattedHTMLVotes = '<div id="votes"><span>Votes: ' +
+                item.vote_count + ' | Vote Average: ' +
+                item.vote_average +
+                '% | Air Date: ' +
+                item.release_date +
+                '</span></div>';
+            self.card.append(self.formattedHTMLName +
+                self.formattedHTMLPoster +
+                self.formattedHTMLOverview +
+                self.formattedHTMLVotes);
         })
     };
-
-
-
-
 };

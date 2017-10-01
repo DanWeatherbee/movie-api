@@ -12,16 +12,14 @@
 
 <body>
     <div id="root">
+        <button><a href="http://danweatherbee-front-end-web-developer.com" style="text-transform: uppercase;">Home</a></button>
         <div class="container" id="movie-card">
             <div class="fixed-top" id="selector">
                 <h1>Api Prefab</h1>
                 <h2>Available Methods</h2>
                 <select autofocus id="calltype" name="call" onChange="API_CALL_POPULAR.call()">
                     <option value="none">Choose Call Type</option>
-                    <option value="API_CALL_LATEST">Latest Movies</option>
                     <option value="API_CALL_POPULAR">Popular Movies</option>
-                    <option value="API_CALL_ID">Search by ID</option>
-                    <option value="API_CALL_LATEST_TV">Latest Tv</option>
                     <option value="API_CALL_MOVIES_THEATERS">Movies in Theaters</option>
                     <option value="API_CALL_TV_POPULAR">Popular Tv</option>
                     <option value="API_RESTERAUNT_LOCATIONS">Restaurant Menu</option>
@@ -29,34 +27,22 @@
                 </select>
             </div>
         </div>
-        <section class="content container" id="content-movies"></section>
-        <button><a href="http://danweatherbee-front-end-web-developer.com" style="text-transform: uppercase;">Home</a></button>
+        <div class="content container" id="content-movies"></div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous">
     </script>
     <script>
-    $('#search-restaurants').keyup(function() {
-        console.log("key up working");
-        console.log(this);
-    })
     var StartTimeMs = Date.now();
     console.log("Start Load Execution Time - " + StartTimeMs + " Milliseconds");
     </script>
     <script src="assets/js/models/script1_api_model.js"></script>
     <script src="assets/js/objects/script2_api_obj_popular.js"></script>
-    <script src="assets/js/objects/script3_api_obj_id.js"></script>
-    <script src="assets/js/objects/script4.0_api_obj_latest.js"></script>
-    <script src="assets/js/objects/script4.1_api_obj_latest_tv.js"></script>
     <script src="assets/js/objects/script4.2_api_obj_movie_theaters.js"></script>
     <script src="assets/js/objects/script4.3_api_obj_tv_popular.js"></script>
     <script src="assets/js/objects/script4.4_api_obj_nutrition_rest_menu.js"></script>
     <script src="assets/js/objects/script4.5_api_obj_FDA.js"></script>
     <script src="assets/js/methods/script5_api_caller.js"></script>
     <script src="assets/js/methods/script6_api_method_popular.js"></script>
-    <script src="assets/js/methods/script7_api_method_latest.js"></script>
-    <script src="assets/js/methods/script8_api_method_ID.js"></script>
-    <script src="assets/js/methods/script9_api_method_latest_tv.js"></script>
-    <script src="assets/js/methods/script9.1_api_method_theaters.js"></script>
     <script src="assets/js/methods/script9.1_api_method_theaters.js"></script>
     <script src="assets/js/methods/script10_api_method_tv_popular.js"></script>
     <script src="assets/js/methods/script11_api_method_nutrition_rest_menu.js"></script>
