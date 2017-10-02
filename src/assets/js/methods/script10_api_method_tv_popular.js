@@ -1,3 +1,4 @@
+
 API.prototype.renderTvPopular = function(
     responseArray,
     imgUrl,
@@ -39,6 +40,6 @@ API.prototype.renderTvPopular = function(
                 self.formattedHTMLPoster +
                 self.formattedHTMLOverview +
                 self.formattedHTMLVotes);
-        })
+        });
     };
 };
