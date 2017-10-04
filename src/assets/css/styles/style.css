@@ -54,6 +54,19 @@ img {
     padding: 2%;
 }
 
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}
+
+.yellow {
+    color: yellow;
+}
+
 @media screen and (min-width: 800px) {
     #item-overview {
         overflow-y: scroll;

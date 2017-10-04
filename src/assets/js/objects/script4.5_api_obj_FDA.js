@@ -17,6 +17,6 @@ var API_FDA = new API(
     "api_key=",
     KEY,
     "&search=",
-    "milk&limit=10"
+    "bread&limit=1"
 );
 console.log(API_FDA);
