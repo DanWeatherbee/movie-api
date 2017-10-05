@@ -17,6 +17,6 @@ var API_FDA = new API(
     "api_key=",
     KEY,
     "&search=",
-    "bread&limit=1"
+    "cereal"
 );
 console.log(API_FDA);

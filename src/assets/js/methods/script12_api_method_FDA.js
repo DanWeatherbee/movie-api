@@ -5,7 +5,9 @@ API.prototype.renderFDA = function(
     imgUrl,
     formattedHTMLHeader,
     formattedHTMLCardContent,
-    formattedHTMLConsumer
+    formattedHTMLConsumer,
+    formattedHTMLProduct,
+    header
 ) {
     const self = this;
     console.log(this.callType);
@@ -14,12 +16,13 @@ API.prototype.renderFDA = function(
     self.content.html('');
     self.content.append('<div class="container" id="movie-container"></div>');
     self.card = $('#movie-container');
-    self.card.append('<h2>FDA Food Search</h2>');
-    self.card.append('<h4>Beta - Under Consruction.</h4>');
+    self.header = '<h2>FDA Food Search</h2><h4>Beta - Under Consruction.</h4>'
+    self.card.append(self.header);
+
     if (this.responseArray[0].results === undefined) {
         return;
     } else {
-        self.formattedHTMLHeader = '<br /><label>Adverse Effects Report -query = bread</label><hr />';
+        self.formattedHTMLHeader = '<br /><label>Adverse Effects Report -query = cereal</label><hr />';
         self.card.append(self.formattedHTMLHeader);
 
         self.formattedHTMLCardContent = '<div><p class="green">Consumer</p><span>Age: ' +
@@ -30,14 +33,13 @@ API.prototype.renderFDA = function(
         self.card.append(self.formattedHTMLCardContent);
 
         this.responseArray[0].results[0].products.forEach(function(item) {
-
-            self.card.append(
-                '<div><p class="green">Product</p><span><em class="yellow">Industry: </em>' +
+                self.formattedHTMLProduct = '<div><p class="green">Product</p><span><em class="yellow">Industry: </em>' +
                 item.industry_name + ' | <em class="yellow">Brand: </em>' +
                 item.name_brand + ' | <em class="yellow">Role: </em>' +
                 item.role +
-                '</span></div>'
-            );
+                '</span></div>';
+
+            self.card.append(self.formattedHTMLProduct);
 
         });
         self.card.append('<p class="green">Reactions</p>');
