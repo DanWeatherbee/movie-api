@@ -22,7 +22,7 @@ API.prototype.renderFDA = function(
     if (this.responseArray[0].results === undefined) {
         return;
     } else {
-        self.formattedHTMLHeader = '<br /><label>Adverse Effects Report -query = cereal</label><hr />';
+        self.formattedHTMLHeader = '<br /><h4>Adverse Effects Report</h4><hr />';
         self.card.append(self.formattedHTMLHeader);
 
         self.formattedHTMLCardContent = '<div><p class="green">Consumer</p><span>Age: ' +
@@ -33,7 +33,7 @@ API.prototype.renderFDA = function(
         self.card.append(self.formattedHTMLCardContent);
 
         this.responseArray[0].results[0].products.forEach(function(item) {
-                self.formattedHTMLProduct = '<div><p class="green">Product</p><span><em class="yellow">Industry: </em>' +
+            self.formattedHTMLProduct = '<div><p class="green">Product</p><span><em class="yellow">Industry: </em>' +
                 item.industry_name + ' | <em class="yellow">Brand: </em>' +
                 item.name_brand + ' | <em class="yellow">Role: </em>' +
                 item.role +

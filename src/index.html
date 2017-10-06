@@ -12,7 +12,7 @@
 
 <body>
     <div id="root">
-        <button><a href="http://danweatherbee-front-end-web-developer.com" style="text-transform: uppercase;">Home</a></button>
+        <button type="button"><a href="http://danweatherbee-front-end-web-developer.com" style="text-transform: uppercase;">Home</a></button>
         <div class="container" id="movie-card">
             <div class="fixed-top" id="selector">
                 <h1>Api Prefab</h1>
@@ -23,8 +23,11 @@
                     <option value="API_CALL_MOVIES_THEATERS">Movies in Theaters</option>
                     <option value="API_CALL_TV_POPULAR">Popular Tv</option>
                     <option value="API_RESTERAUNT_LOCATIONS">Restaurant Menu</option>
-                    <option value="API_FDA">FDA</option>
                 </select>
+                <h4>FDA Search by food item: </h4>
+                <input type="search" id="fda-search" placeholder="milk">
+                <button  style="text-transform: uppercase;" type="button" onClick="API_CALL_POPULAR.callSearch()">Search</button>
+                <p style="color:red;display:none;" id="error-msg">No results were found, please try again.</p>
             </div>
         </div>
         <div class="content container" id="content-movies"></div>

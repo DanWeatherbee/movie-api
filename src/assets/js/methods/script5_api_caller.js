@@ -39,11 +39,6 @@ API.prototype.call = async function(
                 caller = API_RESTERAUNT_MENU;
             }
             break;
-        case "FDA":
-            if (txt === "FDA") {
-                caller = API_FDA;
-            }
-            break;
 
         default:
             //Statements executed when none of the values match the value of the expression.
@@ -72,9 +67,6 @@ API.prototype.call = async function(
             case "Restaurant Menu":
                 this.renderNutritionRestMenu();
                 break;
-            case "FDA":
-                this.renderFDA();
-                break;
 
             default:
                 //Statements executed when none of the values match the value of the expression.
@@ -83,6 +75,7 @@ API.prototype.call = async function(
         }
     } catch (err) {
         console.log('fetch failed', err);
+        alert("No results were found, please try again.");
     }
     var EndTimeMs = Date.now();
     console.log("End Execution Time Caller Method - " + EndTimeMs + " Milliseconds");

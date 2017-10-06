@@ -4,13 +4,28 @@ API.prototype.callSearch = async function(
     callType
 ) {
     'use strict';
+    $('#error-msg').hide();
+    $('.content').html('');
     var StartTimeMs = Date.now();
     console.log("Start Execution Time Caller Method - " + StartTimeMs + " Milliseconds");
-    var txt = $("#calltype option:selected").text();
+    var txt = $("#fda-search").val();
     console.log(txt);
     var caller;
     // Determine call type. e.g. caller = API_CALL_MOVIES_THEATERS
-                // code here
+    // code here
+
+    var API_FOOD_SEARCH = new API(
+        "https://api.fda.gov/",
+        "food/event.json?",
+        "api_key=",
+        KEY,
+        "&search=",
+        txt
+    );
+
+    caller = API_FOOD_SEARCH;
+    console.log(API_FOOD_SEARCH);
+
     this.responseArray = [];
     this.callType = caller;
 
@@ -20,9 +35,11 @@ API.prototype.callSearch = async function(
         this.responseArray.push(text);
         // Determine method to call. e.g. renderFDA();
         // code here.
-
+        this.renderFDA();
     } catch (err) {
         console.log('fetch failed', err);
+
+        $('#error-msg').show();
     }
     var EndTimeMs = Date.now();
     console.log("End Execution Time Caller Method - " + EndTimeMs + " Milliseconds");
