@@ -39,6 +39,11 @@ API.prototype.call = async function(
                 caller = API_RESTERAUNT_MENU;
             }
             break;
+        case "Top Artists":
+            if (txt === "Top Artists") {
+                caller = API_FM;
+            }
+            break;
 
         default:
             //Statements executed when none of the values match the value of the expression.
@@ -66,6 +71,9 @@ API.prototype.call = async function(
                 break;
             case "Restaurant Menu":
                 this.renderNutritionRestMenu();
+                break;
+            case "Top Artists":
+                this.renderFM();
                 break;
 
             default:
