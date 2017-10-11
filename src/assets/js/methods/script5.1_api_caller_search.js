@@ -56,7 +56,9 @@ API.prototype.callSearch = async function(
 
 // Allow enter key vrs btn to call the API.
 $("#fda-search").on("keypress", function(e) {
+    $("#go").show();
     if (e.which == 13) {
         $("#go").click();
+        $("#go").hide();
     }
 });

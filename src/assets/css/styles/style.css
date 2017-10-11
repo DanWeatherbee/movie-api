@@ -68,6 +68,15 @@ img {
     color: yellow;
 }
 
+#go {
+    display: none;
+}
+
+.fb-like {
+    padding: 5%;
+    background-color: #381310;
+    border-radius: 10%;
+}
 
 @media screen and (min-width: 800px) {
     #item-overview {
