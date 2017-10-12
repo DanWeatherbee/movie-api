@@ -49,3 +49,7 @@ img {
 .blue {
     color: blue;
 }
+
+.caps {
+   text-transform: uppercase;
+}

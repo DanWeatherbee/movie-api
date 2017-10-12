@@ -46,18 +46,21 @@
                         <option value="none">Choose Call Type</option>
                         <option value="API_CALL_POPULAR">Popular Movies</option>
                         <option value="API_CALL_MOVIES_THEATERS">Movies in Theaters</option>
-                        <option value="API_CALL_TV_POPULAR">Popular Tv</option <option value="API_FM">Top Artists</option>
+                        <option value="API_CALL_TV_POPULAR">Popular Tv</option>
+                        <option value="API_FM">Top Artists</option>
                     </select>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-2">
                     <div class="form-group">
-                        <label for="fda-search">FDA Search by food item:</label>
+                        <label for="fda-search">US FDA Search by food item:</label>
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="fda-search" placeholder="milk">
+                    <a data-toggle="tooltip" data-placement="right" title="Single words only.">
+                        <input type="text" class="form-control" id="fda-search" placeholder="milk">
+                    </a>
                 </div>
                 <div class="col-sm-6">
                     <button id="go" class="btn btn-success" type="button" onClick="API_CALL_POPULAR.callSearch()">Search</button>
@@ -66,11 +69,13 @@
             <div class="row">
                 <div class="col-sm-2">
                     <div class="form-group">
-                        <label for="rest-menu-search">Restaurant Menu Search:</label>
+                        <label for="rest-menu-search">Nutrition X Restaurant Menu/Food Search:</label>
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="rest-menu-search" placeholder="Tim Hortons">
+                    <a data-toggle="tooltip" data-placement="right" title="Search by restaurant or food item.">
+                        <input type="text" class="form-control" id="rest-menu-search" placeholder="Tim Hortons">
+                    </a>
                 </div>
                 <div class="col-sm-6">
                     <button id="go-rest" class="btn btn-success" type="button" onClick="API_RESAURANT_LOCATIONS.callSearchRest()">Search</button>

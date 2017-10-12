@@ -26,9 +26,9 @@ API.prototype.renderMovies = function(
 
         this.responseArray[0].results.forEach(function(item) {
             if (item.title === undefined) {
-                self.formattedHTMLName = '<h3>' + item.name + '</h3>';
+                self.formattedHTMLName = '<h3 class="green caps">' + item.name + '</h3>';
             } else {
-                self.formattedHTMLName = '<h3>' + item.title + '</h3>';
+                self.formattedHTMLName = '<h3 class="green caps">' + item.title + '</h3>';
             };
             self.formattedHTMLPoster = '<img id="popular-lg" src="' +
                 self.imgUrl +
@@ -38,14 +38,14 @@ API.prototype.renderMovies = function(
                 item.overview +
                 '</p>';
             if (item.release_date === undefined) {
-                self.formattedHTMLVotes = '<span>Votes: ' +
+                self.formattedHTMLVotes = '<span class="blue">Votes: ' +
                     item.vote_count + ' | Vote Average: ' +
                     item.vote_average +
                     '% | Air Date: ' +
                     item.first_air_date +
                     '</span>';
             } else {
-                self.formattedHTMLVotes = '<span>Votes: ' +
+                self.formattedHTMLVotes = '<span class="blue">Votes: ' +
                     item.vote_count + ' | Vote Average: ' +
                     item.vote_average +
                     '% | Air Date: ' +
