@@ -46,9 +46,7 @@
                         <option value="none">Choose Call Type</option>
                         <option value="API_CALL_POPULAR">Popular Movies</option>
                         <option value="API_CALL_MOVIES_THEATERS">Movies in Theaters</option>
-                        <option value="API_CALL_TV_POPULAR">Popular Tv</option>
-                        <option value="API_RESTERAUNT_LOCATIONS">Restaurant Menu</option>
-                        <option value="API_FM">Top Artists</option>
+                        <option value="API_CALL_TV_POPULAR">Popular Tv</option <option value="API_FM">Top Artists</option>
                     </select>
                 </div>
             </div>
@@ -63,6 +61,19 @@
                 </div>
                 <div class="col-sm-6">
                     <button id="go" class="btn btn-success" type="button" onClick="API_CALL_POPULAR.callSearch()">Search</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="rest-menu-search">Restaurant Menu Search:</label>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="rest-menu-search" placeholder="Tim Hortons">
+                </div>
+                <div class="col-sm-6">
+                    <button id="go-rest" class="btn btn-success" type="button" onClick="API_RESAURANT_LOCATIONS.callSearchRest()">Search</button>
                 </div>
             </div>
             <div class="row">
@@ -127,6 +138,7 @@
     <script src="assets/js/methods/script5_api_caller.js"></script>
     <script src="assets/js/methods/script5.1_api_caller_food_search.js"></script>
     <script src="assets/js/methods/script5.2_api_caller_search_you_tube.js"></script>
+    <script src="assets/js/methods/script5.3_api_caller_rest_menu_search.js"></script>
     <script src="assets/js/methods/script6_api_method_render_movies.js"></script>
     <script src="assets/js/methods/script11_api_method_render_nutrition_rest_menu.js"></script>
     <script src="assets/js/methods/script12_api_method_render_FDA.js"></script>

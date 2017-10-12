@@ -34,11 +34,6 @@ API.prototype.call = async function(
                 caller = API_CALL_TV_POPULAR;
             }
             break;
-        case "Restaurant Menu":
-            if (txt === "Restaurant Menu") {
-                caller = API_RESTERAUNT_MENU;
-            }
-            break;
         case "Top Artists":
             if (txt === "Top Artists") {
                 caller = API_FM;
@@ -68,9 +63,6 @@ API.prototype.call = async function(
                 break;
             case "Popular Tv":
                 this.renderMovies();
-                break;
-            case "Restaurant Menu":
-                this.renderNutritionRestMenu();
                 break;
             case "Top Artists":
                 this.renderFM();
