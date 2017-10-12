@@ -20,15 +20,15 @@ API.prototype.renderYouTube = function(
     if (this.responseArray[0] === undefined) {
         return;
     } else {
+        $('#error-msg').hide();
 
+        self.srcID = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' +
+            this.responseArray[0].items[0].id['channelId'] +
+            '" frameborder="0" allowfullscreen></iframe>';
 
-            self.srcID = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + this.responseArray[0].items[0].id['channelId'] + '" frameborder="0" allowfullscreen></iframe>';
+        // self.imgUrl = this.responseArray[0].items[0].snippet['thumbnails'].high.url
 
-
-           // self.imgUrl = this.responseArray[0].items[0].snippet['thumbnails'].high.url
-
-
-            self.card.append(self.srcID);
+        self.card.append(self.srcID);
 
 
         console.log('you tube render method running');

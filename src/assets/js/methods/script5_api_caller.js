@@ -61,13 +61,13 @@ API.prototype.call = async function(
         switch (txt) {
 
             case "Popular Movies":
-                this.renderPopular();
+                this.renderMovies();
                 break;
             case "Movies in Theaters":
-                this.renderMoviesTheaters();
+                this.renderMovies();
                 break;
             case "Popular Tv":
-                this.renderTvPopular();
+                this.renderMovies();
                 break;
             case "Restaurant Menu":
                 this.renderNutritionRestMenu();

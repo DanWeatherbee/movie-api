@@ -12,38 +12,99 @@
     <meta property="og:title" content="Dan Weatherbee Developer" />
     <meta property="og:description" content="Modern web application developement" />
     <meta property="og:image" content="http://24.70.32.148/ad39882f75bd0b6362fcfd4dff8801db.jpg" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel=stylesheet href="assets/css/styles/style.css">
 </head>
 
 <body>
-    <div id="root">
-        <button type="button"><a href="http://danweatherbee-front-end-web-developer.com" style="text-transform: uppercase;">Home</a></button>
-        <div class="container" id="movie-card">
-            <div class="fixed-top" id="selector">
-                <h1>Api Prefab</h1>
-                <h2>Available Methods</h2>
-                <select autofocus id="calltype" name="call" onChange="API_CALL_POPULAR.call()">
-                    <option value="none">Choose Call Type</option>
-                    <option value="API_CALL_POPULAR">Popular Movies</option>
-                    <option value="API_CALL_MOVIES_THEATERS">Movies in Theaters</option>
-                    <option value="API_CALL_TV_POPULAR">Popular Tv</option>
-                    <option value="API_RESTERAUNT_LOCATIONS">Restaurant Menu</option>
-                    <option value="API_FM">Top Artists</option>
-                </select>
-                <h4>FDA Search by food item: </h4>
-                <input type="search" id="fda-search" placeholder="milk">
-                <button id="go" style="text-transform: uppercase;" type="button" onClick="API_CALL_POPULAR.callSearch()">Search</button>
-                <p style="color:red;display:none;" id="error-msg">No results were found, please try again.</p>
+    <div id="root" class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <h4>
+                    Developer Dan Weatherbee
+                </h4>
+            </div>
+            <div class="col-sm-5 text-center">
+                <h1>
+                    Api Prefab Class
+                </h1>
+            </div>
+            <div class="col-sm-4 text-right">
+                <button type="button" class="btn btn-warning">
+                    <a href="http://danweatherbee-front-end-web-developer.com">Home</a>
+                </button>
             </div>
         </div>
-        <div class="content container" id="content-movies"></div>
-        <br />
-        <i class="fb-like gradient fa fa-5x fa-facebook-square" data-href="http://24.70.32.148:8011/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="false" data-share="true"></i>
-        <br />
-        <span>Copyright  <i class="fa fa-copyright" aria-hidden="true"> Dan Weatherbee 2017</i></span>
+        <div id="movie-card">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h2>Available Methods</h2>
+                </div>
+                <div class="col-sm-8">
+                    <select autofocus id="calltype" name="call" onChange="API_CALL_POPULAR.call()">
+                        <option value="none">Choose Call Type</option>
+                        <option value="API_CALL_POPULAR">Popular Movies</option>
+                        <option value="API_CALL_MOVIES_THEATERS">Movies in Theaters</option>
+                        <option value="API_CALL_TV_POPULAR">Popular Tv</option>
+                        <option value="API_RESTERAUNT_LOCATIONS">Restaurant Menu</option>
+                        <option value="API_FM">Top Artists</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="fda-search">FDA Search by food item:</label>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="fda-search" placeholder="milk">
+                </div>
+                <div class="col-sm-6">
+                    <button id="go" class="btn btn-success" type="button" onClick="API_CALL_POPULAR.callSearch()">Search</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-8">
+                    <p style="color:red;display:none;font-size:1.5em;" id="error-msg">No results were found, please try again.</p>
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 text-center" id="content"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                </div>
+                <div class="col-sm-6  text-right">
+                    <i class="fa fa-5x fa-facebook-square"></i>
+                    <div class="fb-like" data-href="http://24.70.32.148:8011/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                </div>
+                <div class="col-sm-6 text-center">
+                    <span>Copyright
+                    <i class="fa fa-copyright" aria-hidden="true">
+                     Dan Weatherbee 2017
+                     </i>
+                     </span>
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+        </div>
     </div>
     <script>
+    var StartTimeMs = Date.now();
+    console.log("Start Load Execution Time - " + StartTimeMs + " Milliseconds");
+
+    // Face book function.
     (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
@@ -52,13 +113,10 @@
         js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=286140048548175";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
+    // TODO      Scripts will be bundled at a later date.
     </script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous">
-    </script>
-    <script>
-    var StartTimeMs = Date.now();
-    console.log("Start Load Execution Time - " + StartTimeMs + " Milliseconds");
-    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="assets/js/models/script1_api_model.js"></script>
     <script src="assets/js/objects/script2_api_obj_popular.js"></script>
     <script src="assets/js/objects/script4.2_api_obj_movie_theaters.js"></script>
@@ -67,15 +125,13 @@
     <script src="assets/js/objects/script4.5_api_obj_FDA.js"></script>
     <script src="assets/js/objects/script4.6_api_obj_FM.js"></script>
     <script src="assets/js/methods/script5_api_caller.js"></script>
-    <script src="assets/js/methods/script5.1_api_caller_search.js"></script>
+    <script src="assets/js/methods/script5.1_api_caller_food_search.js"></script>
     <script src="assets/js/methods/script5.2_api_caller_search_you_tube.js"></script>
-    <script src="assets/js/methods/script6_api_method_popular.js"></script>
-    <script src="assets/js/methods/script9.1_api_method_theaters.js"></script>
-    <script src="assets/js/methods/script10_api_method_tv_popular.js"></script>
-    <script src="assets/js/methods/script11_api_method_nutrition_rest_menu.js"></script>
-    <script src="assets/js/methods/script12_api_method_FDA.js"></script>
-    <script src="assets/js/methods/script13_api_method_FM.js"></script>
-    <script src="assets/js/methods/script14_api_method_YouTube.js"></script>
+    <script src="assets/js/methods/script6_api_method_render_movies.js"></script>
+    <script src="assets/js/methods/script11_api_method_render_nutrition_rest_menu.js"></script>
+    <script src="assets/js/methods/script12_api_method_render_FDA.js"></script>
+    <script src="assets/js/methods/script13_api_method_render_FM.js"></script>
+    <script src="assets/js/methods/script14_api_method_render_YouTube.js"></script>
     <script>
     var EndTimeMs = Date.now();
     console.log("End Load Execution Time - " + EndTimeMs + " Milliseconds");

@@ -7,7 +7,7 @@ API.prototype.callSearch = async function(
     'use strict';
     var self = this;
     $('#error-msg').hide();
-    $('.content').html('');
+    $('#content').html('');
     var StartTimeMs = Date.now();
     console.log("Start Execution Time Caller Method - " + StartTimeMs + " Milliseconds");
     self.searchInput = $("#fda-search");
