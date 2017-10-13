@@ -30,7 +30,7 @@ API.prototype.renderMovies = function(
             } else {
                 self.formattedHTMLName = '<h3 class="green caps">' + item.title + '</h3>';
             };
-            self.formattedHTMLPoster = '<img id="popular-lg" src="' +
+            self.formattedHTMLPoster = '<img class="img-responsive" id="popular-lg" src="' +
                 self.imgUrl +
                 item.poster_path +
                 '">';

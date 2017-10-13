@@ -2,11 +2,6 @@ body {
     background-color: ghostwhite;
 }
 
-img {
-    height: 40%;
-    width: 40%;
-}
-
 #go,
 #go-rest {
     display: none;
