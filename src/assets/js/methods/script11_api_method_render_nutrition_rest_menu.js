@@ -21,7 +21,7 @@ API.prototype.renderNutritionRestMenu = function(
             '<div class="row text-left">' +
             '<div class="col-sm-12">' +
             '<h3>' +
-            this.responseArray[0].hits[0].fields.brand_name +
+            this.responseArray[0].hits[0].fields.brand_name + ' menu: ' +
             '</h3>' +
             '</div>' +
             '</div>'
@@ -32,15 +32,15 @@ API.prototype.renderNutritionRestMenu = function(
             self.score = item._score;
 
             self.card.append(
-                '<div class="row text-left border shadow overview-padding">' +
-                '<div class="col-sm-4 blue">' +
+                '<div class="row text-left border-10 shadow overview-padding">' +
+                '<div class="col-sm-4 blue border">' +
                 self.name +
                 '</div>' +
-                '<div class="col-sm-4 red">' +
+                '<div class="col-sm-4 red border">' +
                 'Calories: ' +
                 self.calories +
                 '</div>' +
-                '<div class="col-sm-4 green">' +
+                '<div class="col-sm-4 green border">' +
                 'Score: ' +
                 self.score +
                 '</div>'

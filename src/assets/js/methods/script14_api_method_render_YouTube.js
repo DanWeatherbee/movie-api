@@ -32,9 +32,10 @@ API.prototype.renderYouTube = function(
 
 
             $('#root').append(
-                '<div class="container overview-padding border shadow">' +
+                '<br />' +
+                '<div class="container overview-padding border green-background">' +
                 // row 1
-                '<div class="row red-background overview-padding">' +
+                '<div class="row white-background overview-padding">' +
                 '<div class="col">' +
                 '<h3>Api layout builder - BETA - V1.0</h3>' +
                 '<p>Header</p>' +
@@ -45,7 +46,7 @@ API.prototype.renderYouTube = function(
                 '</div>' +
                 '</div>' +
                 // row 2
-                '<div class="row blue-background blue overview-padding">' +
+                '<div class="row blue-background white txt-shadow-black overview-padding">' +
                 '<div class="col">' +
                 '<p>col 1</p>' +
                 '<i class="fa fa-file-video-o" aria-hidden="true"></i>' +

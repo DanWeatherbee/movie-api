@@ -36,7 +36,7 @@ API.prototype.renderFM = function(
                 '<div class="row overview-padding">' +
 
                 '<div class="col">' +
-                '<img class="img-responsive img-thumbnail" alt="Picture of ' + self.name + '" src="' + self.imgUrl + '" />' +
+                '<img class="img-fluid img-thumbnail" alt="Picture of ' + self.name + '" src="' + self.imgUrl + '" />' +
                 '<h4>' + self.name + '</h4>' +
                 '</div>' +
 
@@ -47,7 +47,7 @@ API.prototype.renderFM = function(
                 '</em> Playcount: <em class="blue">' +
                 self.playcount +
                 '</em></span><div style="padding:10%;">' +
-                '<img class="img-circle shadow" alt="Picture of ' + self.name + '" src="' + self.imgUrl2 + '"></div>' +
+                '<img class="rounded-circle shadow" alt="Picture of ' + self.name + '" src="' + self.imgUrl2 + '"></div>' +
                 'Last FM Home Page: <a href="' +
                 self.url +
                 '">' +

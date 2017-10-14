@@ -18,8 +18,8 @@
 </head>
 
 <body>
-    <div id="root" class="container">
-        <div class="row">
+    <div id="root" class="container blue-background border">
+        <div class="row overview-padding">
             <div class="col-sm-3">
                 <h4>
                     Developer Dan Weatherbee
@@ -54,13 +54,12 @@
             <div class="row">
                 <div class="col-sm-2">
                     <div class="form-group">
-                        <label for="fda-search">US FDA Search by food item:</label>
+                        <label for="fda-search">US FDA Search by food name:</label>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <a data-toggle="tooltip" data-placement="right" data-original-title="Single words only.">
-                        <input type="text" class="form-control" id="fda-search" placeholder="milk">
-                    </a>
+                <div class="col-sm-4 input-group">
+                    <span class="input-group-addon" id="basic-addon1">e.g. milk</span>
+                    <input type="text" class="form-control" id="fda-search" placeholder="milk">
                 </div>
                 <div class="col-sm-6">
                     <button id="go" class="btn btn-success" type="button" onClick="API_CALL_POPULAR.callSearch()">Search</button>
@@ -72,9 +71,9 @@
                         <label for="rest-menu-search">Nutrition X Restaurant Menu/Food Search:</label>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <a data-toggle="tooltip" data-placement="right" title="Search by restaurant or food item.">
-                        <input type="text" class="form-control" id="rest-menu-search" placeholder="Tim Hortons">
+                <div class="col-sm-4 input-group">
+                    <span class="input-group-addon" id="basic-addon2">e.g. Tim Hortons</span>
+                    <input type="text" class="form-control" id="rest-menu-search" placeholder="Tim Hortons">
                     </a>
                 </div>
                 <div class="col-sm-6">
