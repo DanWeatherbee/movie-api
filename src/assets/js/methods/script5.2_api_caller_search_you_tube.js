@@ -4,6 +4,8 @@ API.prototype.callSearchYouTube = async function(
     callType
 ) {
     'use strict';
+    var self = this;
+
     $('#error-msg').hide();
     $('.content').html('');
     var StartTimeMs = Date.now();
@@ -48,6 +50,7 @@ API.prototype.callSearchYouTube = async function(
     console.log("End Execution Time Caller Method - " + EndTimeMs + " Milliseconds");
     var TotalTime = EndTimeMs - StartTimeMs;
     console.log("Total Execution Time Caller Method - " + TotalTime + " Milliseconds");
+
 };
 
 // Test

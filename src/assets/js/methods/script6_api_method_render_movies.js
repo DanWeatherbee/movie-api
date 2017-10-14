@@ -30,7 +30,7 @@ API.prototype.renderMovies = function(
             } else {
                 self.formattedHTMLName = '<h3 class="green caps">' + item.title + '</h3>';
             };
-            self.formattedHTMLPoster = '<img class="img-responsive" id="popular-lg" src="' +
+            self.formattedHTMLPoster = '<img class="img-responsive img-thumbnail" id="popular-lg" src="' +
                 self.imgUrl +
                 item.poster_path +
                 '">';
@@ -55,14 +55,17 @@ API.prototype.renderMovies = function(
 
             self.card.append(
                 '<div class="row overview-padding">' +
-                '<div class="col-sm-8 shadow border overview-padding">' +
+
+                '<div class="col shadow border overview-padding">' +
                 self.formattedHTMLName +
                 self.formattedHTMLOverview +
                 self.formattedHTMLVotes +
                 '</div>' +
-                '<div class="col-sm-4 center-block">' +
+
+                '<div class="col center-block">' +
                 self.formattedHTMLPoster +
                 '</div>' +
+
                 '</div>'
             );
         })

@@ -33,45 +33,39 @@ API.prototype.renderFM = function(
             self.playcount = item.playcount;
             self.url = item.url;
             self.card.append(
-                '<div class="row overview-padding border text-center">' +
-                '<div class="col-sm-1">' +
-                '<img class="img-responsive img-thumbnail" src="' + self.imgUrl + '" />' +
+                '<div class="row overview-padding">' +
+
+                '<div class="col">' +
+                '<img class="img-responsive img-thumbnail" alt="Picture of ' + self.name + '" src="' + self.imgUrl + '" />' +
                 '<h4>' + self.name + '</h4>' +
+                '<button type="button" class="btn btn-outline-info" id="btn-' + self.name + '">Video Search ' + self.name + '</button>' +
                 '</div>' +
-                '<div class="col-sm-2">' +
-                /*
-                TODO Youtube video search.
-                                    '<div class="form-group">' +
-                                        '<label for="fda-search">US FDA Search by food item:</label>' +
-                                    '</div>' +
-                                '</div>' +
-                                '<div class="col-sm-4">' +
-                                    '<a data-toggle="tooltip" data-placement="right" title="Single words only.">' +
-                                        '<input type="text" class="form-control" id="fda-search" placeholder="milk">' +
-                                    '</a>' +
 
-                */
-
-                '</div>' +
-                '<div class="col-sm-4">' +
+                '<div class="col">' +
                 '<span class="red">Listeners: ' +
                 '<em class="blue">' +
                 self.listeners +
                 '</em> Playcount: <em class="blue">' +
                 self.playcount +
                 '</em></span><div style="padding:10%;">' +
-                '<img class="img-circle shadow" src="' + self.imgUrl2 + '"></div>' +
+                '<img class="img-circle shadow" alt="Picture of ' + self.name + '" src="' + self.imgUrl2 + '"></div>' +
                 'Last FM Home Page: <a href="' +
                 self.url +
                 '">' +
                 self.name +
                 '</a>' +
                 '</div>' +
-                '<div class="col-sm-6">' +
+
+
+                '<div class="col">' +
+                '<img class=" img-thumbnail" alt="Picture of ' + self.name + '" src="' + self.imgUrl3 + '"><br />' +
                 '</div>' +
-                '<img class=" img-thumbnail" src="' + self.imgUrl3 + '"><br />' +
+
+
                 '</div>'
+
             );
         });
     };
+
 };
