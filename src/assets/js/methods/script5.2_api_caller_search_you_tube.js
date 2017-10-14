@@ -17,11 +17,11 @@ API.prototype.callSearchYouTube = async function(
     // code here
 
     var KEY = "&key=AIzaSyBTi0oe7u39BGm7WSXc45MJ99p06hO5Sng";
-    var artistName = "Ed Sheeran";
+    var artistName = "Cold Play";
 
     var API_YOU_TUBE_SEARCH = new API(
         "https://www.googleapis.com/youtube/v3/search?",
-        "part=snippet&maxResults=2&q=",
+        "part=snippet&q=",
         artistName,
         KEY,
         "&",
@@ -54,4 +54,4 @@ API.prototype.callSearchYouTube = async function(
 };
 
 // Test
-// API_CALL_POPULAR.callSearchYouTube();
+API_CALL_POPULAR.callSearchYouTube();

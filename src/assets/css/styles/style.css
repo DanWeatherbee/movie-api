@@ -2,6 +2,10 @@ body {
     background-color: ghostwhite;
 }
 
+#root {
+    padding: 5%;
+}
+
 #go,
 #go-rest {
     display: none;
@@ -43,6 +47,18 @@ body {
 
 .blue {
     color: blue;
+}
+
+.green-background {
+    background: green;
+}
+
+.red-background {
+    background: #f1eaea;
+}
+
+.blue-background {
+    background: #e8f5f1;
 }
 
 .caps {

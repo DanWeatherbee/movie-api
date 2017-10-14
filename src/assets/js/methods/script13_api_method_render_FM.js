@@ -38,7 +38,6 @@ API.prototype.renderFM = function(
                 '<div class="col">' +
                 '<img class="img-responsive img-thumbnail" alt="Picture of ' + self.name + '" src="' + self.imgUrl + '" />' +
                 '<h4>' + self.name + '</h4>' +
-                '<button type="button" class="btn btn-outline-info" id="btn-' + self.name + '">Video Search ' + self.name + '</button>' +
                 '</div>' +
 
                 '<div class="col">' +
@@ -65,7 +64,9 @@ API.prototype.renderFM = function(
                 '</div>'
 
             );
+
         });
+
     };
 
 };
