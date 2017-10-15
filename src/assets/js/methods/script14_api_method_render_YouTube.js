@@ -1,38 +1,31 @@
 API.prototype.renderYouTube = function(
-    card,
     content,
     responseArray,
-    header,
-    srcID
+    srcID,
+    formattedHTMLContent
 ) {
     const self = this;
     console.log(this.callType);
     console.log(this.responseArray[0].items[0].snippet['title']);
-    self.content = $('.content');
+    self.content = $('#content');
     self.content.html('');
-    self.content.append('<div class="container" id="movie-container"></div>');
-    self.card = $('#movie-container');
-    self.header = '<h2>You Tube Search</h2>';
-
-
-    self.card.append(self.header);
-
+    $('#movie-card').append('<div id="video-box"></div>');
     if (this.responseArray[0] === undefined) {
         return;
     } else {
         $('#error-msg').hide();
         if (this.responseArray[0].items[0].id['videoId'] === undefined) {
-            return alert('no videos')
-        } else {
 
+            $('#error-msg').show();
+        } else {
+            $('#error-msg').hide();
+            self.content.html('');
+            $('#video-box').html('');
             // TODO foreach all videos available.
             self.srcID = '<iframe src="https://www.youtube.com/embed/' +
                 this.responseArray[0].items[0].id['videoId'] +
                 '" frameborder="0" allowfullscreen></iframe>';
-
-
-            $('#root').append(
-                '<br />' +
+            self.formattedHTMLContent = '<br />' +
                 '<div class="container overview-padding border green-background">' +
                 // row 1
                 '<div class="row white-background overview-padding">' +
@@ -67,9 +60,9 @@ API.prototype.renderYouTube = function(
                 '</div>' +
                 '</div>' +
                 '</div>'
-            );
+            $('#video-box').html('');
+            $('#video-box').append(self.formattedHTMLContent);
         }
         console.log('you tube render method running');
-
     };
 };

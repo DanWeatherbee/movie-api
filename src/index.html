@@ -20,6 +20,7 @@
 <body>
     <div id="root" class="container blue-background border">
         <div class="row overview-padding">
+            <!-- head  -->
             <div class="col-sm-3">
                 <h4>
                     Developer Dan Weatherbee
@@ -36,12 +37,17 @@
                 </button>
             </div>
         </div>
+        <!-- end head  -->
         <div id="movie-card">
-            <div class="row">
-                <div class="col-sm-4">
+            <!--  content -->
+            <div class="row overview-padding">
+                row 1
+                <div class="col">
+                    <!--   col 1-->
                     <h2>Available Methods</h2>
                 </div>
-                <div class="col-sm-8">
+                <div class="col">
+                    <!--   col 2-->
                     <select autofocus id="calltype" name="call" onChange="API_CALL_POPULAR.call()">
                         <option value="none">Choose Call Type</option>
                         <option value="API_CALL_POPULAR">Popular Movies</option>
@@ -51,69 +57,54 @@
                     </select>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-2">
+            <div class="row overview-padding">
+                row 2
+                <div class="col">
+                    col 1
                     <div class="form-group">
                         <label for="fda-search">US FDA Search by food name:</label>
+                        <span class="input-group-addon" id="basic-addon1">e.g. milk</span>
+                        <input type="text" class="form-control" id="fda-search" placeholder="milk">
+                        <button id="go" class="btn btn-success" type="button" onClick="API_CALL_POPULAR.callSearch()">Search</button>
                     </div>
                 </div>
-                <div class="col-sm-4 input-group">
-                    <span class="input-group-addon" id="basic-addon1">e.g. milk</span>
-                    <input type="text" class="form-control" id="fda-search" placeholder="milk">
-                </div>
-                <div class="col-sm-6">
-                    <button id="go" class="btn btn-success" type="button" onClick="API_CALL_POPULAR.callSearch()">Search</button>
-                </div>
             </div>
-            <div class="row">
-                <div class="col-sm-2">
+            <div class="row overview-padding">
+                row 3
+                <div class="col">
+                    col 1
                     <div class="form-group">
                         <label for="rest-menu-search">Nutrition X Restaurant Menu/Food Search:</label>
+                        <span class="input-group-addon" id="basic-addon2">e.g. Tim Hortons</span>
+                        <input type="text" class="form-control" id="rest-menu-search" placeholder="Tim Hortons">
+                        </a>
+                        <button id="go-rest" class="btn btn-success" type="button" onClick="API_RESAURANT_LOCATIONS.callSearchRest()">Search</button>
                     </div>
                 </div>
-                <div class="col-sm-4 input-group">
-                    <span class="input-group-addon" id="basic-addon2">e.g. Tim Hortons</span>
-                    <input type="text" class="form-control" id="rest-menu-search" placeholder="Tim Hortons">
-                    </a>
-                </div>
-                <div class="col-sm-6">
-                    <button id="go-rest" class="btn btn-success" type="button" onClick="API_RESAURANT_LOCATIONS.callSearchRest()">Search</button>
+            </div>
+            <div class="row overview-padding">
+                row 4
+                <div class="col">
+                    col 1
+                    <div class="form-group">
+                        <label for="video-search">Search artist for videos:</label>
+                        <span class="input-group-addon" id="basic-addon3">e.g. Cold Play</span>
+                        <input type="text" class="form-control" id="video-search" placeholder="Cold Play">
+                        </a>
+                        <button id="go-video" class="btn btn-success" type="button" onClick="API_CALL_POPULAR.callSearchYouTube()">Search</button>
+                        <p style="color:red;display:none;font-size:1.5em;" id="error-msg">No results were found, please try again.</p>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-2">
-                </div>
-                <div class="col-sm-8">
-                    <p style="color:red;display:none;font-size:1.5em;" id="error-msg">No results were found, please try again.</p>
-                </div>
-                <div class="col-sm-2">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12 text-center" id="content"></div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                </div>
-                <div class="col-sm-6  text-right">
-                    <i class="fa fa-5x fa-facebook-square"></i>
-                    <div class="fb-like" data-href="http://24.70.32.148:8011/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3">
-                </div>
-                <div class="col-sm-6 text-center">
-                    <span>Copyright
-                    <i class="fa fa-copyright" aria-hidden="true">
-                     Dan Weatherbee 2017
-                     </i>
-                     </span>
-                </div>
-                <div class="col-sm-3">
+            <div class="row overview-padding">
+                row 5
+                <div class="col">
+                    col 1
+                    <div class="col-sm-12 text-center" id="content"></div>
                 </div>
             </div>
         </div>
+        <!--  end content -->
     </div>
     <script>
     var StartTimeMs = Date.now();

@@ -1,15 +1,30 @@
+/*main styles.css*/
+
 body {
     background-color: #e9ebee;
+}
+
+.caps {
+    text-transform: uppercase;
 }
 
 #root {
     padding: 5%;
 }
 
+
+
+/*hide search buttons*/
+
 #go,
+#go-video,
 #go-rest {
     display: none;
 }
+
+
+
+/*scocial buttons*/
 
 .fb-like {
     padding: 5%;
@@ -17,11 +32,28 @@ body {
     border-radius: 10%;
 }
 
+
+
+/*shadows*/
+
 .shadow {
     -webkit-box-shadow: 10px 5px 5px 1px rgba(224, 220, 224, 1);
     -moz-box-shadow: 10px 5px 5px 1px rgba(224, 220, 224, 1);
     box-shadow: 10px 5px 5px 1px rgba(224, 220, 224, 1);
 }
+
+
+.txt-shadow-white {
+    text-shadow: 1px 1px 2px white;
+}
+
+.txt-shadow-black {
+    text-shadow: 1px 1px 2px black;
+}
+
+
+
+/*borders*/
 
 .border {
     border: 1px solid;
@@ -36,21 +68,17 @@ body {
 }
 
 
-.txt-shadow-white {
-    text-shadow: 1px 1px 2px white;
-}
 
-.txt-shadow-black {
-    text-shadow: 1px 1px 2px black;
-}
-
-.row {
-    background-color: white;
-}
+/*padding*/
 
 .overview-padding {
     padding: 3%;
 }
+
+
+
+
+/*color*/
 
 .green {
     color: green;
@@ -72,18 +100,6 @@ body {
     background: #506151;
 }
 
-.fixed {
-    position: fixed;
-    z-index: 1;
-    right: 0px;
-    top: 0px;
-    max-width: 270px;
-    min-height: 1500px;
-    padding: 3%;
-    font-size: 12px;
-    background-color: white;
-}
-
 a:hover {
     color: limegreen;
 }
@@ -100,9 +116,34 @@ a:hover {
     background: white;
 }
 
-.caps {
-    text-transform: uppercase;
+
+
+
+
+/*grid*/
+
+.row {
+    background-color: white;
 }
+
+
+
+/*side menu Last Fm*/
+
+.fixed {
+    position: fixed;
+    z-index: 1;
+    right: 0px;
+    top: 0px;
+    max-width: 350px;
+    padding: 3%;
+    font-size: 12px;
+    background-color: white;
+}
+
+
+
+
 
 @media screen and (max-width: 1700px) {
     #menu-list {

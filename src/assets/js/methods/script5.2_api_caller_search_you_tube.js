@@ -7,17 +7,17 @@ API.prototype.callSearchYouTube = async function(
     var self = this;
 
     $('#error-msg').hide();
-    $('.content').html('');
+    $('#content').html('');
     var StartTimeMs = Date.now();
     console.log("Start Execution Time Caller Method - " + StartTimeMs + " Milliseconds");
-    // var txt = $("#fda-search").val();
+    var artistName = $("#video-search").val();
     // console.log(txt);
     var caller;
     // Determine call type. e.g. caller = API_CALL_MOVIES_THEATERS
     // code here
 
     var KEY = "&key=AIzaSyBTi0oe7u39BGm7WSXc45MJ99p06hO5Sng";
-    var artistName = "Cold Play";
+
 
     var API_YOU_TUBE_SEARCH = new API(
         "https://www.googleapis.com/youtube/v3/search?",
@@ -53,5 +53,14 @@ API.prototype.callSearchYouTube = async function(
 
 };
 
+// Allow enter key vrs btn to call the API.
+$("#video-search").on("keypress", function(e) {
+    $("#go-video").show();
+    if (e.which == 13) {
+        $("#go-video").click();
+        $("#go-video").hide();
+    }
+});
+
 // Test
-API_CALL_POPULAR.callSearchYouTube();
+// API_CALL_POPULAR.callSearchYouTube();

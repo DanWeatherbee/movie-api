@@ -66,7 +66,7 @@ API.prototype.renderFM = function(
         });
 
         self.card.append(
-            '<div class="col-xl-10 fixed" id="menu-list">' +
+            '<div class="col-xl-10 fixed border" id="menu-list">' +
             '</div>'
         );
         $('#menu-list').append(
