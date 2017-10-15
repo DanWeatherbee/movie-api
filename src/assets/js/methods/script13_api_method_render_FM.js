@@ -55,23 +55,24 @@ API.prototype.renderFM = function(
                 '<div class="col">' +
                 '<img class=" img-thumbnail" alt="Picture of ' + self.name + '" src="' + self.imgUrl3 + '"><br />' +
                 '</div>' +
-                '</section>' +
-                '<div class="col-xl-10 fixed border" id="menu-list">' +
-                '</div>';
-
+                '</section>';
             self.card.append(self.formattedHTMLContent);
-
         });
-
+        self.card.append(
+            '<div class="col-xl-10 fixed border" id="menu-list">' +
+            '</div>'
+        );
         $('#menu-list').append(
             '<ol class="white-background black" id="artists-list"></ol>'
         );
         this.responseArray[0].artists.artist.forEach(function(item) {
-
-            $('#artists-list').append('<li><a class="black" href="#' + item.name + '">' + item.name + '</li></a>');
+            $('#artists-list').append(
+                '<li><a class="black" href="#' +
+                item.name +
+                '">' +
+                item.name +
+                '</li></a>');
         });
 
-
     };
-
 };

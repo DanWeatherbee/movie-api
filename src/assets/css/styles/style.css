@@ -128,7 +128,6 @@ button>a:hover {
 a:hover,
 button:hover {
     text-transform: uppercase;
-    z-index: 1;
 }
 
 div>ol>li>a:hover {
@@ -179,7 +178,7 @@ div>ol>li>a:hover {
     z-index: 1;
     right: 0px;
     top: 0px;
-    max-width: 450px;
+    max-width: 350px;
     padding: 3%;
     font-size: 12px;
     background-color: white;
