@@ -14,6 +14,10 @@ body {
 
 
 
+
+
+
+
 /*hide search buttons*/
 
 #go,
@@ -24,6 +28,10 @@ body {
 
 
 
+
+
+
+
 /*scocial buttons*/
 
 .fb-like {
@@ -31,6 +39,10 @@ body {
     background-color: #b5e3f9;
     border-radius: 10%;
 }
+
+
+
+
 
 
 
@@ -53,6 +65,10 @@ body {
 
 
 
+
+
+
+
 /*borders*/
 
 .border {
@@ -69,11 +85,14 @@ body {
 
 
 
+
+
 /*padding*/
 
 .overview-padding {
     padding: 3%;
 }
+
 
 
 
@@ -100,8 +119,25 @@ body {
     background: #506151;
 }
 
-a:hover {
-    color: limegreen;
+button>a:hover {
+    color: yellow;
+    background: none;
+    border: 0;
+}
+
+a:hover,
+button:hover {
+    text-transform: uppercase;
+    z-index: 1;
+}
+
+div>ol>li>a:hover {
+    color: white;
+    background: black;
+    padding: 10%;
+    border: 5px solid;
+    border-color: #8e804e;
+    border-radius: 66.66%;
 }
 
 .red-background {
@@ -120,11 +156,19 @@ a:hover {
 
 
 
+
+
+
+
 /*grid*/
 
 .row {
     background-color: white;
 }
+
+
+
+
 
 
 
@@ -135,7 +179,7 @@ a:hover {
     z-index: 1;
     right: 0px;
     top: 0px;
-    max-width: 350px;
+    max-width: 450px;
     padding: 3%;
     font-size: 12px;
     background-color: white;

@@ -9,7 +9,8 @@ API.prototype.renderFM = function(
     name,
     listeners,
     playcount,
-    url
+    url,
+    formattedHTMLContent
 ) {
     const self = this;
     console.log(this.callType);
@@ -32,14 +33,11 @@ API.prototype.renderFM = function(
             self.listeners = item.listeners;
             self.playcount = item.playcount;
             self.url = item.url;
-
-            self.card.append(
-                '<section id="' + self.name + '" class="row overview-padding">' +
+            self.formattedHTMLContent = '<section id="' + self.name + '" class="row overview-padding">' +
                 '<div class="col">' +
                 '<img class="img-fluid img-thumbnail" alt="Picture of ' + self.name + '" src="' + self.imgUrl + '" />' +
                 '<h4>' + self.name + '</h4>' +
                 '</div>' +
-
                 '<div class="col">' +
                 '<span class="red">Listeners: ' +
                 '<em class="blue">' +
@@ -54,21 +52,17 @@ API.prototype.renderFM = function(
                 self.name +
                 '</a>' +
                 '</div>' +
-
-
                 '<div class="col">' +
                 '<img class=" img-thumbnail" alt="Picture of ' + self.name + '" src="' + self.imgUrl3 + '"><br />' +
                 '</div>' +
-                '</section>'
+                '</section>' +
+                '<div class="col-xl-10 fixed border" id="menu-list">' +
+                '</div>';
 
-            );
+            self.card.append(self.formattedHTMLContent);
 
         });
 
-        self.card.append(
-            '<div class="col-xl-10 fixed border" id="menu-list">' +
-            '</div>'
-        );
         $('#menu-list').append(
             '<ol class="white-background black" id="artists-list"></ol>'
         );

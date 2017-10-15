@@ -24,29 +24,27 @@ API.prototype.renderFDA = function(
     } else {
         $('#error-msg').hide();
         self.formattedHTMLHeader = '<br /><h4>Adverse Effects Report</h4><hr />';
-        self.card.append(self.formattedHTMLHeader);
-
         self.formattedHTMLCardContent = '<div><p>Consumer</p><span>Age: ' +
             this.responseArray[0].results[0].consumer.age + '  ' +
             this.responseArray[0].results[0].consumer.age_unit + ' | ' +
             this.responseArray[0].results[0].consumer.gender +
             '</span></div>';
-        self.card.append(self.formattedHTMLCardContent);
-
         this.responseArray[0].results[0].products.forEach(function(item) {
             self.formattedHTMLProduct = '<div><p>Product</p><span><em class="yellow">Industry: </em>' +
                 item.industry_name + ' | <em>Brand: </em>' +
                 item.name_brand + ' | <em>Role: </em>' +
                 item.role +
                 '</span></div>';
-
-            self.card.append(self.formattedHTMLProduct);
-
         });
-        self.card.append('<p>Reactions</p>');
+        self.formmatedHTMLReactions = '<p>Reactions</p>';
+        self.card.append(
+            self.formattedHTMLHeader +
+            self.formattedHTMLCardContent +
+            self.formattedHTMLProduct +
+            self.formmatedHTMLReactions
+        );
         this.responseArray[0].results[0].reactions.forEach(function(item) {
             self.card.append('<span>' + item + ' | </span>');
         });
-
     };
 };

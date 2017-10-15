@@ -7,7 +7,8 @@ API.prototype.renderMovies = function(
     formattedHTMLOverview,
     formattedHTMLVotes,
     formattedHTMLContainer,
-    content
+    content,
+    formattedHTMLContent
 ) {
     console.log(this.callType);
     console.log(this.responseArray);
@@ -52,22 +53,17 @@ API.prototype.renderMovies = function(
                     item.release_date +
                     '</span>';
             };
-
-            self.card.append(
-                '<div class="row overview-padding">' +
-
-                '<div class="col shadow border overview-padding">' +
-                self.formattedHTMLName +
+            self.formattedHTMLContent = '<div class="row overview-padding">' +
+            '<div class="col shadow border overview-padding">' +
+            self.formattedHTMLName +
                 self.formattedHTMLOverview +
                 self.formattedHTMLVotes +
                 '</div>' +
-
                 '<div class="col center-block">' +
                 self.formattedHTMLPoster +
                 '</div>' +
-
-                '</div>'
-            );
+                '</div>';
+            self.card.append(self.formattedHTMLContent);
         })
     };
 };
