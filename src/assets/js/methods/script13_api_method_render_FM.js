@@ -10,7 +10,8 @@ API.prototype.renderFM = function(
     listeners,
     playcount,
     url,
-    formattedHTMLContent
+    formattedHTMLContent,
+    formattedHTMLLink
 ) {
     const self = this;
     console.log(this.callType);
@@ -33,7 +34,9 @@ API.prototype.renderFM = function(
             self.listeners = item.listeners;
             self.playcount = item.playcount;
             self.url = item.url;
-            self.formattedHTMLContent = '<section id="' + self.name + '" class="row overview-padding">' +
+            self.formattedHTMLContent = '<section id="' +
+                self.name +
+                '" class="row overview-padding">' +
                 '<div class="col">' +
                 '<img class="img-fluid img-thumbnail" alt="Picture of ' + self.name + '" src="' + self.imgUrl + '" />' +
                 '<h4>' + self.name + '</h4>' +
@@ -58,21 +61,55 @@ API.prototype.renderFM = function(
                 '</section>';
             self.card.append(self.formattedHTMLContent);
         });
-        self.card.append(
-            '<div class="col-xl-10 fixed border" id="menu-list">' +
+        $('body').prepend(
+            '<div class="container fixed border" id="menu-list">' +
             '</div>'
         );
         $('#menu-list').append(
-            '<ol class="white-background black" id="artists-list"></ol>'
+
+            '<div class="col" id="artists-list">' +
+            '</div>'
+
         );
+        self.formattedHTMLLink = '<a class=' +
+            '"btn btn-outline-primary" ' +
+            'href="#' +
+            'movie-container' + // section id
+            '">' +
+            'Top' +
+            '</a><br />';
+        $('#artists-list').append(self.formattedHTMLLink);
+
+
+
         this.responseArray[0].artists.artist.forEach(function(item) {
             $('#artists-list').append(
-                '<li><a class="black" href="#' +
+                '<a class="btn btn-outline-info black menu-links" href="#' +
                 item.name +
                 '">' +
                 item.name +
-                '</li></a>');
+                '</a>');
         });
+        /*
+                self.formattedHTMLCollapseLink = '<a class=' +
+                    '"btn btn-primary" ' +
+                    'data-toggle="collapse"' +
+                    ' href="#' +
+                    'root' + // link address
+                    '" aria-expanded="false" ' +
+                    'aria-controls="root">' + // link address
+                    'Collapse' +
+                    '</a>';
+                    $('#artists-list').append(self.formattedHTMLCollapseLink);
 
+                self.formattedHTMLCollapseButton = '<button class=' +
+                    '"btn btn-primary" ' +
+                    'type="button" ' +
+                    'data-toggle="collapse" ' +
+                    'data-target="#collapseExample" ' +
+                    'aria-expanded="false" ' +
+                    'aria-controls="collapseExample">' +
+                    '</button>'
+        */
     };
 };

@@ -18,6 +18,10 @@ body {
 
 
 
+
+
+
+
 /*hide search buttons*/
 
 #go,
@@ -32,6 +36,10 @@ body {
 
 
 
+
+
+
+
 /*scocial buttons*/
 
 .fb-like {
@@ -39,6 +47,10 @@ body {
     background-color: #b5e3f9;
     border-radius: 10%;
 }
+
+
+
+
 
 
 
@@ -69,6 +81,10 @@ body {
 
 
 
+
+
+
+
 /*borders*/
 
 .border {
@@ -87,11 +103,19 @@ body {
 
 
 
+
+
+
+
 /*padding*/
 
 .overview-padding {
     padding: 3%;
 }
+
+
+
+
 
 
 
@@ -119,16 +143,13 @@ body {
     background: #506151;
 }
 
-button>a:hover {
-    color: yellow;
-    background: none;
-    border: 0;
-}
+
 
 a:hover,
 button:hover {
     text-transform: uppercase;
 }
+
 
 div>ol>li>a:hover {
     color: white;
@@ -159,6 +180,10 @@ div>ol>li>a:hover {
 
 
 
+
+
+
+
 /*grid*/
 
 .row {
@@ -171,25 +196,37 @@ div>ol>li>a:hover {
 
 
 
+
+
+
+
 /*side menu Last Fm*/
 
 .fixed {
     position: fixed;
+    width: 100%;
     z-index: 1;
-    right: 0px;
-    top: 0px;
-    max-width: 350px;
-    padding: 3%;
-    font-size: 12px;
-    background-color: white;
 }
 
+.menu-links {
+    opacity: .9;
+    font-size: 10px;
+}
 
+#menu-list {
+    max-width: 20%;
+}
 
-
+.menu-links:hover {
+    opacity: .9;
+}
 
 @media screen and (max-width: 1700px) {
     #menu-list {
-        display: none;
+        max-width: 100%;
+    }
+    .menu-links {
+        opacity: .3;
+        font-size: 10px;
     }
 }
