@@ -14,11 +14,7 @@ API.prototype.call = async function(
         //Statements executed when the result of expression matches latest.
         // ...method to be performed.
 
-        case "Popular Movies":
-            if (txt === "Popular Movies") {
-                caller = API_CALL_POPULAR;
-            }
-            break;
+
         case "Choose Call Type":
             if (txt === "Choose Call Type") {
                 return;
@@ -55,9 +51,7 @@ API.prototype.call = async function(
         // Determine method to call.
         switch (txt) {
 
-            case "Popular Movies":
-                this.renderMovies();
-                break;
+
             case "Movies in Theaters":
                 this.renderMovies();
                 break;

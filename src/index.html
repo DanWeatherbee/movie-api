@@ -47,9 +47,8 @@
                 </div>
                 <div class="col">
                     <!--   col 2-->
-                    <select autofocus id="calltype" name="call" onChange="API_CALL_POPULAR.call()">
+                    <select autofocus id="calltype" name="call" onChange="API_CALLER.call()">
                         <option value="none">Choose Call Type</option>
-                        <option value="API_CALL_POPULAR">Popular Movies</option>
                         <option value="API_CALL_MOVIES_THEATERS">Movies in Theaters</option>
                         <option value="API_CALL_TV_POPULAR">Popular Tv</option>
                         <option value="API_FM">Top Artists</option>
@@ -130,23 +129,23 @@
     <!--      Model -->
     <script src="assets/js/models/script1_api_model.js"></script>
     <!--      Objects -->
-    <script src="assets/js/objects/script2_api_obj_popular.js"></script>
+    <script src="assets/js/objects/script2_api_obj_api_caller.js"></script>
     <script src="assets/js/objects/script4.2_api_obj_movie_theaters.js"></script>
     <script src="assets/js/objects/script4.3_api_obj_tv_popular.js"></script>
     <script src="assets/js/objects/script4.4_api_obj_nutrition_rest_menu.js"></script>
     <script src="assets/js/objects/script4.5_api_obj_FDA.js"></script>
     <script src="assets/js/objects/script4.6_api_obj_FM.js"></script>
     <!--      Callers -->
-    <script src="assets/js/methods/script5_api_caller.js"></script>
-    <script src="assets/js/methods/script5.1_api_caller_food_search.js"></script>
-    <script src="assets/js/methods/script5.2_api_caller_search_you_tube.js"></script>
-    <script src="assets/js/methods/script5.3_api_caller_rest_menu_search.js"></script>
+    <script src="assets/js/methods/api-caller/script5_api_caller.js"></script>
+    <script src="assets/js/methods/fda/script5.1_api_caller_food_search.js"></script>
+    <script src="assets/js/methods/youtube/script5.2_api_caller_search_you_tube.js"></script>
+    <script src="assets/js/methods/nutrition-x/script5.3_api_caller_rest_menu_search.js"></script>
     <!--      Methods -->
-    <script src="assets/js/methods/script6_api_method_render_movies.js"></script>
-    <script src="assets/js/methods/script11_api_method_render_nutrition_rest_menu.js"></script>
-    <script src="assets/js/methods/script12_api_method_render_FDA.js"></script>
-    <script src="assets/js/methods/script13_api_method_render_FM.js"></script>
-    <script src="assets/js/methods/script14_api_method_render_YouTube.js"></script>
+    <script src="assets/js/methods//movies/script6_api_method_render_movies.js"></script>
+    <script src="assets/js/methods/nutrition-x/script11_api_method_render_nutrition_rest_menu.js"></script>
+    <script src="assets/js/methods/fda/script12_api_method_render_FDA.js"></script>
+    <script src="assets/js/methods/fm/script13_api_method_render_FM.js"></script>
+    <script src="assets/js/methods/youtube/script14_api_method_render_YouTube.js"></script>
     <script>
     // Script Timer
     var EndTimeMs = Date.now();

@@ -61,6 +61,7 @@ API.prototype.renderFM = function(
                 '</section>';
             self.card.append(self.formattedHTMLContent);
         });
+
         $('body').prepend(
             '<div class="container fixed border" id="menu-list">' +
             '</div>'
@@ -74,7 +75,7 @@ API.prototype.renderFM = function(
         self.formattedHTMLLink = '<a class=' +
             '"btn btn-outline-primary" ' +
             'href="#' +
-            'movie-container' + // section id
+            'root' + // section id
             '">' +
             'Top' +
             '</a><br />';

@@ -17,6 +17,7 @@ API.prototype.renderMovies = function(
     self.formattedHTMLContainer = '<div id="movie-container"></div>';
     self.content = $('#content');
     self.content.html('');
+    $('#menu-list').remove();
     self.content.append(self.formattedHTMLContainer);
     self.card = $('#movie-container');
 

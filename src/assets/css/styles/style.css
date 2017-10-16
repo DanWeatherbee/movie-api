@@ -22,6 +22,8 @@ body {
 
 
 
+
+
 /*hide search buttons*/
 
 #go,
@@ -40,6 +42,8 @@ body {
 
 
 
+
+
 /*scocial buttons*/
 
 .fb-like {
@@ -47,6 +51,8 @@ body {
     background-color: #b5e3f9;
     border-radius: 10%;
 }
+
+
 
 
 
@@ -85,6 +91,8 @@ body {
 
 
 
+
+
 /*borders*/
 
 .border {
@@ -107,11 +115,15 @@ body {
 
 
 
+
+
 /*padding*/
 
 .overview-padding {
     padding: 3%;
 }
+
+
 
 
 
@@ -184,11 +196,15 @@ div>ol>li>a:hover {
 
 
 
+
+
 /*grid*/
 
 .row {
     background-color: white;
 }
+
+
 
 
 
@@ -210,7 +226,6 @@ div>ol>li>a:hover {
 
 .menu-links {
     opacity: .9;
-    font-size: 10px;
 }
 
 #menu-list {
@@ -227,6 +242,11 @@ div>ol>li>a:hover {
     }
     .menu-links {
         opacity: .3;
-        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #artists-list {
+        display: none;
     }
 }
