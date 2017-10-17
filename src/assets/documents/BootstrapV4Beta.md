@@ -9,6 +9,9 @@
                     'aria-controls="root">' + // collapse controler
                     'Collapse' +
                     '</a>';
+
+                    <a class="btn btn-outline-info" id="" data-toggle="collapse" href="#" aria-expanded="false" aria-controls=""></a>
+
                     $('#artists-list').append(self.formattedHTMLCollapseLink);
 
                 self.formattedHTMLCollapseButton = '<button class=' +

@@ -32,15 +32,15 @@
                 </h1>
             </div>
             <div class="col-sm-4 text-right">
-                    <a class="btn btn-outline-success" href="http://danweatherbee-front-end-web-developer.com">Home</a>
-                    <a class="btn btn-outline-success" href="https://github.com/DanWeatherbee/movie-api">Project Code</a>
+                <a class="btn btn-outline-success" href="http://danweatherbee-front-end-web-developer.com">Home</a>
+                <a class="btn btn-outline-success" href="https://github.com/DanWeatherbee/movie-api">Project Code</a>
             </div>
         </div>
         <!-- end head  -->
         <div id="movie-card">
             <!--  content -->
             <div class="row overview-padding">
-                row 1
+                <!-- row 1 -->
                 <div class="col">
                     <!--   col 1-->
                     <h2>Available Methods</h2>
@@ -56,21 +56,25 @@
                 </div>
             </div>
             <div class="row overview-padding">
-                row 2
-                <div class="col">
-                    col 1
+                <i class="fa fa-chevron-circle-down" aria-hidden="true" id="btn-search-col-controler" data-toggle="collapse" href="#input-search-col" aria-expanded="false" aria-controls="btn-search-col-controler"> US FDA
+                </i>
+                <!--  row 2 -->
+                <section class="col collapse" id="input-search-col">
+                    <!-- col 1 -->
                     <div class="form-group">
                         <label for="fda-search">US FDA Search by food name:</label>
                         <span class="input-group-addon" id="basic-addon1">e.g. milk</span>
                         <input type="text" class="form-control" id="fda-search" placeholder="Enter or click to search...">
-                        <button id="go" class="btn btn-outline-primary" type="button" onClick="API_CALL_POPULAR.callSearch()">Search</button>
+                        <button id="go" class="btn btn-outline-primary" type="button" onClick="API_CALLER.callSearch()">Search</button>
                     </div>
-                </div>
+                </section>
             </div>
             <div class="row overview-padding">
-                row 3
-                <div class="col">
-                    col 1
+                <i class="fa fa-chevron-circle-down" aria-hidden="true" id="btn-rest-search-col-controler" data-toggle="collapse" href="#rest-search-col" aria-expanded="false" aria-controls="btn-rest-search-col-controler"> Nutrition X
+                </i>
+                <!--  row 3 -->
+                <section class="col collapse" id="rest-search-col">
+                    <!-- col 1 -->
                     <div class="form-group">
                         <label for="rest-menu-search">Nutrition X Restaurant Menu/Food Search:</label>
                         <span class="input-group-addon" id="basic-addon2">e.g. Tim Hortons</span>
@@ -78,26 +82,28 @@
                         </a>
                         <button id="go-rest" class="btn btn-outline-primary" type="button" onClick="API_RESAURANT_LOCATIONS.callSearchRest()">Search</button>
                     </div>
-                </div>
+                </section>
             </div>
             <div class="row overview-padding">
-                row 4
-                <div class="col">
-                    col 1
+                <i class="fa fa-chevron-circle-down" aria-hidden="true" id="btn-video-search-col-controler" data-toggle="collapse" href="#video-search-col" aria-expanded="false" aria-controls="btn-video-search-col-controler"> Youtube
+                </i>
+                <!-- row 4 -->
+                <section class="col collapse" id="video-search-col">
+                    <!-- col 1 -->
                     <div class="form-group">
                         <label for="video-search">Search artist for videos:</label>
                         <span class="input-group-addon" id="basic-addon3">e.g. Cold Play</span>
                         <input type="text" class="form-control" id="video-search" placeholder="Enter or click to search...">
                         </a>
-                        <button id="go-video" class="btn btn-outline-primary" type="button" onClick="API_CALL_POPULAR.callSearchYouTube()">Search</button>
+                        <button id="go-video" class="btn btn-outline-primary" type="button" onClick="API_CALLER.callSearchYouTube()">Search</button>
                         <p style="color:red;display:none;font-size:1.5em;" id="error-msg">No results were found, please try again.</p>
                     </div>
-                </div>
+                </section>
             </div>
             <div class="row overview-padding">
-                row 5
+                <!-- row 5 -->
                 <div class="col">
-                    col 1
+                    <!-- col 1 -->
                     <div class="col-sm-12 text-center" id="content"></div>
                 </div>
             </div>

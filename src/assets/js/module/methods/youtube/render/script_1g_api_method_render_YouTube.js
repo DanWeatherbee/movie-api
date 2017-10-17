@@ -9,13 +9,13 @@ API.prototype.renderYouTube = function(
     console.log(this.responseArray[0].items[0].snippet['title']);
     self.content = $('#content');
     self.content.html('');
+    $('#artists-list').remove();
     $('#movie-card').append('<div id="video-box"></div>');
     if (this.responseArray[0] === undefined) {
         return;
     } else {
         $('#error-msg').hide();
         if (this.responseArray[0].items[0].id['videoId'] === undefined) {
-
             $('#error-msg').show();
         } else {
             $('#error-msg').hide();
@@ -30,33 +30,35 @@ API.prototype.renderYouTube = function(
                 // row 1
                 '<div class="row white-background overview-padding">' +
                 '<div class="col">' +
-                '<h3>Api layout builder - BETA - V1.0</h3>' +
-                '<p>Header</p>' +
-                '<textarea class="form-control form-rounded" rows="6">' +
-                'Call Type: ' +
-                this.callType.url +
-                '</textarea>' +
+                // col 1
+                '<h3>You Tube Video Search</h3>' +
                 '</div>' +
                 '</div>' +
                 // row 2
-                '<div class="row blue-background white txt-shadow-black overview-padding">' +
+                '<div class="row overview-padding">' +
                 '<div class="col">' +
-                '<p>col 1</p>' +
                 '<i class="fa fa-file-video-o" aria-hidden="true"></i>' +
-                '<h2>' +
+                '<h4>' +
                 this.responseArray[0].items[0].snippet['title'] +
-                '</h2>' +
+                '</h4>' +
                 '</div>' +
                 '<div class="col">' +
-                '<p>col 2</p>' +
                 self.srcID +
                 '</div>' +
                 '<div class="col">' +
-                '<p>col 3</p>' +
-                '<h4>Description</h4>' +
-                '<textarea class="form-control form-rounded" rows="6">' +
+                '<i class="fa fa-chevron-circle-down" ' +
+                'aria-hidden="true" ' +
+                'id="video-description-controler" ' +
+                'data-toggle="collapse" ' +
+                'href="#video-description" ' +
+                'aria-expanded="false" ' +
+                'aria-controls="video-description-controler">' +
+                'Description' +
+                '</i>' +
+                '<section class="collapse" ' +
+                'id="video-description">' +
                 this.responseArray[0].items[0].snippet['description'] +
-                '</textarea>' +
+                '</section>' +
                 '</div>' +
                 '</div>' +
                 '</div>'

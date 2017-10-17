@@ -10,7 +10,8 @@ API.prototype.renderMovies = function(
     content,
     formattedHTMLContent,
     formattedHTMLCollapseLink,
-    role
+    role,
+    roleLowerCase
 ) {
     console.log(this.callType);
     console.log(this.responseArray);
@@ -34,21 +35,26 @@ API.prototype.renderMovies = function(
                 self.formattedHTMLName = '<h3 class="green caps">' +
                     item.name.replace(/\s/g, "-") +
                     '</h3>';
-                    self.role = item.name.replace(/\s/g, "-");
+                self.role = item.name.replace(/\s/g, "-");
+                self.roleLowerCase = self.role.toLowerCase();
             } else {
                 self.formattedHTMLName = '<h3 class="green caps">' +
                     item.title.replace(/\s/g, "-") +
                     '</h3>';
-                    self.role = item.title.replace(/\s/g, "-");
+                self.role = item.title.replace(/\s/g, "-");
+                self.roleLowerCase = self.role.toLowerCase();
             };
             self.formattedHTMLCollapseLink = '<a class=' +
                 '"btn btn-outline-info" ' +
-                'id="btn-toggle-overview-' + self.role + '" ' +
+                'id="btn-toggle-overview-' +
+                self.roleLowerCase + '" ' +
                 'data-toggle="collapse"' +
                 ' href="#' +
-                'item-overview-' + self.role + // target div to collapse
+                'item-overview-' +
+                self.roleLowerCase + // target div to collapse
                 '" aria-expanded="false" ' + // default closed
-                'aria-controls="btn-toggle-overview-' + self.role + '">' + // collapse controler
+                'aria-controls="btn-toggle-overview-' +
+                self.roleLowerCase + '">' + // collapse controler
                 'Description' +
                 '</a>';
             self.formattedHTMLPoster = '<img class="img-fluid img-thumbnail" id="popular-lg" src="' +
@@ -56,7 +62,7 @@ API.prototype.renderMovies = function(
                 item.poster_path +
                 '">';
 
-            self.formattedHTMLOverview = '<p class="collapse" id="item-overview-' + self.role + '">' +
+            self.formattedHTMLOverview = '<p class="collapse" id="item-overview-' + self.roleLowerCase + '">' +
                 item.overview +
                 '</p>';
             if (item.release_date === undefined) {
