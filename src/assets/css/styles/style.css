@@ -24,6 +24,7 @@ body {
 
 
 
+
 /*hide search buttons*/
 
 #go,
@@ -44,6 +45,7 @@ body {
 
 
 
+
 /*scocial buttons*/
 
 .fb-like {
@@ -51,6 +53,7 @@ body {
     background-color: #b5e3f9;
     border-radius: 10%;
 }
+
 
 
 
@@ -93,6 +96,7 @@ body {
 
 
 
+
 /*borders*/
 
 .border {
@@ -117,11 +121,13 @@ body {
 
 
 
+
 /*padding*/
 
 .overview-padding {
     padding: 3%;
 }
+
 
 
 
@@ -198,11 +204,13 @@ div>ol>li>a:hover {
 
 
 
+
 /*grid*/
 
 .row {
     background-color: white;
 }
+
 
 
 
@@ -248,5 +256,14 @@ div>ol>li>a:hover {
 @media screen and (max-width: 1000px) {
     #artists-list {
         display: none;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #popular-lg {
+        display: none;
+    }
+    .col {
+        min-width: 100%;
     }
 }

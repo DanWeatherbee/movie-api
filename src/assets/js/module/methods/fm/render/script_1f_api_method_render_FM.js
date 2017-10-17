@@ -92,13 +92,16 @@ API.prototype.renderFM = function(
                 '</a>');
         });
         /*
+
+        Bootstrap V4 Beta Example
+
                 self.formattedHTMLCollapseLink = '<a class=' +
                     '"btn btn-primary" ' +
                     'data-toggle="collapse"' +
                     ' href="#' +
-                    'root' + // link address
-                    '" aria-expanded="false" ' +
-                    'aria-controls="root">' + // link address
+                    'root' + // target div to collapse
+                    '" aria-expanded="false" ' + // default closed
+                    'aria-controls="root">' + // collapse controler
                     'Collapse' +
                     '</a>';
                     $('#artists-list').append(self.formattedHTMLCollapseLink);
@@ -107,9 +110,9 @@ API.prototype.renderFM = function(
                     '"btn btn-primary" ' +
                     'type="button" ' +
                     'data-toggle="collapse" ' +
-                    'data-target="#collapseExample" ' +
-                    'aria-expanded="false" ' +
-                    'aria-controls="collapseExample">' +
+                    'data-target="#collapseExample" ' + // target div to collapse
+                    'aria-expanded="false" ' + // default closed
+                    'aria-controls="collapseExample">' + // collapse controler
                     '</button>'
         */
     };

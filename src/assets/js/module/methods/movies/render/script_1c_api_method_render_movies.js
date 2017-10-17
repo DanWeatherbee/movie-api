@@ -8,7 +8,9 @@ API.prototype.renderMovies = function(
     formattedHTMLVotes,
     formattedHTMLContainer,
     content,
-    formattedHTMLContent
+    formattedHTMLContent,
+    formattedHTMLCollapseLink,
+    role
 ) {
     console.log(this.callType);
     console.log(this.responseArray);
@@ -21,6 +23,7 @@ API.prototype.renderMovies = function(
     self.content.append(self.formattedHTMLContainer);
     self.card = $('#movie-container');
 
+
     if (this.responseArray[0].results === undefined) {
         return;
     } else {
@@ -28,15 +31,32 @@ API.prototype.renderMovies = function(
 
         this.responseArray[0].results.forEach(function(item) {
             if (item.title === undefined) {
-                self.formattedHTMLName = '<h3 class="green caps">' + item.name + '</h3>';
+                self.formattedHTMLName = '<h3 class="green caps">' +
+                    item.name.replace(/\s/g, "-") +
+                    '</h3>';
+                    self.role = item.name.replace(/\s/g, "-");
             } else {
-                self.formattedHTMLName = '<h3 class="green caps">' + item.title + '</h3>';
+                self.formattedHTMLName = '<h3 class="green caps">' +
+                    item.title.replace(/\s/g, "-") +
+                    '</h3>';
+                    self.role = item.title.replace(/\s/g, "-");
             };
+            self.formattedHTMLCollapseLink = '<a class=' +
+                '"btn btn-outline-info" ' +
+                'id="btn-toggle-overview-' + self.role + '" ' +
+                'data-toggle="collapse"' +
+                ' href="#' +
+                'item-overview-' + self.role + // target div to collapse
+                '" aria-expanded="false" ' + // default closed
+                'aria-controls="btn-toggle-overview-' + self.role + '">' + // collapse controler
+                'Description' +
+                '</a>';
             self.formattedHTMLPoster = '<img class="img-fluid img-thumbnail" id="popular-lg" src="' +
                 self.imgUrl +
                 item.poster_path +
                 '">';
-            self.formattedHTMLOverview = '<p id="item-overview">' +
+
+            self.formattedHTMLOverview = '<p class="collapse" id="item-overview-' + self.role + '">' +
                 item.overview +
                 '</p>';
             if (item.release_date === undefined) {
@@ -55,12 +75,13 @@ API.prototype.renderMovies = function(
                     '</span>';
             };
             self.formattedHTMLContent = '<div class="row overview-padding">' +
-            '<div class="col shadow border overview-padding">' +
-            self.formattedHTMLName +
+                '<div class="col col-sm-10 shadow border overview-padding">' +
+                self.formattedHTMLName +
+                self.formattedHTMLCollapseLink + '<br />' +
                 self.formattedHTMLOverview +
                 self.formattedHTMLVotes +
                 '</div>' +
-                '<div class="col center-block">' +
+                '<div class="col col-sm-2 center-block">' +
                 self.formattedHTMLPoster +
                 '</div>' +
                 '</div>';
