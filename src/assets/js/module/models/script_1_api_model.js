@@ -1,6 +1,6 @@
 //Model
 
-var API = function(prefix, request, q, k, amp, format, search) {
+var API = function(prefix, request, q, k, amp, format, responseArray, callType) {
     'use strict';
     this.prefix = prefix;
     this.request = request;
@@ -9,5 +9,6 @@ var API = function(prefix, request, q, k, amp, format, search) {
     this.amp = amp;
     this.format = format;
     this.url = this.prefix + this.request + this.q + this.k + this.amp + this.format;
-    this.search = search;
+    this.responseArray = [];
+    this.callType = callType;
 };

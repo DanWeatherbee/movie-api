@@ -1,13 +1,12 @@
 API.prototype.renderMovies = function(
+    response,
+    callType,
     responseArray,
     imgUrl,
-    card,
     formattedHTMLName,
     formattedHTMLPoster,
     formattedHTMLOverview,
     formattedHTMLVotes,
-    formattedHTMLContainer,
-    content,
     formattedHTMLContent,
     formattedHTMLCollapseLink,
     role,
@@ -17,15 +16,10 @@ API.prototype.renderMovies = function(
     console.log(this.responseArray);
     var self = this;
     self.imgUrl = "https://image.tmdb.org/t/p/w500";
-    self.formattedHTMLContainer = '<div id="movie-container"></div>';
-    self.content = $('#content');
-    self.content.html('');
-    $('#menu-list').remove();
-    self.content.append(self.formattedHTMLContainer);
-    self.card = $('#movie-container');
 
-
+    dom.$content.html('');
     if (this.responseArray[0].results === undefined) {
+        alert('this.responseArray[0].results === undefined');
         return;
     } else {
         $('#error-msg').hide();
@@ -91,7 +85,7 @@ API.prototype.renderMovies = function(
                 self.formattedHTMLPoster +
                 '</div>' +
                 '</div>';
-            self.card.append(self.formattedHTMLContent);
+            dom.$content.append(self.formattedHTMLContent);
         })
     };
 };

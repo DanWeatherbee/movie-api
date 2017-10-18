@@ -14,6 +14,7 @@ API.prototype.renderFDA = function(
     console.log(this.responseArray[0].results[0]);
     self.content = $('#content');
     self.content.html('');
+    $('#artists-list').remove();
     self.content.append('<div id="movie-container"></div>');
     self.card = $('#movie-container');
     self.header = '<h2>FDA Food Search</h2><h4>Beta - Under Consruction.</h4>'

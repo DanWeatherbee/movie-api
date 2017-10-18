@@ -1,7 +1,4 @@
 API.prototype.renderNutritionRestMenu = function(
-    responseArray,
-    content,
-    card,
     name,
     calories,
     score,
@@ -11,10 +8,7 @@ API.prototype.renderNutritionRestMenu = function(
     var self = this;
     console.log(this.callType);
     console.log(this.responseArray);
-    self.content = $('#content');
-    self.content.html('');
-    self.content.append('<div id="movie-container"></div>');
-    self.card = $('#movie-container');
+    dom.$content = $('#content');
     if (this.responseArray[0].hits === undefined) {
         return;
     } else {
@@ -26,6 +20,8 @@ API.prototype.renderNutritionRestMenu = function(
             '</h3>' +
             '</div>' +
             '</div>';
+
+        dom.$content.append(self.formmatedHeader);
         this.responseArray[0].hits.forEach(function(item) {
             self.name = item.fields.item_name;
             self.calories = item.fields.nf_calories;
@@ -42,10 +38,7 @@ API.prototype.renderNutritionRestMenu = function(
                 'Score: ' +
                 self.score +
                 '</div>';
-            self.card.append(
-                self.formmatedHeader +
-                self.formmatedContent
-            );
+            dom.$content.append(self.formmatedContent);
         });
     };
 };

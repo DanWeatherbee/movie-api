@@ -1,20 +1,12 @@
 API.prototype.call = async function(
-    response,
-    responseArray,
-    callType
 ) {
     'use strict';
     var StartTimeMs = Date.now();
     console.log("Start Execution Time Caller Method - " + StartTimeMs + " Milliseconds");
     var txt = $("#calltype option:selected").text();
-    console.log(txt);
-    var caller;
-    // Determine call type.
     switch (txt) {
         //Statements executed when the result of expression matches latest.
         // ...method to be performed.
-
-
         case "Choose Call Type":
             if (txt === "Choose Call Type") {
                 return;
@@ -22,17 +14,17 @@ API.prototype.call = async function(
             break;
         case "Movies in Theaters":
             if (txt === "Movies in Theaters") {
-                caller = API_CALL_MOVIES_THEATERS;
+                this.callType = API_CALL_MOVIES_THEATERS;
             }
             break;
         case "Popular Tv":
             if (txt === "Popular Tv") {
-                caller = API_CALL_TV_POPULAR;
+                this.callType = API_CALL_TV_POPULAR;
             }
             break;
         case "Top Artists":
             if (txt === "Top Artists") {
-                caller = API_FM;
+                this.callType = API_FM;
             }
             break;
 
@@ -42,16 +34,13 @@ API.prototype.call = async function(
             break;
     }
     this.responseArray = [];
-    this.callType = caller;
-
+    console.log(this.callType);
     try {
         const response = await fetch(this.callType.url);
         const text = await response.json()
         this.responseArray.push(text);
         // Determine method to call.
         switch (txt) {
-
-
             case "Movies in Theaters":
                 this.renderMovies();
                 break;

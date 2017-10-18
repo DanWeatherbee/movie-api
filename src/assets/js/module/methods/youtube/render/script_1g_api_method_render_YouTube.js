@@ -1,16 +1,11 @@
 API.prototype.renderYouTube = function(
-    content,
-    responseArray,
     srcID,
     formattedHTMLContent
 ) {
     const self = this;
     console.log(this.callType);
     console.log(this.responseArray[0].items[0].snippet['title']);
-    self.content = $('#content');
-    self.content.html('');
-    $('#artists-list').remove();
-    $('#movie-card').append('<div id="video-box"></div>');
+    dom.$content.html('');
     if (this.responseArray[0] === undefined) {
         return;
     } else {
@@ -19,8 +14,6 @@ API.prototype.renderYouTube = function(
             $('#error-msg').show();
         } else {
             $('#error-msg').hide();
-            self.content.html('');
-            $('#video-box').html('');
             // TODO foreach all videos available.
             self.srcID = '<iframe src="https://www.youtube.com/embed/' +
                 this.responseArray[0].items[0].id['videoId'] +
@@ -61,9 +54,9 @@ API.prototype.renderYouTube = function(
                 '</section>' +
                 '</div>' +
                 '</div>' +
-                '</div>'
-            $('#video-box').html('');
-            $('#video-box').append(self.formattedHTMLContent);
+                '</div>';
+
+            dom.$content.append(self.formattedHTMLContent);
         }
         console.log('you tube render method running');
     };

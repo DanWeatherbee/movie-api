@@ -1,20 +1,16 @@
 API.prototype.callSearchYouTube = async function(
-    response,
-    responseArray,
-    callType
 ) {
     'use strict';
     var self = this;
 
     $('#error-msg').hide();
-    $('#content').html('');
+    dom.$content.html('');
     var StartTimeMs = Date.now();
     console.log("Start Execution Time Caller Method - " + StartTimeMs + " Milliseconds");
     var artistName = $("#video-search").val();
     // console.log(txt);
     var caller;
-    // Determine call type. e.g. caller = API_CALL_MOVIES_THEATERS
-    // code here
+
 
     var KEY = "&key=AIzaSyBTi0oe7u39BGm7WSXc45MJ99p06hO5Sng";
 
@@ -28,12 +24,11 @@ API.prototype.callSearchYouTube = async function(
         "format=json"
     );
 
-    caller = API_YOU_TUBE_SEARCH;
-    console.log(API_YOU_TUBE_SEARCH);
-
     this.responseArray = [];
-    this.callType = caller;
-
+    this.callType = API_YOU_TUBE_SEARCH;
+    console.log(this.callType);
+    // Determine call type. e.g.  self.callType = API_CALL_MOVIES_THEATERS
+    // code here
     try {
         const response = await fetch(this.callType.url);
         const text = await response.json()

@@ -18,8 +18,8 @@
 </head>
 
 <body>
-    <section id="root" class="container blue-background border">
-        <div class="row overview-padding">
+    <section id="root" class="container gradient-blue-bar border">
+        <div class="row overview-padding gradient-linear-green">
             <!-- head  -->
             <div class="col-sm-3">
                 <h4>
@@ -32,12 +32,12 @@
                 </h1>
             </div>
             <div class="col-sm-4 text-right">
-                <a class="btn btn-outline-success" href="http://danweatherbee-front-end-web-developer.com">Home</a>
-                <a class="btn btn-outline-success" href="https://github.com/DanWeatherbee/movie-api">Project Code</a>
+                <a class="btn btn-success" href="http://danweatherbee-front-end-web-developer.com">Home</a>
+                <a class="btn btn-success" href="https://github.com/DanWeatherbee/movie-api">Project Code</a>
             </div>
         </div>
         <!-- end head  -->
-        <div id="movie-card">
+        <div id="main">
             <!--  content -->
             <div class="row overview-padding">
                 <!-- row 1 -->
@@ -104,7 +104,9 @@
                 <!-- row 5 -->
                 <div class="col">
                     <!-- col 1 -->
-                    <div class="col-sm-12 text-center" id="content"></div>
+                    <div class="col-sm-12 text-center" id="content">
+                        <div id="content"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -132,8 +134,9 @@
     </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <!--     API Prefab Scripts Concat Ordered! WARNING DONT MESS WITH SEQUENCE-->
-    <!--      Model -->
+    <!--      Models -->
     <script src="assets/js/module/models/script_1_api_model.js"></script>
+    <script src="assets/js/module/models/script_1b_DOM_model.js"></script>
     <!--      Objects -->
     <script src="assets/js/module/objects/script_2_api_obj_api_caller.js"></script>
     <script src="assets/js/module/objects/script_3_api_obj_movies_in_theaters.js"></script>
