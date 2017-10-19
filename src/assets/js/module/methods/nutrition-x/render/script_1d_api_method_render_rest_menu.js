@@ -8,11 +8,10 @@ API.prototype.renderNutritionRestMenu = function(
     var self = this;
     console.log(this.callType);
     console.log(this.responseArray);
-    dom.$content = $('#content');
     if (this.responseArray[0].hits === undefined) {
         return;
     } else {
-        $('#error-msg').hide();
+        dom.$err.hide();
         self.formmatedHeader = '<div class="row text-left">' +
             '<div class="col-sm-12">' +
             '<h3>' +
@@ -20,7 +19,6 @@ API.prototype.renderNutritionRestMenu = function(
             '</h3>' +
             '</div>' +
             '</div>';
-
         dom.$content.append(self.formmatedHeader);
         this.responseArray[0].hits.forEach(function(item) {
             self.name = item.fields.item_name;

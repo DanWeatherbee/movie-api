@@ -58,7 +58,7 @@ API.prototype.call = async function(
         }
     } catch (err) {
         console.log('fetch failed', err);
-        alert("No results were found, please try again.");
+        dom.$err.show();
     }
     var EndTimeMs = Date.now();
     console.log("End Execution Time Caller Method - " + EndTimeMs + " Milliseconds");

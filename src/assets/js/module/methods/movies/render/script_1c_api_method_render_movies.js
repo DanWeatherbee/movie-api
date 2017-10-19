@@ -1,7 +1,4 @@
 API.prototype.renderMovies = function(
-    response,
-    callType,
-    responseArray,
     imgUrl,
     formattedHTMLName,
     formattedHTMLPoster,
@@ -16,13 +13,12 @@ API.prototype.renderMovies = function(
     console.log(this.responseArray);
     var self = this;
     self.imgUrl = "https://image.tmdb.org/t/p/w500";
-
     dom.$content.html('');
     if (this.responseArray[0].results === undefined) {
         alert('this.responseArray[0].results === undefined');
         return;
     } else {
-        $('#error-msg').hide();
+        dom.$err.hide();
 
         this.responseArray[0].results.forEach(function(item) {
             if (item.title === undefined) {

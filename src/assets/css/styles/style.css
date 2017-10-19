@@ -25,9 +25,10 @@ body {
 
 
 
+
 /*hide search buttons*/
 
-#go,
+#go-fda,
 #go-video,
 #go-rest {
     display: none;
@@ -35,8 +36,13 @@ body {
 
 
 
+/*hide builder buttons*/
 
-
+#btn-row-create,
+#btn-col-create,
+#btn-navbar-create {
+    display: none;
+}
 
 
 
@@ -53,6 +59,7 @@ body {
     background-color: #b5e3f9;
     border-radius: 10%;
 }
+
 
 
 
@@ -88,41 +95,50 @@ body {
 
 
 
+
 /*Gradients*/
+
 .gradient-blue-circle {
     background-color: #4fa8bb;
     /* IE9, iOS 3.2+ */
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxyYWRpYWxHcmFkaWVudCBpZD0idnNnZyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIGN4PSIwJSIgY3k9IjAlIiByPSIzJSI+PHN0b3Agc3RvcC1jb2xvcj0iI2FjY2RkNCIgc3RvcC1vcGFjaXR5PSIxIiBvZmZzZXQ9IjAiLz48c3RvcCBzdG9wLWNvbG9yPSIjMTg5YWIxIiBzdG9wLW9wYWNpdHk9IjEiIG9mZnNldD0iMC41Ii8+PHN0b3Agc3RvcC1jb2xvcj0iIzA4N2I5NSIgc3RvcC1vcGFjaXR5PSIxIiBvZmZzZXQ9IjAuNTEiLz48c3RvcCBzdG9wLWNvbG9yPSIjNzBjMGQxIiBzdG9wLW9wYWNpdHk9IjEiIG9mZnNldD0iMSIvPjwvcmFkaWFsR3JhZGllbnQ+PHJlY3QgeD0iLTUwIiB5PSItNTAiIHdpZHRoPSIxMDEiIGhlaWdodD0iMTAxIiBmaWxsPSJ1cmwoI3ZzZ2cpIiAvPjwvc3ZnPg==);
-    background-image: -webkit-gradient(radial, left top, 0, left top, 10,color-stop(0, rgb(172, 205, 212)),color-stop(0.5, rgb(24, 154, 177)),color-stop(0.51, rgb(8, 123, 149)),color-stop(1, rgb(112, 192, 209)));
+    background-image: -webkit-gradient(radial, left top, 0, left top, 10, color-stop(0, rgb(172, 205, 212)), color-stop(0.5, rgb(24, 154, 177)), color-stop(0.51, rgb(8, 123, 149)), color-stop(1, rgb(112, 192, 209)));
     /* Android 2.3 */
-    background-image: -webkit-repeating-radial-gradient(left top, 10em 10em,rgb(172, 205, 212) 0%,rgb(24, 154, 177) 50%,rgb(8, 123, 149) 51%,rgb(112, 192, 209) 100%);
+    background-image: -webkit-repeating-radial-gradient(left top, 10em 10em, rgb(172, 205, 212) 0%, rgb(24, 154, 177) 50%, rgb(8, 123, 149) 51%, rgb(112, 192, 209) 100%);
     /* IE10+ */
-    background-image: repeating-radial-gradient(circle 10em at left top,rgb(172, 205, 212) 0%,rgb(24, 154, 177) 50%,rgb(8, 123, 149) 51%,rgb(112, 192, 209) 100%);
-    background-image: -ms-repeating-radial-gradient(left top, 10em 10em,rgb(172, 205, 212) 0%,rgb(24, 154, 177) 50%,rgb(8, 123, 149) 51%,rgb(112, 192, 209) 100%);
+    background-image: repeating-radial-gradient(circle 10em at left top, rgb(172, 205, 212) 0%, rgb(24, 154, 177) 50%, rgb(8, 123, 149) 51%, rgb(112, 192, 209) 100%);
+    background-image: -ms-repeating-radial-gradient(left top, 10em 10em, rgb(172, 205, 212) 0%, rgb(24, 154, 177) 50%, rgb(8, 123, 149) 51%, rgb(112, 192, 209) 100%);
 }
 
+
 /* IE8- CSS hack */
-@media \0screen\,screen\9 {
+
+@media \0screen\,
+screen\9 {
     .gradient-blue-circle {
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffaccdd4",endColorstr="#ff70c0d1",GradientType=0);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffaccdd4", endColorstr="#ff70c0d1", GradientType=0);
     }
 }
+
 .gradient-blue-bar {
     background-color: rgba(1, 202, 201, 0.06);
     /* IE9, iOS 3.2+ */
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxsaW5lYXJHcmFkaWVudCBpZD0idnNnZyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIxMDguNSUiIHkxPSIxMi41JSIgeDI9Ii04LjUlIiB5Mj0iODcuNSUiPjxzdG9wIHN0b3AtY29sb3I9IiMwMWNkY2EiIHN0b3Atb3BhY2l0eT0iMCIgb2Zmc2V0PSIwLjEzNCIvPjxzdG9wIHN0b3AtY29sb3I9IiMwMWNkY2EiIHN0b3Atb3BhY2l0eT0iMSIgb2Zmc2V0PSIwLjE0NSIvPjxzdG9wIHN0b3AtY29sb3I9IiMwMTVmOWUiIHN0b3Atb3BhY2l0eT0iMSIgb2Zmc2V0PSIwLjE5MyIvPjxzdG9wIHN0b3AtY29sb3I9IiMwMWNkY2EiIHN0b3Atb3BhY2l0eT0iMCIgb2Zmc2V0PSIwLjIwNSIvPjwvbGluZWFyR3JhZGllbnQ+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCN2c2dnKSIgLz48L3N2Zz4=);
-    background-image: -webkit-gradient(linear, 108.5% 12.5%, -8.5% 87.5%,color-stop(0.134, rgba(1, 205, 202, 0)),color-stop(0.145, rgb(1, 205, 202)),color-stop(0.193, rgb(1, 95, 158)),color-stop(0.205, rgba(1, 205, 202, 0)));
+    background-image: -webkit-gradient(linear, 108.5% 12.5%, -8.5% 87.5%, color-stop(0.134, rgba(1, 205, 202, 0)), color-stop(0.145, rgb(1, 205, 202)), color-stop(0.193, rgb(1, 95, 158)), color-stop(0.205, rgba(1, 205, 202, 0)));
     /* Android 2.3 */
-    background-image: -webkit-linear-gradient(202deg,rgba(1, 205, 202, 0) 13.4%,rgb(1, 205, 202) 14.5%,rgb(1, 95, 158) 19.3%,rgba(1, 205, 202, 0) 20.5%);
+    background-image: -webkit-linear-gradient(202deg, rgba(1, 205, 202, 0) 13.4%, rgb(1, 205, 202) 14.5%, rgb(1, 95, 158) 19.3%, rgba(1, 205, 202, 0) 20.5%);
     /* IE10+ */
-    background-image: linear-gradient(248deg,rgba(1, 205, 202, 0) 13.4%,rgb(1, 205, 202) 14.5%,rgb(1, 95, 158) 19.3%,rgba(1, 205, 202, 0) 20.5%);
-    background-image: -ms-linear-gradient(202deg,rgba(1, 205, 202, 0) 13.4%,rgb(1, 205, 202) 14.5%,rgb(1, 95, 158) 19.3%,rgba(1, 205, 202, 0) 20.5%);
+    background-image: linear-gradient(248deg, rgba(1, 205, 202, 0) 13.4%, rgb(1, 205, 202) 14.5%, rgb(1, 95, 158) 19.3%, rgba(1, 205, 202, 0) 20.5%);
+    background-image: -ms-linear-gradient(202deg, rgba(1, 205, 202, 0) 13.4%, rgb(1, 205, 202) 14.5%, rgb(1, 95, 158) 19.3%, rgba(1, 205, 202, 0) 20.5%);
 }
 
+
 /* IE8- CSS hack */
-@media \0screen\,screen\9 {
+
+@media \0screen\,
+screen\9 {
     .gradient-blue-bar {
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0001cdca",endColorstr="#0001cdca",GradientType=1);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0001cdca", endColorstr="#0001cdca", GradientType=1);
     }
 }
 
@@ -130,20 +146,24 @@ body {
     background-color: #40caa6;
     /* IE9, iOS 3.2+ */
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxsaW5lYXJHcmFkaWVudCBpZD0idnNnZyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIHN0b3AtY29sb3I9IiM0NmNmYTUiIHN0b3Atb3BhY2l0eT0iMSIgb2Zmc2V0PSIwIi8+PHN0b3Agc3RvcC1jb2xvcj0iIzAwOTRhZSIgc3RvcC1vcGFjaXR5PSIxIiBvZmZzZXQ9IjAuMzU1NjcwMTAzMDkyNzgzNDYiLz48c3RvcCBzdG9wLWNvbG9yPSIjN2ZmZjllIiBzdG9wLW9wYWNpdHk9IjEiIG9mZnNldD0iMC4zNTYwMDAwMDAwMDAwMDAwNCIvPjxzdG9wIHN0b3AtY29sb3I9IiMwMDk0YWUiIHN0b3Atb3BhY2l0eT0iMSIgb2Zmc2V0PSIxIi8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI3ZzZ2cpIiAvPjwvc3ZnPg==);
-    background-image: -webkit-gradient(linear, 0% 0%, 100% 100%,color-stop(0, rgb(70, 207, 165)),color-stop(0.356, rgb(0, 148, 174)),color-stop(0.356, rgb(127, 255, 158)),color-stop(1, rgb(0, 148, 174)));
+    background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(0, rgb(70, 207, 165)), color-stop(0.356, rgb(0, 148, 174)), color-stop(0.356, rgb(127, 255, 158)), color-stop(1, rgb(0, 148, 174)));
     /* Android 2.3 */
-    background-image: -webkit-repeating-linear-gradient(top left,rgb(127, 255, 158) 35.6%,rgb(0, 148, 174) 100%);
+    background-image: -webkit-repeating-linear-gradient(top left, rgb(127, 255, 158) 35.6%, rgb(0, 148, 174) 100%);
     /* IE10+ */
-    background-image: repeating-linear-gradient(to bottom right,rgb(127, 255, 158) 35.6%,rgb(0, 148, 174) 100%);
-    background-image: -ms-repeating-linear-gradient(top left,rgb(127, 255, 158) 35.6%,rgb(0, 148, 174) 100%);
+    background-image: repeating-linear-gradient(to bottom right, rgb(127, 255, 158) 35.6%, rgb(0, 148, 174) 100%);
+    background-image: -ms-repeating-linear-gradient(top left, rgb(127, 255, 158) 35.6%, rgb(0, 148, 174) 100%);
 }
 
+
 /* IE8- CSS hack */
-@media \0screen\,screen\9 {
+
+@media \0screen\,
+screen\9 {
     .gradient-linear-green {
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff7fff9e",endColorstr="#ff0094ae",GradientType=0);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff7fff9e", endColorstr="#ff0094ae", GradientType=0);
     }
 }
+
 
 
 
@@ -159,11 +179,24 @@ body {
     border-radius: 2%;
 }
 
-.border-10 {
-    border: 1px solid;
-    border-color: #8e804e;
-    border-radius: 10%;
+.border-10-color-green-rad-10 {
+    border: 10px solid;
+    border-color: #03efce;
+    border-radius: 10% 10% 1% 1%;
+    margin-top: 2%;
 }
+
+.border-5-color-dark-green-rad-15 {
+    border: 5px solid;
+    border-color: #266140;
+    border-radius: 15% 15% 2% 2%;
+    margin-top: 2%;
+}
+
+.overflow {
+    overflow-y: auto
+}
+
 
 
 
@@ -181,6 +214,7 @@ body {
 .overview-padding {
     padding: 3%;
 }
+
 
 
 
@@ -259,11 +293,13 @@ div>ol>li>a:hover {
 
 
 
+
 /*grid*/
 
 .row {
     background-color: white;
 }
+
 
 
 

@@ -31,8 +31,14 @@ API.prototype.renderFM = function(
                 self.name +
                 '" class="row overview-padding">' +
                 '<div class="col">' +
-                '<img class="img-fluid img-thumbnail" alt="Picture of ' + self.name + '" src="' + self.imgUrl + '" />' +
-                '<h4>' + self.name + '</h4>' +
+                '<img class="img-fluid img-thumbnail" alt="Picture of ' +
+                self.name +
+                '" src="' +
+                self.imgUrl +
+                '" />' +
+                '<h4>' +
+                self.name +
+                '</h4>' +
                 '</div>' +
                 '<div class="col">' +
                 '<span class="red">Listeners: ' +
@@ -41,7 +47,11 @@ API.prototype.renderFM = function(
                 '</em> Playcount: <em class="blue">' +
                 self.playcount +
                 '</em></span><div style="padding:10%;">' +
-                '<img class="rounded-circle shadow" alt="Picture of ' + self.name + '" src="' + self.imgUrl2 + '"></div>' +
+                '<img class="rounded-circle shadow" alt="Picture of ' +
+                self.name +
+                '" src="' +
+                self.imgUrl2 +
+                '"></div>' +
                 'Last FM Home Page: <a href="' +
                 self.url +
                 '">' +
@@ -49,7 +59,11 @@ API.prototype.renderFM = function(
                 '</a>' +
                 '</div>' +
                 '<div class="col">' +
-                '<img class=" img-thumbnail" alt="Picture of ' + self.name + '" src="' + self.imgUrl3 + '"><br />' +
+                '<img class=" img-thumbnail" alt="Picture of ' +
+                self.name +
+                '" src="' +
+                self.imgUrl3 +
+                '"><br />' +
                 '</div>' +
                 '</section>';
             dom.$content.append(self.formattedHTMLContent);

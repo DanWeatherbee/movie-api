@@ -9,11 +9,8 @@ API.prototype.callSearchYouTube = async function(
     console.log("Start Execution Time Caller Method - " + StartTimeMs + " Milliseconds");
     var artistName = $("#video-search").val();
     // console.log(txt);
-    var caller;
-
 
     var KEY = "&key=AIzaSyBTi0oe7u39BGm7WSXc45MJ99p06hO5Sng";
-
 
     var API_YOU_TUBE_SEARCH = new API(
         "https://www.googleapis.com/youtube/v3/search?",

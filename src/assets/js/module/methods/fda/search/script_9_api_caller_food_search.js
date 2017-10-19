@@ -1,40 +1,22 @@
-API.prototype.callSearch = async function(
-    response,
-    responseArray,
-    callType,
-    searchInput
-) {
+API.prototype.callSearch = async function() {
     'use strict';
     var self = this;
-    $('#error-msg').hide();
-    $('#content').html('');
+    dom.$err.hide();
+    dom.$content.html('');
     var StartTimeMs = Date.now();
     console.log("Start Execution Time Caller Method - " + StartTimeMs + " Milliseconds");
-    self.searchInput = $("#fda-search");
-    var txt = self.searchInput.val();
-    console.log(txt);
-
-    var caller;
-    /*
-    Determine call type. e.g. caller = API_CALL_MOVIES_THEATERS
-    Instantiate new object.
-    code goes here;
-    */
+    console.log(dom.$fdaSearch.val());
     var API_FOOD_SEARCH = new API(
         "https://api.fda.gov/",
         "food/event.json?",
         "api_key=",
         KEY,
         "&search=",
-        txt
+        dom.$fdaSearch.val()
     );
-
-    caller = API_FOOD_SEARCH;
-    console.log(API_FOOD_SEARCH);
-
     this.responseArray = [];
-    this.callType = caller;
-
+    this.callType = API_FOOD_SEARCH;
+    console.log(this.callType);
     try {
         const response = await fetch(this.callType.url);
         const text = await response.json()
@@ -44,8 +26,7 @@ API.prototype.callSearch = async function(
         this.renderFDA();
     } catch (err) {
         console.log('fetch failed', err);
-
-        $('#error-msg').show();
+        dom.$err.show();
     }
     var EndTimeMs = Date.now();
     console.log("End Execution Time Caller Method - " + EndTimeMs + " Milliseconds");
@@ -53,12 +34,11 @@ API.prototype.callSearch = async function(
     console.log("Total Execution Time Caller Method - " + TotalTime + " Milliseconds");
 };
 
-
 // Allow enter key vrs btn to call the API.
-$("#fda-search").on("keypress", function(e) {
-    $("#go").show();
+dom.$fdaSearch.on("keypress", function(e) {
+    dom.$goFda.show();
     if (e.which == 13) {
-        $("#go").click();
-        $("#go").hide();
+        dom.$goFda.click();
+        dom.$goFda.hide();
     }
 });

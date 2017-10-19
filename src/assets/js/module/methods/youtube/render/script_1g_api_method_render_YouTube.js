@@ -9,11 +9,11 @@ API.prototype.renderYouTube = function(
     if (this.responseArray[0] === undefined) {
         return;
     } else {
-        $('#error-msg').hide();
+        dom.$err.hide();
         if (this.responseArray[0].items[0].id['videoId'] === undefined) {
-            $('#error-msg').show();
+            dom.$err.show();
         } else {
-            $('#error-msg').hide();
+            dom.$err.hide();
             // TODO foreach all videos available.
             self.srcID = '<iframe src="https://www.youtube.com/embed/' +
                 this.responseArray[0].items[0].id['videoId'] +
@@ -55,7 +55,6 @@ API.prototype.renderYouTube = function(
                 '</div>' +
                 '</div>' +
                 '</div>';
-
             dom.$content.append(self.formattedHTMLContent);
         }
         console.log('you tube render method running');

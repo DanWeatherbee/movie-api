@@ -1,7 +1,4 @@
 API.prototype.renderFDA = function(
-    card,
-    content,
-    responseArray,
     imgUrl,
     formattedHTMLHeader,
     formattedHTMLCardContent,
@@ -12,18 +9,16 @@ API.prototype.renderFDA = function(
     const self = this;
     console.log(this.callType);
     console.log(this.responseArray[0].results[0]);
-    self.content = $('#content');
-    self.content.html('');
-    $('#artists-list').remove();
-    self.content.append('<div id="movie-container"></div>');
-    self.card = $('#movie-container');
+
+    dom.$content.html('');
+
     self.header = '<h2>FDA Food Search</h2><h4>Beta - Under Consruction.</h4>'
-    self.card.append(self.header);
+    dom.$content.append(self.header);
 
     if (this.responseArray[0].results === undefined) {
         return;
     } else {
-        $('#error-msg').hide();
+        dom.$err.hide();
         self.formattedHTMLHeader = '<br /><h4>Adverse Effects Report</h4><hr />';
         self.formattedHTMLCardContent = '<div><p>Consumer</p><span>Age: ' +
             this.responseArray[0].results[0].consumer.age + '  ' +
@@ -38,14 +33,14 @@ API.prototype.renderFDA = function(
                 '</span></div>';
         });
         self.formmatedHTMLReactions = '<p>Reactions</p>';
-        self.card.append(
+        dom.$content.append(
             self.formattedHTMLHeader +
             self.formattedHTMLCardContent +
             self.formattedHTMLProduct +
             self.formmatedHTMLReactions
         );
         this.responseArray[0].results[0].reactions.forEach(function(item) {
-            self.card.append('<span>' + item + ' | </span>');
+            dom.$content.append('<span>' + item + ' | </span>');
         });
     };
 };

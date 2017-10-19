@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <script>
+<script>
     var StartTimeMs = Date.now();
     console.log("Start Load Execution Time - " + StartTimeMs + " Milliseconds");
 
@@ -33,6 +33,8 @@
     }(document, 'script', 'facebook-jssdk'));
     // TODO      Scripts will be bundled at a later date.
     </script>
+    <!--     Twitter Widget -->
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
     <!--     jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <!--      Bootstrap -->
@@ -44,6 +46,7 @@
     <!--      Models -->
     <script src="assets/js/module/models/script_1_api_model.js"></script>
     <script src="assets/js/module/models/script_1b_DOM_model.js"></script>
+    <script src="assets/js/module/models/script_1c_layout_builder_model.js"></script>
     <!--      Objects -->
     <script src="assets/js/module/objects/script_2_api_obj_api_caller.js"></script>
     <script src="assets/js/module/objects/script_3_api_obj_movies_in_theaters.js"></script>
