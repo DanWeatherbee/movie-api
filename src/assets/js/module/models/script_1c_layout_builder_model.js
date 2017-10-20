@@ -31,7 +31,7 @@ var col = '<!-- col 1-->' + //  col 1
     '</div>';
 
 var nav = '<!-- dark inverse -->' +
-    '<nav class="navbar navbar-expand-sm bg-dark navbar-dark gradient-blue-bar border" id="nav-1">' +
+    '<nav class="navbar navbar-expand-sm bg-dark navbar-dark gradient-blue-bar border fixed-nav" id="nav-1">' +
     '<a href="/" class="navbar-brand">Developer Dan Weatherbee</a>' +
     '<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar3">' +
     '<span class="navbar-toggler-icon"></span>' +
@@ -53,7 +53,6 @@ var nav = '<!-- dark inverse -->' +
 
 
 var carousel = '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">' +
-
     '<ol class="carousel-indicators">' +
     '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>' +
     '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>' +
@@ -61,25 +60,25 @@ var carousel = '<div id="carouselExampleIndicators" class="carousel slide" data-
     '</ol>' +
     '<div class="carousel-inner">' +
     '<div class="carousel-item active">' +
-    '<img class="d-block w-100" src="http://lorempixel.com/output/city-q-c-600-280-4.jpg" alt="First slide">' +
+    '<img class="d-block w-100" src="http://lorempixel.com/output/city-q-c-640-480-4.jpg" alt="First slide">' +
     '<div class="carousel-caption d-none d-md-block txt-shadow-black">' +
-    '<h3>Dans Code Generator V 1.0</h3>' +
-    '<p>Create Bootstrap Components</p>' +
+    '<h1>Dans Code Generator V 1.0</h1>' +
+    '<h3>Create Bootstrap Components</h3>' +
     '</div>' +
     '</div>' +
     '<div class="carousel-item">' +
-    '<img class="d-block w-100" src="http://lorempixel.com/output/nature-q-c-600-280-4.jpg" alt="Second slide">' +
+    '<img class="d-block w-100" src="http://lorempixel.com/output/animals-q-c-640-480-5.jpg" alt="Second slide">' +
     '<div class="carousel-caption d-none d-md-block txt-shadow-black">' +
-    '<h3>Object Oriented Javascript</h3>' +
-    '<p>builder.createCard(), builder.createRow(), builder.createNav(), builder.createNav()</p>' +
+    '<h1>Object Oriented Javascript</h1>' +
+    '<h3>builder.createCard(), builder.createRow(), builder.createNav(), builder.createNav()</h3>' +
     '</div>' +
     '</div>' +
     '<div class="carousel-item">' +
-    '<img class="d-block w-100" src="http://lorempixel.com/output/food-q-c-600-280-4.jpg" alt="Third slide">' +
+    '<img class="d-block w-100" src="http://lorempixel.com/output/business-q-c-640-480-6.jpg" alt="Third slide">' +
     '<div class="carousel-caption d-none d-md-block txt-shadow-black">' +
-    '<h3>Model Object Methods</h3>' +
-    '<p>var LAYOUT_BUILDER_OBJ = function(card, row, col, nav, carousel) {"use strict";this.card ' +
-    '= card;this.row = row;this.col = col;this.nav = nav;this.carousel = carousel;};</p>' +
+    '<h1>Model -> Objects-> Methods</h1>' +
+    '<h3>var LAYOUT_BUILDER_OBJ = function(card, row, col, nav, carousel) {"use strict";this.card ' +
+    '= card;this.row = row;this.col = col;this.nav = nav;this.carousel = carousel;};</h3>' +
     '</div>' +
     '</div>' +
     '</div>' +
@@ -138,8 +137,7 @@ LAYOUT_BUILDER_OBJ.prototype.createCol = function() {
 
 LAYOUT_BUILDER_OBJ.prototype.createNav = function() {
     console.log('create nav is working.');
-    $('#card-1').prepend(this.nav);
-    $('#root').prepend(this.nav);
+    $('body').prepend(this.nav);
     $('#code-box').html(
         '<div class="container card col" id="card-1" style="border: 5px solid;color:green;"><!-- dark inverse -->' +
         '<nav class="navbar navbar-expand-sm bg-dark navbar-dark"><a href="/" class="navbar-brand">dark</a>' +
@@ -160,8 +158,8 @@ LAYOUT_BUILDER_OBJ.prototype.createNav = function() {
 
 LAYOUT_BUILDER_OBJ.prototype.createCarousel = function() {
     console.log('create carousel is working.');
-    $('#root').prepend(this.carousel);
-    $('#content').prepend(this.carousel);
+    $('body').prepend(this.carousel);
+
     $('#code-box').html('<div id="content"><div id="carouselExampleIndicators" class="carousel slide" data-ride' +
         '="carousel"><ol class="carousel-indicators"><li data-target="#carouselExampleIndicators" data-slide-to="' +
         '0" class="active"></li><li data-target="#carouselExampleIndicators" data-slide-to="1"></li><li data-target' +

@@ -1,7 +1,7 @@
 /*main styles.css*/
 
 body {
-    background-color: #084242;
+    background: url('blue-lines.jpg') center;
 }
 
 .caps {
@@ -9,12 +9,8 @@ body {
 }
 
 #root {
-    padding: 5%;
+    opacity: .9;
 }
-
-
-
-
 
 /*hide search buttons*/
 
@@ -25,9 +21,10 @@ body {
 }
 
 
-
-
-
+/*carousel*/
+.w-100 {
+    max-height: 1000px;
+}
 
 /*hide builder buttons*/
 
@@ -39,8 +36,6 @@ body {
 }
 
 
-
-
 /*scocial buttons*/
 
 .fb-like {
@@ -50,8 +45,13 @@ body {
 }
 
 
-
-
+/* nav */
+.fixed-nav {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    top: 0;
+}
 
 
 /*shadows*/
@@ -71,9 +71,6 @@ body {
     text-shadow: 1px 1px 2px black;
 }
 
-
-
-
 /*Gradients*/
 
 .gradient-blue-circle {
@@ -87,9 +84,6 @@ body {
     background-image: repeating-radial-gradient(circle 10em at left top, rgb(172, 205, 212) 0%, rgb(24, 154, 177) 50%, rgb(8, 123, 149) 51%, rgb(112, 192, 209) 100%);
     background-image: -ms-repeating-radial-gradient(left top, 10em 10em, rgb(172, 205, 212) 0%, rgb(24, 154, 177) 50%, rgb(8, 123, 149) 51%, rgb(112, 192, 209) 100%);
 }
-
-
-
 
 
 /* IE8- CSS hack */
@@ -112,9 +106,6 @@ screen\9 {
     background-image: linear-gradient(248deg, rgba(1, 205, 202, 0) 13.4%, rgb(1, 205, 202) 14.5%, rgb(1, 95, 158) 19.3%, rgba(1, 205, 202, 0) 20.5%);
     background-image: -ms-linear-gradient(202deg, rgba(1, 205, 202, 0) 13.4%, rgb(1, 205, 202) 14.5%, rgb(1, 95, 158) 19.3%, rgba(1, 205, 202, 0) 20.5%);
 }
-
-
-
 
 
 /* IE8- CSS hack */
@@ -140,8 +131,6 @@ screen\9 {
 
 
 
-
-
 /* IE8- CSS hack */
 
 @media \0screen\,
@@ -150,8 +139,6 @@ screen\9 {
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff7fff9e", endColorstr="#ff0094ae", GradientType=0);
     }
 }
-
-
 
 
 /*borders*/
@@ -182,17 +169,11 @@ screen\9 {
 
 
 
-
-
-
 /*padding*/
 
 .overview-padding {
     padding: 3%;
 }
-
-
-
 
 
 
@@ -218,7 +199,9 @@ screen\9 {
     background: #506151;
 }
 
-
+.black-background {
+    background: lightgrey;
+}
 
 a:hover,
 button:hover {
@@ -249,17 +232,11 @@ div>ol>li>a:hover {
 
 
 
-
-
 /*grid*/
 
 .row {
     background-color: white;
 }
-
-
-
-
 
 
 /*side menu Last Fm*/
@@ -268,27 +245,6 @@ div>ol>li>a:hover {
     position: fixed;
     width: 100%;
     z-index: 1;
-}
-
-.menu-links {
-    opacity: .9;
-}
-
-#menu-list {
-    max-width: 20%;
-}
-
-.menu-links:hover {
-    opacity: .9;
-}
-
-@media screen and (max-width: 1700px) {
-    #menu-list {
-        max-width: 100%;
-    }
-    .menu-links {
-        opacity: .3;
-    }
 }
 
 @media screen and (max-width: 1000px) {

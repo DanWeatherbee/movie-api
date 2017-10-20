@@ -1,12 +1,12 @@
 var appEntryPoint = '<!--  main -->' +
 
-    '<section id="root" class="container border-10-color-green-rad-10">' +
+    '<section id="root" class="container">' +
 
     '<!-- row 1a -->' + // row 1a
-    '<div class="row overview-padding gradient-blue-bar border">' +
+    '<div class="row gradient-blue-bar">' +
 
     '<!-- col 1 -->' + // col 1
-    '<div class="col-sm-10">' +
+    '<div class="col-sm-10 border">' +
     '<!-- head  -->' +
     '<div id="main">' +
     '<!--  content -->' +
