@@ -16,16 +16,6 @@ body {
 
 
 
-
-
-
-
-
-
-
-
-
-
 /*hide search buttons*/
 
 #go-fda,
@@ -36,18 +26,17 @@ body {
 
 
 
+
+
+
 /*hide builder buttons*/
 
 #btn-row-create,
 #btn-col-create,
-#btn-navbar-create {
+#btn-navbar-create,
+#btn-carousel-create {
     display: none;
 }
-
-
-
-
-
 
 
 
@@ -59,15 +48,6 @@ body {
     background-color: #b5e3f9;
     border-radius: 10%;
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -94,8 +74,6 @@ body {
 
 
 
-
-
 /*Gradients*/
 
 .gradient-blue-circle {
@@ -109,6 +87,9 @@ body {
     background-image: repeating-radial-gradient(circle 10em at left top, rgb(172, 205, 212) 0%, rgb(24, 154, 177) 50%, rgb(8, 123, 149) 51%, rgb(112, 192, 209) 100%);
     background-image: -ms-repeating-radial-gradient(left top, 10em 10em, rgb(172, 205, 212) 0%, rgb(24, 154, 177) 50%, rgb(8, 123, 149) 51%, rgb(112, 192, 209) 100%);
 }
+
+
+
 
 
 /* IE8- CSS hack */
@@ -133,6 +114,9 @@ screen\9 {
 }
 
 
+
+
+
 /* IE8- CSS hack */
 
 @media \0screen\,
@@ -155,6 +139,9 @@ screen\9 {
 }
 
 
+
+
+
 /* IE8- CSS hack */
 
 @media \0screen\,
@@ -163,10 +150,6 @@ screen\9 {
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff7fff9e", endColorstr="#ff0094ae", GradientType=0);
     }
 }
-
-
-
-
 
 
 
@@ -202,25 +185,11 @@ screen\9 {
 
 
 
-
-
-
-
-
-
-
 /*padding*/
 
 .overview-padding {
     padding: 3%;
 }
-
-
-
-
-
-
-
 
 
 
@@ -282,32 +251,11 @@ div>ol>li>a:hover {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 /*grid*/
 
 .row {
     background-color: white;
 }
-
-
-
-
-
-
-
-
-
 
 
 

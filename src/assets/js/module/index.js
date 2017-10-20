@@ -191,6 +191,7 @@ var formattedHTMLContentRow7 = '<!-- row 7 -->' + // row 7
     '<button class="btn btn-outline-success" id="btn-row-create" onClick="builder.createRow()">Step 2 Create row</a>' +
     '<button class="btn btn-outline-success" id="btn-col-create" onClick="builder.createCol()">Step 3 Create col</a>' +
     '<button class="btn btn-outline-success" id="btn-navbar-create" onClick="builder.createNav()">Step 4 Create navbar</a>' +
+    '<button class="btn btn-outline-success" id="btn-carousel-create" onClick="builder.createCarousel()">Step 5 Create carousel</a>' +
     '</div>' +
 
     '<!-- col 2 -->' + // col 2
