@@ -36,9 +36,9 @@ API.prototype.callSearch = async function() {
 
 // Allow enter key vrs btn to call the API.
 dom.$fdaSearch.on("keypress", function(e) {
-    dom.$goFda.show();
+    dom.$goFda.fadeIn();
     if (e.which == 13) {
         dom.$goFda.click();
-        dom.$goFda.hide();
+        dom.$goFda.fadeToggle(300);
     }
 });

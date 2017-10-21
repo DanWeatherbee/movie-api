@@ -24,19 +24,19 @@ API.prototype.renderNutritionRestMenu = function(
             self.name = item.fields.item_name;
             self.calories = item.fields.nf_calories;
             self.score = item._score;
-            self.formmatedContent = '<div class="row text-left border-10 shadow overview-padding txt-shadow-white">' +
-                '<div class="col-sm-4 blue border black-background overview-padding txt-shadow-white shadow">' +
+            self.formmatedContent = '<div class="row text-left border-10 shadow overview-padding">' +
+                '<div class="col-sm-4 blue border black-background overview-padding">' +
                 '<h4>' +
                 self.name +
                 '</h4>' +
                 '</div>' +
-                '<div class="col-sm-4 red border black-background overview-padding txt-shadow-white shadow">' +
+                '<div class="col-sm-4 red border black-background overview-padding">' +
                 '<h4>' +
                 'Calories: ' +
                 self.calories +
                 '</h4>' +
                 '</div>' +
-                '<div class="col-sm-4 green border black-background overview-padding txt-shadow-white shadow">' +
+                '<div class="col-sm-4 green border black-background overview-padding">' +
                 '<h4>' +
                 'Score: ' +
                 self.score +

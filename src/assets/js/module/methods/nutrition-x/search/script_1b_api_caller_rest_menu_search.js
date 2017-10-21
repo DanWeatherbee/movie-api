@@ -38,9 +38,9 @@ API.prototype.callSearchRest = async function(
 };
 // Allow enter key vrs btn to call the API.
 dom.$restMenuSearch.on("keypress", function(e) {
-    dom.$goRest.show();
+    dom.$goRest.fadeIn();
     if (e.which == 13) {
         dom.$goRest.click();
-        dom.$goRest.hide();
+        dom.$goRest.fadeToggle(300);
     }
 });

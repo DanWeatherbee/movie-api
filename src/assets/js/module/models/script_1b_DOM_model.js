@@ -8,7 +8,9 @@ var DOM_OBJ_ELEM = function(
     $goRest,
     $err,
     $fdaSearch,
-    $goFda
+    $goFda,
+    $goVideo,
+    $videoSearch
 ) {
     'use strict';
     this.$body = $body;
@@ -19,6 +21,8 @@ var DOM_OBJ_ELEM = function(
     this.$err = $err;
     this.$fdaSearch = $fdaSearch;
     this.$goFda = $goFda;
+    this.$goVideo = $goVideo;
+    this.$videoSearch = $videoSearch;
 };
 
 var dom = new DOM_OBJ_ELEM(
@@ -29,5 +33,7 @@ var dom = new DOM_OBJ_ELEM(
     $("#go-rest"),
     $('#error-msg'),
     $("#fda-search"),
-    $("#go-fda")
+    $("#go-fda"),
+    $("#go-video"),
+    $("#video-search")
 );

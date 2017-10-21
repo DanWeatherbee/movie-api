@@ -16,16 +16,40 @@ var appEntryPoint = '<!--  main -->' +
     '<!-- col 2 -->' + // col 2
     '<div class="col-sm-2">' +
 
-    '<i class="fa fa-chevron-circle-down">Menu - not hooked up.' +
+
+    '<i class="fa fa-chevron-circle-down" aria-hidden="true" id="aside-controler" ' +
+    ' data-toggle="collapse" href="#aside-menu" aria-expanded="false" ' +
+    'aria-controls="aside-controler">Menu<em style="color:red;"> - not hooked up.</em>' +
     '</i>' +
 
-    // '<i class="fa fa-chevron-circle-down" aria-hidden="true" id="timeline-controler" ' +
-    // ' data-toggle="collapse" href="#row6-col1-content" aria-expanded="false" ' +
-    // 'aria-controls="timeline-controler">Tweets by danFrontEndWebD' +
-    // '</i>' +
+
+    '<aside id="aside-menu" class="border black-background collapse">' +
+    '<a class="btn btn-outline-success">Hello world</a>' +
+    '<a class="btn btn-outline-success">Hello world</a>' +
+    '<a class="btn btn-outline-success">Hello world</a>' +
+    '<a class="btn btn-outline-success">Hello world</a>' +
+    '<a class="btn btn-outline-success">Hello world</a>' +
+    '<a class="btn btn-outline-success">Hello world</a>' +
+    '<a class="btn btn-outline-success">Hello world</a>' +
+    '<a class="btn btn-outline-success">Hello world</a>' +
+    '<a class="btn btn-outline-success">Hello world</a>' +
+    '<a class="btn btn-outline-success">Hello world</a>' +
+    '<a class="btn btn-outline-success">Hello world</a>' +
+    '<a class="btn btn-outline-success">Hello world</a>' +
+    '<a class="btn btn-outline-success">Hello world</a>' +
+    '<a class="btn btn-outline-success">Hello world</a>' +
+    '<a class="btn btn-outline-success">Hello world</a>' +
+    '<a class="btn btn-outline-success">Hello world</a>' +
+    '<a class="btn btn-outline-success">Hello world</a>' +
+    '<a class="btn btn-outline-success">Hello world</a>' +
+    '<a class="btn btn-outline-success">Hello world</a>' +
+    '<a class="btn btn-outline-success">Hello world</a>' +
+    '<a class="btn btn-outline-success">Hello world</a>' +
+    '<a class="btn btn-outline-success">Hello world</a>' +
+    '</aside>' +
+
 
     '</div>' +
-
     '</section>';
 
 var formattedHTMLHeadRoot = '<!-- head  -->' +
@@ -33,7 +57,7 @@ var formattedHTMLHeadRoot = '<!-- head  -->' +
     '<div class="row overview-padding gradient-linear-green border-5-color-dark-green-rad-15">' +
 
     '<!-- col 1 -->' + // col 1
-    '<div class="col txt-shadow-white">' +
+    '<div class="col txt-shadow-black">' +
     '<h4>' +
     'Developer Dan Weatherbee' +
     '</h4>' +
@@ -144,7 +168,7 @@ var formattedHTMLContentRow4 = '<!-- row 4 -->' + // row 4
     '</div>';
 
 var formattedHTMLContentRow5 = '<!-- row 5 -->' + // row 5
-    '<div class="row overview-padding">' +
+    '<div class="row overview-padding white-background">' +
 
     '<!-- col 1 -->' + // col 1
     '<div class="col" id="content-row5">' +
@@ -180,23 +204,23 @@ var formattedHTMLContentRow7 = '<!-- row 7 -->' + // row 7
     '<div class="row overview-padding">' +
 
     '<!-- col 1 -->' + // col 1
-    '<div class="col card collapse" id="row6-col1-content">' +
-    '<h5 class="card-title">' +
-    'Layout builder using Bootstrap 4 Beta V1.0' +
+    '<div class="col card collapse black" id="row6-col1-content">' +
+    '<h6 class="card-title">' +
+    'Code Generator Beta V1.0' +
     ' by Dan Weatherbee' +
-    '</h5>' +
-    '<p class="card-text">Create code for collums and rows inside a bootstrap 4 card class.' +
+    '</h6>' +
+    '<p class="card-text">Create column, row, nav, carousel.' +
     '</p>' +
-    '<button class="btn btn-outline-success" id="btn-card-create" onClick="builder.createCard()">Step 1 Create card</a>' +
-    '<button class="btn btn-outline-success" id="btn-row-create" onClick="builder.createRow()">Step 2 Create row</a>' +
-    '<button class="btn btn-outline-success" id="btn-col-create" onClick="builder.createCol()">Step 3 Create col</a>' +
-    '<button class="btn btn-outline-success" id="btn-navbar-create" onClick="builder.createNav()">Step 4 Create navbar</a>' +
-    '<button class="btn btn-outline-success" id="btn-carousel-create" onClick="builder.createCarousel()">Step 5 Create carousel</a>' +
+    '<a class="btn btn-outline-success black" id="btn-card-create" onClick="builder.createCard()">Step 1 Create card</a>' +
+    '<a class="btn btn-outline-success black" id="btn-row-create" onClick="builder.createRow()">Step 2 Create row</a>' +
+    '<a class="btn btn-outline-success black" id="btn-col-create" onClick="builder.createCol()">Step 3 Create col</a>' +
+    '<a class="btn btn-outline-success black" id="btn-navbar-create" onClick="builder.createNav()">Step 4 Create navbar</a>' +
+    '<a class="btn btn-outline-success black" href="#top" id="btn-carousel-create" onClick="builder.createCarousel()">Step 5 Create carousel</a>' +
     '</div>' +
 
     '<!-- col 2 -->' + // col 2
     '<div class="col" id="layout-builder-content">' +
-    '<textarea class="form-control" rows="10" id="code-box">' +
+    '<textarea class="form-control" rows="3" id="code-box">' +
     'Code Rendering Container' +
     '</textarea>' +
     '</div>' +
@@ -220,3 +244,4 @@ $('body').append(appEntryPoint);
 formattedHTMLArray.forEach(function(item) {
     $('#main').append(item);
 });
+

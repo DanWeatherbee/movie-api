@@ -29,8 +29,10 @@ API.prototype.renderFM = function(
             self.url = item.url;
             self.formattedHTMLContent = '<section id="' +
                 self.name +
-                '" class="row overview-padding">' +
-                '<div class="col">' +
+                '" class="row overview-padding">' + // row 1
+
+                // col 1
+                '<div class="col-lg-4">' +
                 '<img class="img-fluid img-thumbnail" alt="Picture of ' +
                 self.name +
                 '" src="' +
@@ -39,7 +41,15 @@ API.prototype.renderFM = function(
                 '<h4>' +
                 self.name +
                 '</h4>' +
+                '<p>Last FM page:</p>' +
+                '<a class="btn btn-outline-info" href="' +
+                self.url +
+                '">' +
+                self.name +
+                '</a>' +
                 '</div>' +
+
+                // col 2
                 '<div class="col">' +
                 '<span class="red">Listeners: ' +
                 '<em class="blue">' +
@@ -51,13 +61,10 @@ API.prototype.renderFM = function(
                 self.name +
                 '" src="' +
                 self.imgUrl2 +
-                '"></div>' +
-                'Last FM Home Page: <a href="' +
-                self.url +
                 '">' +
-                self.name +
-                '</a>' +
                 '</div>' +
+
+                // col 3
                 '<div class="col">' +
                 '<img class=" img-thumbnail" alt="Picture of ' +
                 self.name +
@@ -65,6 +72,7 @@ API.prototype.renderFM = function(
                 self.imgUrl3 +
                 '"><br />' +
                 '</div>' +
+
                 '</section>';
             dom.$content.append(self.formattedHTMLContent);
         });

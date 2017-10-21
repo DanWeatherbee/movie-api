@@ -46,13 +46,10 @@ API.prototype.callSearchYouTube = async function(
 };
 
 // Allow enter key vrs btn to call the API.
-$("#video-search").on("keypress", function(e) {
-    $("#go-video").show();
+dom.$videoSearch.on("keypress", function(e) {
+    dom.$goVideo.fadeIn();
     if (e.which == 13) {
-        $("#go-video").click();
-        $("#go-video").hide();
+        dom.$goVideo.click();
+        dom.$goVideo.fadeToggle(300);
     }
 });
-
-// Test
-// API_CALL_POPULAR.callSearchYouTube();
