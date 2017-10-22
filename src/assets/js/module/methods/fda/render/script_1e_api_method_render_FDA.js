@@ -11,7 +11,7 @@ API.prototype.renderFDA = function(
     console.log(this.responseArray[0].results[0]);
 
     dom.$content.html('');
-
+    $('#section-aside-menu').fadeOut();
     self.header = '<h2>FDA Food Search</h2><h4>Beta - Under Consruction.</h4>'
     dom.$content.append(self.header);
 

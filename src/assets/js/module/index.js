@@ -6,50 +6,30 @@ var appEntryPoint = '<!--  main -->' +
     '<div class="row gradient-blue-bar">' +
 
     '<!-- col 1 -->' + // col 1
-    '<div class="col-sm-10 border">' +
+    '<section class="col border" id="section-row-1a">' +
     '<!-- head  -->' +
-    '<div id="main">' +
+    '<section id="main">' +
     '<!--  content -->' +
-    '</div>' +
-    '</div>' +
+    '</section>' +
+    '</section>' +
 
-    '<!-- col 2 -->' + // col 2
-    '<div class="col-sm-2">' +
+    '<!-- aside-menu section-->' + // aside-menu section
+    '<section class="col fixed-aside-menu" id="section-aside-menu">' +
 
 
-    '<i class="fa fa-chevron-circle-down" aria-hidden="true" id="aside-controler" ' +
+    '<i class="fa fa-chevron-circle-down black-background" aria-hidden="true" id="aside-controler" ' +
     ' data-toggle="collapse" href="#aside-menu" aria-expanded="false" ' +
-    'aria-controls="aside-controler">Menu<em style="color:red;"> - not hooked up.</em>' +
+    'aria-controls="aside-controler"><h1>Menu</h1>' +
     '</i>' +
 
 
-    '<aside id="aside-menu" class="border black-background collapse">' +
-    '<a class="btn btn-outline-success">Hello world</a>' +
-    '<a class="btn btn-outline-success">Hello world</a>' +
-    '<a class="btn btn-outline-success">Hello world</a>' +
-    '<a class="btn btn-outline-success">Hello world</a>' +
-    '<a class="btn btn-outline-success">Hello world</a>' +
-    '<a class="btn btn-outline-success">Hello world</a>' +
-    '<a class="btn btn-outline-success">Hello world</a>' +
-    '<a class="btn btn-outline-success">Hello world</a>' +
-    '<a class="btn btn-outline-success">Hello world</a>' +
-    '<a class="btn btn-outline-success">Hello world</a>' +
-    '<a class="btn btn-outline-success">Hello world</a>' +
-    '<a class="btn btn-outline-success">Hello world</a>' +
-    '<a class="btn btn-outline-success">Hello world</a>' +
-    '<a class="btn btn-outline-success">Hello world</a>' +
-    '<a class="btn btn-outline-success">Hello world</a>' +
-    '<a class="btn btn-outline-success">Hello world</a>' +
-    '<a class="btn btn-outline-success">Hello world</a>' +
-    '<a class="btn btn-outline-success">Hello world</a>' +
-    '<a class="btn btn-outline-success">Hello world</a>' +
-    '<a class="btn btn-outline-success">Hello world</a>' +
-    '<a class="btn btn-outline-success">Hello world</a>' +
-    '<a class="btn btn-outline-success">Hello world</a>' +
+    '<aside id="aside-menu" class="black-background collapse overflow-aside-menu padding-2">' +
     '</aside>' +
 
 
-    '</div>' +
+    '</section>' +
+
+
     '</section>';
 
 var formattedHTMLHeadRoot = '<!-- head  -->' +
@@ -205,17 +185,35 @@ var formattedHTMLContentRow7 = '<!-- row 7 -->' + // row 7
 
     '<!-- col 1 -->' + // col 1
     '<div class="col card collapse black" id="row6-col1-content">' +
+
     '<h6 class="card-title">' +
     'Code Generator Beta V1.0' +
     ' by Dan Weatherbee' +
     '</h6>' +
+
     '<p class="card-text">Create column, row, nav, carousel.' +
     '</p>' +
-    '<a class="btn btn-outline-success black" id="btn-card-create" onClick="builder.createCard()">Step 1 Create card</a>' +
-    '<a class="btn btn-outline-success black" id="btn-row-create" onClick="builder.createRow()">Step 2 Create row</a>' +
-    '<a class="btn btn-outline-success black" id="btn-col-create" onClick="builder.createCol()">Step 3 Create col</a>' +
-    '<a class="btn btn-outline-success black" id="btn-navbar-create" onClick="builder.createNav()">Step 4 Create navbar</a>' +
-    '<a class="btn btn-outline-success black" href="#top" id="btn-carousel-create" onClick="builder.createCarousel()">Step 5 Create carousel</a>' +
+
+    '<a class="btn btn-outline-success black" id="btn-card-create" ' +
+    'onClick="builder.createCard()"' +
+    '>Step 1 Create card</a>' +
+
+    '<a class="btn btn-outline-success black" id="btn-row-create" ' +
+    'onClick="builder.createRow()"' +
+    '>Step 2 Create row</a>' +
+
+    '<a class="btn btn-outline-success black" id="btn-col-create" ' +
+    'onClick="builder.createCol()"' +
+    '>Step 3 Create col</a>' +
+
+    '<a class="btn btn-outline-success black" id="btn-navbar-create" ' +
+    'onClick="builder.createNav()"' +
+    '>Step 4 Create navbar</a>' +
+
+    '<a class="btn btn-outline-success black" href="#top" id="btn-carousel-create" ' +
+    'onClick="builder.createCarousel()"' +
+    '>Step 5 Create carousel</a>' +
+
     '</div>' +
 
     '<!-- col 2 -->' + // col 2
@@ -226,7 +224,7 @@ var formattedHTMLContentRow7 = '<!-- row 7 -->' + // row 7
     '</div>' +
 
     '</div>';
-
+// TODO Create cool error checking display UI --- Add all elements to DOM Object.
 var formattedHTMLArray = [
     formattedHTMLHeadRoot,
     formattedHTMLContentRow1c,
@@ -245,3 +243,6 @@ formattedHTMLArray.forEach(function(item) {
     $('#main').append(item);
 });
 
+$('#aside-menu-col').hide();
+$('#aside-controler').hide();
+$('#section-aside-menu').fadeOut();

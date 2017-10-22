@@ -6,6 +6,7 @@ API.prototype.renderYouTube = function(
     console.log(this.callType);
     console.log(this.responseArray[0].items[0].snippet['title']);
     dom.$content.html('');
+    $('#section-aside-menu').fadeOut();
     if (this.responseArray[0] === undefined) {
         return;
     } else {

@@ -19,6 +19,9 @@ API.prototype.renderFM = function(
         return;
     } else {
         $('#error-msg').hide();
+        $('#section-aside-menu').fadeIn();
+        $('#aside-controler').fadeIn();
+        $('#aside-menu').html('');
         this.responseArray[0].artists.artist.forEach(function(item) {
             self.imgUrl = item.image[0]['#text'];
             self.imgUrl2 = item.image[2]['#text'];
@@ -74,7 +77,20 @@ API.prototype.renderFM = function(
                 '</div>' +
 
                 '</section>';
+
+            var btn = '<a href="#' +
+                self.name +
+            '" class="btn btn-outline-success" id="aside-menu-btn-' +
+                self.name +
+                '">' +
+                self.name +
+                '</a>';
+
+            $('#aside-menu').append(btn);
+
+
             dom.$content.append(self.formattedHTMLContent);
         });
+        $('#aside-menu').prepend('<a href="#root" class="btn btn-outline-info">Top</a>');
     };
 };

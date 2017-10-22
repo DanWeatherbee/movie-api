@@ -8,10 +8,12 @@ API.prototype.renderNutritionRestMenu = function(
     var self = this;
     console.log(this.callType);
     console.log(this.responseArray);
+    $('#section-aside-menu').fadeOut();
     if (this.responseArray[0].hits === undefined) {
         return;
     } else {
         dom.$err.hide();
+
         self.formmatedHeader = '<div class="row text-left">' +
             '<div class="col-sm-12">' +
             '<h3>' +

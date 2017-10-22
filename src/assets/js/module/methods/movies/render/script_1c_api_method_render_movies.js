@@ -14,12 +14,12 @@ API.prototype.renderMovies = function(
     var self = this;
     self.imgUrl = "https://image.tmdb.org/t/p/w500";
     dom.$content.html('');
+    $('#section-aside-menu').fadeOut();
     if (this.responseArray[0].results === undefined) {
         alert('this.responseArray[0].results === undefined');
         return;
     } else {
         dom.$err.hide();
-
         this.responseArray[0].results.forEach(function(item) {
             if (item.title === undefined) {
                 self.formattedHTMLName = '<h3 class="green caps">' +

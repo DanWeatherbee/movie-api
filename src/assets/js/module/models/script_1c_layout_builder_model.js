@@ -144,6 +144,7 @@ var carousel = '<div id="carouselExampleIndicators" class="carousel slide animat
 
 LAYOUT_BUILDER_OBJ.prototype.createCard = function() {
     dom.$content.html('');
+    $('#section-aside-menu').fadeOut();
     $('#layout-builder-content').append(this.card);
     $('#code-box').html(
         '<div class="container card col green border" id="card-1">' +
