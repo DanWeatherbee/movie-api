@@ -37,14 +37,14 @@ var formattedHTMLHeadRoot = '<!-- head  -->' +
     '<div class="row overview-padding gradient-linear-green border-5-color-dark-green-rad-15">' +
 
     '<!-- col 1 -->' + // col 1
-    '<div class="col txt-shadow-black">' +
+    '<a href="/"><div class="col txt-shadow-black white">' +
     '<h4>' +
     'Developer Dan Weatherbee' +
     '</h4>' +
     '<h1>' +
     'Api Prefab Class BETA V 1.0' +
     '</h1>' +
-    '</div>' +
+    '</div></a>' +
 
     '</div>' +
 

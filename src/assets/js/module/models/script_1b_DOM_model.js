@@ -10,7 +10,10 @@ var DOM_OBJ_ELEM = function(
     $fdaSearch,
     $goFda,
     $goVideo,
-    $videoSearch
+    $videoSearch,
+    $asideMenu,
+    $asideControler,
+    $sectionAsideMenu
 ) {
     'use strict';
     this.$body = $body;
@@ -23,6 +26,9 @@ var DOM_OBJ_ELEM = function(
     this.$goFda = $goFda;
     this.$goVideo = $goVideo;
     this.$videoSearch = $videoSearch;
+    this.$asideMenu = $asideMenu;
+    this.$asideControler = $asideControler;
+    this.$sectionAsideMenu = $sectionAsideMenu;
 };
 
 var dom = new DOM_OBJ_ELEM(
@@ -35,5 +41,8 @@ var dom = new DOM_OBJ_ELEM(
     $("#fda-search"),
     $("#go-fda"),
     $("#go-video"),
-    $("#video-search")
+    $("#video-search"),
+    $('#aside-menu'),
+    $('#aside-controler'),
+    $('#section-aside-menu')
 );

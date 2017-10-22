@@ -7,7 +7,10 @@ API.prototype.renderFM = function(
     listeners,
     playcount,
     url,
-    formattedHTMLContent
+    formattedHTMLContent,
+    convertText,
+    convertedTextName,
+    buttonsAsideMenu
 ) {
     const self = this;
     console.log(this.callType);
@@ -18,10 +21,10 @@ API.prototype.renderFM = function(
     if (this.responseArray[0].artists.artist === undefined) {
         return;
     } else {
-        $('#error-msg').hide();
-        $('#section-aside-menu').fadeIn();
-        $('#aside-controler').fadeIn();
-        $('#aside-menu').html('');
+        dom.$err.hide();
+        dom.$sectionAsideMenu.fadeIn();
+        dom.$asideControler.fadeIn();
+        dom.$asideMenu.html('');
         this.responseArray[0].artists.artist.forEach(function(item) {
             self.imgUrl = item.image[0]['#text'];
             self.imgUrl2 = item.image[2]['#text'];
@@ -30,8 +33,12 @@ API.prototype.renderFM = function(
             self.listeners = item.listeners;
             self.playcount = item.playcount;
             self.url = item.url;
+            self.convertText = self.name.replace(/\s/g, "-");
+            self.convertedTextName = self.convertText.toLowerCase();
+
+
             self.formattedHTMLContent = '<section id="' +
-                self.name +
+                self.convertedTextName +
                 '" class="row overview-padding">' + // row 1
 
                 // col 1
@@ -78,19 +85,21 @@ API.prototype.renderFM = function(
 
                 '</section>';
 
-            var btn = '<a href="#' +
-                self.name +
-            '" class="btn btn-outline-success" id="aside-menu-btn-' +
-                self.name +
+            // aside menu for movies and fm.
+
+            self.buttonsAsideMenu = '<a href="#' +
+                self.convertedTextName +
+                '" class="btn btn-outline-success" id="aside-menu-btn-' +
+                self.convertedTextName +
                 '">' +
                 self.name +
                 '</a>';
 
-            $('#aside-menu').append(btn);
+            dom.$asideMenu.append(self.buttonsAsideMenu);
 
 
             dom.$content.append(self.formattedHTMLContent);
         });
-        $('#aside-menu').prepend('<a href="#root" class="btn btn-outline-info">Top</a>');
+        dom.$asideMenu.prepend('<a href="#root" class="btn btn-outline-info">Top</a>');
     };
 };

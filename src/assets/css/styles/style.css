@@ -5,9 +5,9 @@
     background: url('blue-lines.jpg') center;
 }*/
 
-.caps {
+/*.caps {
     text-transform: uppercase;
-}
+}*/
 
 #root {
     opacity: .9;
@@ -336,10 +336,6 @@ screen\9 {
     background: white;
 }
 
-a:hover,
-button:hover {
-    text-transform: uppercase;
-}
 
 
 div>ol>li>a:hover {

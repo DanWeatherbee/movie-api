@@ -7,7 +7,9 @@ API.prototype.renderMovies = function(
     formattedHTMLContent,
     formattedHTMLCollapseLink,
     role,
-    roleLowerCase
+    convertText,
+    convertedTextName,
+    name
 ) {
     console.log(this.callType);
     console.log(this.responseArray);
@@ -20,31 +22,43 @@ API.prototype.renderMovies = function(
         return;
     } else {
         dom.$err.hide();
+
+        dom.$sectionAsideMenu.fadeIn();
+        dom.$asideControler.fadeIn();
+        dom.$asideMenu.html('');
+
         this.responseArray[0].results.forEach(function(item) {
+
             if (item.title === undefined) {
-                self.formattedHTMLName = '<h3 class="green caps">' +
-                    item.name.replace(/\s/g, "-") +
+
+                self.name = item.name;
+                self.convertText = self.name.replace(/\s/g, "-");
+                self.convertedTextName = self.convertText.toLowerCase();
+                self.formattedHTMLName = '<h3 class="green">' +
+                    // TODO do this id fix on aside menu ids.
+                    self.name +
                     '</h3>';
-                self.role = item.name.replace(/\s/g, "-");
-                self.roleLowerCase = self.role.toLowerCase();
+                self.role = self.convertedTextName;
             } else {
-                self.formattedHTMLName = '<h3 class="green caps">' +
-                    item.title.replace(/\s/g, "-") +
+                self.name = item.title;
+                self.convertText = self.name.replace(/\s/g, "-");
+                self.convertedTextName = self.convertText.toLowerCase();
+                self.role = self.convertedTextName;
+                self.formattedHTMLName = '<h3 class="green">' +
+                    self.name +
                     '</h3>';
-                self.role = item.title.replace(/\s/g, "-");
-                self.roleLowerCase = self.role.toLowerCase();
             };
             self.formattedHTMLCollapseLink = '<a class=' +
                 '"btn btn-outline-info" ' +
                 'id="btn-toggle-overview-' +
-                self.roleLowerCase + '" ' +
+                self.role + '" ' +
                 'data-toggle="collapse"' +
                 ' href="#' +
                 'item-overview-' +
-                self.roleLowerCase + // target div to collapse
+                self.role + // target div to collapse
                 '" aria-expanded="false" ' + // default closed
                 'aria-controls="btn-toggle-overview-' +
-                self.roleLowerCase + '">' + // collapse controler
+                self.role + '">' + // collapse controler
                 'Description' +
                 '</a>';
             self.formattedHTMLPoster = '<img class="img-fluid img-thumbnail" id="popular-lg" src="' +
@@ -52,7 +66,9 @@ API.prototype.renderMovies = function(
                 item.poster_path +
                 '">';
 
-            self.formattedHTMLOverview = '<p class="collapse" id="item-overview-' + self.roleLowerCase + '">' +
+            self.formattedHTMLOverview = '<p class="collapse" id="item-overview-' +
+                self.role +
+                '">' +
                 item.overview +
                 '</p>';
             if (item.release_date === undefined) {
@@ -70,7 +86,8 @@ API.prototype.renderMovies = function(
                     item.release_date +
                     '</span>';
             };
-            self.formattedHTMLContent = '<div class="row overview-padding">' +
+            self.formattedHTMLContent = '<section id="' + self.convertedTextName + '" class="row overview-padding">' +
+
                 '<div class="col col-sm-10 shadow border overview-padding">' +
                 self.formattedHTMLName +
                 self.formattedHTMLCollapseLink + '<br />' +
@@ -80,8 +97,25 @@ API.prototype.renderMovies = function(
                 '<div class="col col-sm-2 center-block">' +
                 self.formattedHTMLPoster +
                 '</div>' +
-                '</div>';
+
+                '</section>';
+
+
+            // aside menu for movies and fm.
+
+            self.buttonsAsideMenu = '<a href="#' +
+                self.convertedTextName +
+                '" class="btn btn-outline-success" id="aside-menu-btn-' +
+                self.convertedTextName +
+                '">' +
+                self.name +
+                '</a>';
+
+            dom.$asideMenu.append(self.buttonsAsideMenu);
+
             dom.$content.append(self.formattedHTMLContent);
-        })
+
+        });
+        dom.$asideMenu.prepend('<a href="#root" class="btn btn-outline-info">Top</a>');
     };
 };
