@@ -3,7 +3,9 @@ API.prototype.renderNutritionRestMenu = function(
     calories,
     score,
     formmatedHeader,
-    formmatedContent
+    formmatedContent,
+    convertText,
+    convertedTextName
 ) {
     var self = this;
     console.log(this.callType);
@@ -13,6 +15,11 @@ API.prototype.renderNutritionRestMenu = function(
         return;
     } else {
         dom.$err.hide();
+
+
+        dom.$sectionAsideMenu.fadeIn();
+        dom.$asideControler.fadeIn();
+        dom.$asideMenu.html('');
 
         self.formmatedHeader = '<div class="row text-left">' +
             '<div class="col-sm-12">' +
@@ -24,9 +31,16 @@ API.prototype.renderNutritionRestMenu = function(
         dom.$content.append(self.formmatedHeader);
         this.responseArray[0].hits.forEach(function(item) {
             self.name = item.fields.item_name;
+
+                self.convertText = self.name.replace(/\s/g, "-");
+                self.convertedTextName = self.convertText.toLowerCase();
+
+
             self.calories = item.fields.nf_calories;
             self.score = item._score;
-            self.formmatedContent = '<div class="row text-left border-10 shadow overview-padding">' +
+            self.formmatedContent = '<section class="row text-left border-10 shadow overview-padding" id="' +
+            self.convertedTextName +
+            '">' +
                 '<div class="col-sm-4 blue border black-background overview-padding">' +
                 '<h4>' +
                 self.name +
@@ -44,7 +58,22 @@ API.prototype.renderNutritionRestMenu = function(
                 self.score +
                 '</h4>' +
                 '</div>';
+
+
+            // aside menu for movies and fm.
+
+            self.buttonsAsideMenu = '<a href="#' +
+                self.convertedTextName +
+                '" class="btn btn-outline-success" id="aside-menu-btn-' +
+                self.convertedTextName +
+                '">' +
+                self.name +
+                '</a>';
+
+            dom.$asideMenu.append(self.buttonsAsideMenu);
             dom.$content.append(self.formmatedContent);
         });
+
+        dom.$asideMenu.prepend('<a href="#root" class="btn btn-outline-info">Top</a>');
     };
 };

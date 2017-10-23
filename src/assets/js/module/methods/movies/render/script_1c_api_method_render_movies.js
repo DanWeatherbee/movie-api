@@ -41,8 +41,13 @@ API.prototype.renderMovies = function(
                 self.role = self.convertedTextName;
             } else {
                 self.name = item.title;
+
+
+
                 self.convertText = self.name.replace(/\s/g, "-");
                 self.convertedTextName = self.convertText.toLowerCase();
+
+
                 self.role = self.convertedTextName;
                 self.formattedHTMLName = '<h3 class="green">' +
                     self.name +
@@ -116,6 +121,7 @@ API.prototype.renderMovies = function(
             dom.$content.append(self.formattedHTMLContent);
 
         });
+
         dom.$asideMenu.prepend('<a href="#root" class="btn btn-outline-info">Top</a>');
     };
 };

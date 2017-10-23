@@ -13,7 +13,9 @@ var DOM_OBJ_ELEM = function(
     $videoSearch,
     $asideMenu,
     $asideControler,
-    $sectionAsideMenu
+    $sectionAsideMenu,
+    $sectionMethodsRow,
+    $asideMenuCol
 ) {
     'use strict';
     this.$body = $body;
@@ -29,6 +31,8 @@ var DOM_OBJ_ELEM = function(
     this.$asideMenu = $asideMenu;
     this.$asideControler = $asideControler;
     this.$sectionAsideMenu = $sectionAsideMenu;
+    this.$sectionMethodsRow = $sectionMethodsRow;
+    this.$asideMenuCol = $asideMenuCol;
 };
 
 var dom = new DOM_OBJ_ELEM(
@@ -44,5 +48,7 @@ var dom = new DOM_OBJ_ELEM(
     $("#video-search"),
     $('#aside-menu'),
     $('#aside-controler'),
-    $('#section-aside-menu')
+    $('#section-aside-menu'),
+    $('#section-methods-row'),
+    $('#aside-menu-col')
 );

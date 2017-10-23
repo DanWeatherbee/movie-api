@@ -5,7 +5,10 @@ var LAYOUT_BUILDER_OBJ = function(
     row,
     col,
     nav,
-    carousel
+    carousel,
+    cardBody,
+    navBody,
+    carouselBody
 ) {
     'use strict';
     this.card = card;
@@ -13,26 +16,36 @@ var LAYOUT_BUILDER_OBJ = function(
     this.col = col;
     this.nav = nav;
     this.carousel = carousel;
+    this.cardBody = cardBody;
+    this.navBody = navBody;
+    this.carouselBody = carouselBody;
 };
 
-var card = '<!-- card col-->' + // card col
-    '<div class="container card col green border" id="card-1">' +
+this.card = '<!-- section-card-demo root col-->' + // section-card-demo col
+    '<section class="container card col green border" id="section-card-demo">' +
     '<em>Card Collum</em>' +
-    '</div>';
+    '</section>';
 
-var row = '<!-- row 1-->' + //  row 1
-    '<div class="row blue border" id="card-1-row1">' +
+this.cardBody = '<!-- section-card-body root col-->' + // section-card-body col
+    '<section class="container card col green border" id="section-card-body">' +
+    '<em>Card Collum</em>' +
+    '</section>';
+
+this.row = '<!-- card-demo row 1-->' + //  card-demo row 1
+    '<div class="row blue border" id="card-demo-row1">' +
     '<em>Row</em>' +
     '</div>';
 
-var col = '<!-- col 1-->' + //  col 1
-    '<div class="col-sm-2 red border" id="card-1-row-1-col-1">' +
+
+this.col = '<!-- card-demo-row-1-col-1 -->' + //  card-demo-row-1-col-1
+    '<div class="col-sm-2 red border" id="card-demo-row-1-col-1">' +
     '<em>Collum</em>' +
     '</div>';
 
-var nav = '<!-- dark inverse -->' +
+
+this.nav = '<!-- nav-demo -->' + // nav-demo
     '<nav class="navbar navbar-expand-sm bg-dark navbar-dark' +
-    ' gradient-blue-bar border fixed-nav padding-2 animate" id="nav-1">' +
+    ' gradient-blue-bar border padding-2 animate" id="nav-demo">' +
     '<a href="/" class="navbar-brand">' +
     '<img class="img-thumbnail" id="profile-pic" src="assets/images/profile-pic.jpg" alt="My Profile Pic" />' +
     ' Developer Dan Weatherbee</a>' +
@@ -54,12 +67,36 @@ var nav = '<!-- dark inverse -->' +
     '</div>' +
     '</nav>';
 
+this.navBody = '<!-- nav-body -->' + // nav-body
+    '<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-nav' +
+    ' gradient-blue-bar border padding-2 animate" id="nav-demo">' +
+    '<a href="/" class="navbar-brand">' +
+    '<img class="img-thumbnail" id="profile-pic" src="assets/images/profile-pic.jpg" alt="My Profile Pic" />' +
+    ' Developer Dan Weatherbee</a>' +
+    '<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar3">' +
+    '<span class="navbar-toggler-icon"></span>' +
+    '</button>' +
+    '<div class="navbar-collapse collapse" id="navbar3">' +
+    '<ul class="navbar-nav">' +
+    '<li class="nav-item active">' +
+    '<a class="nav-link btn btn-outline-success" href="#">Link <span class="sr-only">Home</span></a>' +
+    '</li>' +
+    '<li class="nav-item">' +
+    '<a class="nav-link btn btn-outline-success" href="//danweatherbee-front-end-web-developer.com">My Profile</a>' +
+    '</li>' +
+    '<li class="nav-item">' +
+    '<a class="nav-link btn btn-outline-success" href="#">Link</a>' +
+    '</li>' +
+    '</ul>' +
+    '</div>' +
+    '</nav>';
 
-var carousel = '<div id="carouselExampleIndicators" class="carousel slide animate" data-ride="carousel">' +
+this.carousel = '<!-- carousel -->' + // carousel
+    '<div id="carousel" class="carousel slide animate" data-ride="carousel">' +
     '<ol class="carousel-indicators">' +
-    '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>' +
-    '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>' +
-    '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>' +
+    '<li data-target="#carousel" data-slide-to="0" class="active"></li>' +
+    '<li data-target="#carousel" data-slide-to="1"></li>' +
+    '<li data-target="#carousel" data-slide-to="2"></li>' +
     '</ol>' +
     '<div class="carousel-inner">' +
 
@@ -90,7 +127,7 @@ var carousel = '<div id="carouselExampleIndicators" class="carousel slide animat
     '</a>' +
     '<div class="carousel-caption d-none d-md-block txt-shadow-black">' +
     '<h1>Model -> Objects-> Methods</h1>' +
-    '<h3>var LAYOUT_BUILDER_OBJ = function(card, row, col, nav, carousel) {"use strict";this.card ' +
+    '<h3>varLAYOUT_BUILDER_OBJ = function(card, row, col, nav, carousel) {"use strict";this.card ' +
     '= card;this.row = row;this.col = col;this.nav = nav;this.carousel = carousel;};</h3>' +
     '</div>' +
 
@@ -131,11 +168,98 @@ var carousel = '<div id="carouselExampleIndicators" class="carousel slide animat
     '</div>' +
 
     '</div>' +
-    ' <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">' +
+    ' <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">' +
     '<span class="carousel-control-prev-icon" aria-hidden="true"></span>' +
     '<span class="sr-only">Previous</span>' +
     '</a>' +
-    '<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">' +
+    '<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">' +
+    '<span class="carousel-control-next-icon" aria-hidden="true"></span>' +
+    '<span class="sr-only">Next</span>' +
+    '</a>' +
+    '</div>';
+
+this.carouselBody = '<!-- carousel-body -->' + // carousel-body
+    '<div id="carousel-body" class="carousel slide animate" data-ride="carousel-body">' +
+    '<ol class="carousel-indicators">' +
+    '<li data-target="#carousel-body" data-slide-to="0" class="active"></li>' +
+    '<li data-target="#carousel-body" data-slide-to="1"></li>' +
+    '<li data-target="#carousel-body" data-slide-to="2"></li>' +
+    '</ol>' +
+    '<div class="carousel-inner">' +
+
+    '<div class="carousel-item active">' +
+    '<a href="#root">' +
+    '<img class="d-block w-100" src="assets/images/bg-6.jpg" alt="First slide">' +
+    '</a>' +
+
+    '<div class="carousel-caption d-none d-md-block txt-shadow-black">' +
+    '<h1>Dans Code Generator V 1.0</h1>' +
+    '<h3>Create Bootstrap Components</h3>' +
+    '</div>' +
+    '</div>' +
+
+    '<div class="carousel-item">' +
+    '<a href="#root">' +
+    '<img class="d-block w-100" src="assets/images/bg-1.jpg" alt="Second slide">' +
+    '</a>' +
+    '<div class="carousel-caption d-none d-md-block txt-shadow-black">' +
+    '<h1>Object Oriented Javascript</h1>' +
+    '<h3>builder.createCard(), builder.createRow(), builder.createNav(), builder.createCarousel()</h3>' +
+    '</div>' +
+    '</div>' +
+
+    '<div class="carousel-item">' +
+    '<a href="#root">' +
+    '<img class="d-block w-100" src="assets/images/bg-2.jpg" alt="Third slide">' +
+    '</a>' +
+    '<div class="carousel-caption d-none d-md-block txt-shadow-black">' +
+    '<h1>Model -> Objects-> Methods</h1>' +
+    '<h3>varLAYOUT_BUILDER_OBJ = function(card, row, col, nav, carousel) {"use strict";this.card ' +
+    '= card;this.row = row;this.col = col;this.nav = nav;this.carousel = carousel;};</h3>' +
+    '</div>' +
+
+    '</div>' +
+
+    '<div class="carousel-item">' +
+    '<a href="#root">' +
+    '<img class="d-block w-100" src="assets/images/bg-3.jpg" alt="Fourth slide">' +
+    '</a>' +
+    '<div class="carousel-caption d-none d-md-block txt-shadow-black">' +
+    '<h1>Coded according to Best Practice Style guides.</h1>' +
+    '<h3>Javascript, HTML, CSS, Bootstrap 4 Beta and jQuery Power this App.</h3>' +
+    '</div>' +
+
+    '</div>' +
+
+    '<div class="carousel-item">' +
+    '<a href="#root">' +
+    '<img class="d-block w-100" src="assets/images/bg-4.jpg" alt="Fifth slide">' +
+    '</a>' +
+    '<div class="carousel-caption d-none d-md-block txt-shadow-black">' +
+    '<h1>Running on a Node Server</h1>' +
+    '<h3>Backend consists of several rest apis.</h3>' +
+    '</div>' +
+
+    '</div>' +
+
+    '<div class="carousel-item">' +
+    '<a href="#root">' +
+
+    '<img class="d-block w-100" src="assets/images/bg-5.jpg" alt="Sixth slide">' +
+    '</a>' +
+    '<div class="carousel-caption d-none d-md-block txt-shadow-black">' +
+    '<h1>Html Created with Javascript and injected into the page.</h1>' +
+    '<h3>Row by row added to an array and for looped into the index.</h3>' +
+    '</div>' +
+
+    '</div>' +
+
+    '</div>' +
+    ' <a class="carousel-control-prev" href="#carousel-body" role="button" data-slide="prev">' +
+    '<span class="carousel-control-prev-icon" aria-hidden="true"></span>' +
+    '<span class="sr-only">Previous</span>' +
+    '</a>' +
+    '<a class="carousel-control-next" href="#carousel-body" role="button" data-slide="next">' +
     '<span class="carousel-control-next-icon" aria-hidden="true"></span>' +
     '<span class="sr-only">Next</span>' +
     '</a>' +
@@ -144,43 +268,25 @@ var carousel = '<div id="carouselExampleIndicators" class="carousel slide animat
 
 LAYOUT_BUILDER_OBJ.prototype.createCard = function() {
     dom.$content.html('');
-    $('#section-aside-menu').fadeOut();
+    dom.$sectionAsideMenu.fadeOut();
     $('#layout-builder-content').append(this.card);
-    $('#code-box').html(
-        '<div class="container card col green border" id="card-1">' +
-        '<em>Card Collum</em></div>'
-    );
+    $('#code-box').html(this.card);
     $('#btn-card-create').hide();
     $('#btn-row-create').show();
     console.log('create card is working.');
 };
 
 LAYOUT_BUILDER_OBJ.prototype.createRow = function() {
-    $('#card-1').append(this.row);
-    $('#code-box').html(
-        '<div class="container card col green border" id="card-1">' +
-        '<em>Card Collum</em><!-- row 1--><div class="row" id="card-1-row1" style="border:' +
-        ' 2px solid;color:blue;"><em>Row</em></div></div>'
-    );
+    $('#section-card-demo').append(this.row);
+    $('#code-box').html(this.row);
     $('#btn-row-create').hide();
     $('#btn-col-create').show();
     console.log('create row is working.');
 };
 
 LAYOUT_BUILDER_OBJ.prototype.createCol = function() {
-    $('#card-1-row1').append(this.col);
-    $('#code-box').html(
-        '<div class="container card col" id="card-1" style="border: 5px solid;color:green;">' +
-        '<em>Card Collum</em><!-- row 1--><div class="row" id="card-1-row1" style="border: 2px solid;color' +
-        ':blue;"><em>Row</em><!-- col 1--><div class="col-sm-2" id="card-1-row-1-col-1" style="border: ' +
-        '1px solid;color:red;"><em>Collum</em></div></div></div>'
-    );
-    $('#content').prepend(
-        '<div class="container card col green border" id="card-1">' +
-        '<em>Card Collum</em><!-- row 1--><div class="row blue" id="card-1-row1">' +
-        '<em>Row</em><!-- col 1--><div class="col-sm-2" id="card-1-row-1-col-1" style="border: 1px solid;color:red;">' +
-        '<em>Collum</em></div></div></div>'
-    );
+    $('#card-demo-row1').append(this.col);
+    $('#code-box').html(this.col);
     $('#btn-col-create').hide();
     $('#btn-navbar-create').show();
     console.log('create col is working.');
@@ -188,60 +294,18 @@ LAYOUT_BUILDER_OBJ.prototype.createCol = function() {
 
 LAYOUT_BUILDER_OBJ.prototype.createNav = function() {
     console.log('create nav is working.');
-    $('body').prepend(this.nav);
-    $('#code-box').html(
-        '<div class="container card col" id="card-1" style="border: 5px solid;color:green;"><!-- dark inverse -->' +
-        '<nav class="navbar navbar-expand-sm bg-dark navbar-dark">' +
-        '<a href="/" class="navbar-brand">dark</a>' +
-        '<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar3"><span ' +
-        'class="navbar-toggler-icon"></span></button><div class="navbar-collapse collapse" id="navbar3">' +
-        '<ul class="navbar-nav"><li class="nav-item active"><a class="nav-link btn btn-outline-success" href="#">' +
-        'Link <span class="sr-only">Home</span></a></li><li class="nav-item"><a class="nav-link btn btn-outline-success" ' +
-        'href="//danweatherbee-front-end-web-developer.com">My Profile</a></li>' +
-        '<li class="nav-item"><a class="nav-link btn btn-outline-success" href="#">Link</a></li></ul></div></nav>' +
-        '<em>Card Collum</em><!-- row 1--><div class="row" id="card-1-row1" style="border: 2px solid;color:blue;">' +
-        '<em>Row</em><!-- col 1--><div class="col-sm-2" id="card-1-row-1-col-1" style="border: 1px solid;color:red;">' +
-        '<em>Collum</em></div></div></div>'
-    );
-
+    $('#code-box').html(this.nav);
+    $('#section-card-demo').prepend(this.nav);
+    dom.$body.prepend(this.navBody);
     $('#btn-navbar-create').hide();
     $('#btn-carousel-create').show();
 };
 
 LAYOUT_BUILDER_OBJ.prototype.createCarousel = function() {
     console.log('create carousel is working.');
-    $('body').prepend(this.carousel);
-
-    $('#code-box').html('<div id="content"><div id="carouselExampleIndicators" class="carousel slide" data-ride' +
-        '="carousel"><ol class="carousel-indicators"><li data-target="#carouselExampleIndicators" data-slide-to="' +
-        '0" class="active"></li><li data-target="#carouselExampleIndicators" data-slide-to="1"></li><li data-target' +
-        '="#carouselExampleIndicators" data-slide-to="2"></li></ol><div class="carousel-inner"><div class="carous' +
-        'el-item active"><img class="d-block w-100" src="http://lorempixel.com/output/city-q-c-6' +
-        '00-280-4.jpg" alt="First slide"><div class="carousel-caption d-none d-md-block txt-shadow-black"><h3>Da' +
-        'ns Code Generator V 1.0</h3><p>Create Bootstrap Components</p></div></div><div class="carousel-it' +
-        'em"><img class="d-block w-100" src="http://lorempixel.com/output/nature-q-c-600-280-4.jpg" alt="Second ' +
-        'slide"><div class="carousel-caption d-none d-md-block txt-shadow-black"><h3>Object Oriented Java' +
-        'script</h3><p>builder.createCard(), builder.createRow(), builder.createNav(), builder.createNav()</p></d' +
-        'iv></div><div class="carousel-item"><img class="d-block w-100" src="http://lorempixel.com/output/food-q-' +
-        'c-600-280-4.jpg" alt="Third slide"><div class="carousel-caption d-none d-md-block txt-shadow-black"><h3' +
-        '>Model Object Methods</h3><p>var LAYOUT_BUILDER_OBJ = function(card, row, col, nav, carousel' +
-        ') {"use strict";this.card = card;this.row = row;this.col = col;this.nav = nav;this.carousel = carousel;};</p></d' +
-        'iv></div></div> <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-sli' +
-        'de="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span cla' +
-        'ss="sr-only">Previous</span></a><a class="carousel-control-next" href="#carouselExampleIndicators" role="butto' +
-        'n" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></sp' +
-        'an><span class="sr-only">Next</span></a></div><div class="container card col" id="card-1" style="border: 5p' +
-        'x solid;color:green;"><!-- dark inverse --><nav class="navbar navbar-expand-sm bg-dark navbar-dark grad' +
-        'ient-blue-bar border" id="nav-1"><a href="/" class="navbar-brand">Developer Dan Weatherbee<' +
-        '/a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar3"><span clas' +
-        's="navbar-toggler-icon"></span></button><div class="navbar-collapse collapse" id="navbar3"><u' +
-        'l class="navbar-nav"><li class="nav-item active"><a class="nav-link btn btn-outline-success" href="#">Link' +
-        ' <span class="sr-only">Home</span></a></li><li class="nav-item"><a class="nav-link btn btn-outline-su' +
-        'ccess" href="//danweatherbee-front-end-web-developer.com">My Profile</a></li><li class="nav-' +
-        'item"><a class="nav-link btn btn-outline-success" href="#">Link</a></li></ul></div></nav><em>Card Collum</' +
-        'em><!-- row 1--><div class="row" id="card-1-row1" style="border: 2px solid;color:blue;">' +
-        '<em>Row</em><!-- col 1--><div class="col-sm-2" id="card-1-row-1-col-1" style="border: 1px solid;color:red;"><em>Collu' +
-        'm</em></div></div></div></div>');
+    $('#section-card-demo').prepend(this.carousel);
+    dom.$body.prepend(this.carouselBody);
+    $('#code-box').html(this.carousel);
     $('#btn-carousel-create').hide();
 };
 
@@ -250,7 +314,10 @@ var builder = new LAYOUT_BUILDER_OBJ(
     row,
     col,
     nav,
-    carousel
+    carousel,
+    cardBody,
+    navBody,
+    carouselBody
 );
 
 

@@ -1,3 +1,56 @@
+/*
+
+TODO REFACTOR THIS FILE INTO SEPERATE PAGES AND MODULE
+
+*/
+
+// ==============================================================>
+// Link Controler Prefab ==>  Add the id you wish to be the controler.
+var buttonId = 'btn-layout-controler';
+// Add the Id of the container or div you wish to collapse.
+var divToCollapse = 'section-row-7-layout-builder';
+var buttonName = 'Layout Builder Beta V 1.0 by Dan Weatherbee';
+// Format the HTML.
+var formattedHTMLLinkControlerLayoutBuilder = '<!-- link controler  -->' + // Link Controler
+    '<i class="fa fa-chevron-circle-down border" aria-hidden="true" ' +
+    'id="' +
+    buttonId +
+    '" data-toggle="collapse"' +
+    ' href="#' +
+    divToCollapse +
+    '" ' +
+    'aria-expanded="false" ' +
+    'aria-controls="' +
+    buttonId +
+    '"> ' +
+    '<h3>' +
+    buttonName +
+    '</h3>' +
+    '</i>';
+// ==============================================================>
+
+var buttonId = 'btn-method-controler';
+// Add the Id of the container or div you wish to collapse.
+var divToCollapse = 'section-methods-row';
+var buttonName = 'Choose Search Type';
+
+var formattedHTMLLinkControlerMethods = '<!-- link controler  -->' + // Link Controler
+    '<i class="fa fa-chevron-circle-down border" aria-hidden="true" ' +
+    'id="' +
+    buttonId +
+    '" data-toggle="collapse"' +
+    ' href="#' +
+    divToCollapse +
+    '" ' +
+    'aria-expanded="false" ' +
+    'aria-controls="' +
+    buttonId +
+    '"> ' +
+    '<h3>' +
+    buttonName +
+    '</h3>' +
+    '</i>';
+
 var appEntryPoint = '<!--  main -->' +
 
     '<section id="root" class="container">' +
@@ -16,19 +69,15 @@ var appEntryPoint = '<!--  main -->' +
     '<!-- aside-menu section-->' + // aside-menu section
     '<section class="col fixed-aside-menu" id="section-aside-menu">' +
 
-
-    '<i class="fa fa-chevron-circle-down black-background" aria-hidden="true" id="aside-controler" ' +
+    '<i class="fa fa-chevron-circle-down border black-background" aria-hidden="true" id="aside-controler" ' +
     ' data-toggle="collapse" href="#aside-menu" aria-expanded="false" ' +
     'aria-controls="aside-controler"><h1>Menu</h1>' +
     '</i>' +
 
-
     '<aside id="aside-menu" class="black-background collapse overflow-aside-menu padding-2">' +
     '</aside>' +
 
-
     '</section>' +
-
 
     '</section>';
 
@@ -53,16 +102,19 @@ var formattedHTMLHeadRoot = '<!-- head  -->' +
 
     '<!-- col 1 -->' + // col 1
     '<div class="col">' +
-    '<a class="btn btn-success" href="http://danweatherbee-front-end-web-developer.com">Home</a>' +
+    '<a class="btn btn-success" href="http://danweatherbee-front-end-web-developer.com">' +
+    'My React Website' +
+    '</a>' +
     '</div>' +
 
     '<!-- col 2 -->' + // col 2
     '<div class="col">' +
-    '<a class="btn btn-success" href="https://github.com/DanWeatherbee/movie-api">Project Code</a>' +
+    '<a class="btn btn-success" href="https://github.com/DanWeatherbee/movie-api">' +
+    'Project Code' +
+    '</a>' +
     '</div>' +
 
     '</div>';
-
 
 var formattedHTMLContentRow1c = '<!-- row 1c -->' + // row 1c
     '<div class="row overview-padding">' +
@@ -70,6 +122,7 @@ var formattedHTMLContentRow1c = '<!-- row 1c -->' + // row 1c
     '<!-- col 1 -->' + // col 1
     '<div class="col">' +
     '<h2>Available Methods</h2>' +
+    formattedHTMLLinkControlerMethods +
     '</div>' +
 
     '<!-- col 2 -->' + // col 2
@@ -84,12 +137,11 @@ var formattedHTMLContentRow1c = '<!-- row 1c -->' + // row 1c
 
     '</div>';
 
-var formattedHTMLContentRow2 = '<!-- row 2 -->' + // row 2
-    '<div class="row overview-padding">' +
-
-    '<i class="fa fa-chevron-circle-down" aria-hidden="true" ' +
+var formattedHTMLContentRow2 = '<!-- row 2 methods-1-->' + // row 2
+    '<section class="row overview-padding" id="methods-1">' +
+    '<i class="fa fa-chevron-circle-down border" aria-hidden="true" ' +
     'id="btn-search-col-controler" data-toggle="collapse" href="#input-search-col" ' +
-    'aria-expanded="false" aria-controls="btn-search-col-controler"> US FDA' +
+    'aria-expanded="false" aria-controls="btn-search-col-controler"><h2>US FDA</h2>' +
     '</i>' +
 
     '<!-- col 1 -->' + // col 1
@@ -100,15 +152,15 @@ var formattedHTMLContentRow2 = '<!-- row 2 -->' + // row 2
     '<input type="text" class="form-control" id="fda-search" placeholder="Enter or click to search...">' +
     '<button id="go-fda" class="btn btn-outline-primary" type="button" onClick="API_CALLER.callSearch()">Search</button>' +
     '</section>' +
+    '</section>' +
+    '</section>';
 
-    '</div>';
+var formattedHTMLContentRow3 = '<!-- row 3 methods-2-->' + // row 3
+    '<section class="row overview-padding" id="methods-2">' +
 
-var formattedHTMLContentRow3 = '<!-- row 3 -->' + // row 3
-    '<div class="row overview-padding">' +
-
-    '<i class="fa fa-chevron-circle-down" aria-hidden="true" id="btn-rest-search-col-controler" ' +
+    '<i class="fa fa-chevron-circle-down border" aria-hidden="true" id="btn-rest-search-col-controler" ' +
     ' data-toggle="collapse" href="#rest-search-col" aria-expanded="false" ' +
-    'aria-controls="btn-rest-search-col-controler"> Nutrition X' +
+    'aria-controls="btn-rest-search-col-controler"><h2>Nutrition X</h2>' +
     '</i>' +
 
     '<!-- col 1 -->' + // col 1
@@ -122,14 +174,14 @@ var formattedHTMLContentRow3 = '<!-- row 3 -->' + // row 3
     'onClick="API_RESAURANT_LOCATIONS.callSearchRest()">Search</button>' +
     '</section>' +
 
-    '</div>';
+    '</section>';
 
-var formattedHTMLContentRow4 = '<!-- row 4 -->' + // row 4
-    '<div class="row overview-padding">' +
+var formattedHTMLContentRow4 = '<!-- row 4 methods-3-->' + // row 4
+    '<section class="row overview-padding" id="methods-3">' +
 
-    '<i class="fa fa-chevron-circle-down" aria-hidden="true" id="btn-video-search-col-controler" ' +
+    '<i class="fa fa-chevron-circle-down border" aria-hidden="true" id="btn-video-search-col-controler" ' +
     'data-toggle="collapse" href="#video-search-col" aria-expanded="false" aria-controls="' +
-    'btn-video-search-col-controler"> Youtube' +
+    'btn-video-search-col-controler"><h2>Youtube</h2>' +
     '</i>' +
 
     '<section class="col collapse" id="video-search-col">' +
@@ -145,7 +197,12 @@ var formattedHTMLContentRow4 = '<!-- row 4 -->' + // row 4
     'No results were found, please try again.</p>' +
     '</section>' +
 
-    '</div>';
+    '</section>';
+
+var formattedHTMLMethodsSection = '<!-- row 2 section-methods-row Begin -->' +
+    '<section class="row overview-padding collapse" id="section-methods-row">' + // section-methods-row Begin
+    '</section>' + // section-methods-row End ================>
+    '<!-- section-methods-row End ================> -->';
 
 var formattedHTMLContentRow5 = '<!-- row 5 -->' + // row 5
     '<div class="row overview-padding white-background">' +
@@ -173,15 +230,16 @@ var formattedHTMLContentRow6 = '<!-- row 6 -->' + // row 6
 
     '</div>' +
 
-    '<i class="fa fa-chevron-circle-down" aria-hidden="true" id="timeline-controler" ' +
+    '<i class="fa fa-chevron-circle-down border" aria-hidden="true" id="timeline-controler" ' +
     ' data-toggle="collapse" href="#content-row6" aria-expanded="false" ' +
-    'aria-controls="timeline-controler">Tweets by danFrontEndWebD' +
+    'aria-controls="timeline-controler"><h3>Tweets by danFrontEndWebD</h3>' +
     '</i>' +
 
     '</div>';
 
 var formattedHTMLContentRow7 = '<!-- row 7 -->' + // row 7
-    '<div class="row overview-padding">' +
+    formattedHTMLLinkControlerLayoutBuilder +
+    '<section class="row collapse overview-padding" id="section-row-7-layout-builder">' +
 
     '<!-- col 1 -->' + // col 1
     '<div class="col card collapse black" id="row6-col1-content">' +
@@ -223,26 +281,38 @@ var formattedHTMLContentRow7 = '<!-- row 7 -->' + // row 7
     '</textarea>' +
     '</div>' +
 
-    '</div>';
+    '</section>';
 // TODO Create cool error checking display UI --- Add all elements to DOM Object.
-var formattedHTMLArray = [
+
+var formattedHTMLArrayTop = [
     formattedHTMLHeadRoot,
     formattedHTMLContentRow1c,
-    formattedHTMLContentRow2,
-    formattedHTMLContentRow3,
-    formattedHTMLContentRow4,
+    formattedHTMLMethodsSection
+];
+var formattedHTMLArrayBottom = [
     formattedHTMLContentRow5,
     formattedHTMLContentRow6,
     formattedHTMLContentRow7
-
 ];
 
-
+// Append formatted Rows
 $('body').append(appEntryPoint);
-formattedHTMLArray.forEach(function(item) {
+
+formattedHTMLArrayTop.forEach(function(item) {
     $('#main').append(item);
 });
 
+ $('#section-methods-row').append(
+    formattedHTMLContentRow2 +
+    formattedHTMLContentRow3 +
+    formattedHTMLContentRow4
+);
+
+formattedHTMLArrayBottom.forEach(function(item) {
+    $('#main').append(item);
+});
+
+// Side menu for all methods
 $('#aside-menu-col').hide();
 $('#aside-controler').hide();
 $('#section-aside-menu').fadeOut();
