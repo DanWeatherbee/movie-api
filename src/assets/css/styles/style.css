@@ -150,11 +150,13 @@
 
 
 
+/*Text*/
 
+.txt-bold {
+    font-weight: 900;
+}
 
-
-
-/*shadows*/
+/*Shadows*/
 
 .shadow {
     -webkit-box-shadow: 10px 5px 5px 1px rgba(224, 220, 224, 1);
@@ -348,14 +350,16 @@ i {
 }
 
 .black-background {
-    background: lightgrey;
+    background: black;
 }
 
 .white-background {
     background: white;
 }
 
-
+.red-background {
+    background: red;
+}
 
 div>ol>li>a:hover {
     color: white;
@@ -365,24 +369,6 @@ div>ol>li>a:hover {
     border-color: #8e804e;
     border-radius: 66.66%;
 }
-
-.red-background {
-    background: #f1eaea;
-}
-
-.black-background {
-    background: black;
-}
-
-.white-background {
-    background: white;
-}
-
-
-
-
-
-
 
 /*grid*/
 

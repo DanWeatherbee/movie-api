@@ -289,6 +289,14 @@ var formattedHTMLArrayTop = [
     formattedHTMLContentRow1c,
     formattedHTMLMethodsSection
 ];
+
+
+var formattedHTMLMethodsMiddle = [
+    formattedHTMLContentRow2 +
+    formattedHTMLContentRow3 +
+    formattedHTMLContentRow4
+];
+
 var formattedHTMLArrayBottom = [
     formattedHTMLContentRow5,
     formattedHTMLContentRow6,
@@ -296,21 +304,22 @@ var formattedHTMLArrayBottom = [
 ];
 
 // Append formatted Rows
+
+
 $('body').append(appEntryPoint);
 
 formattedHTMLArrayTop.forEach(function(item) {
     $('#main').append(item);
 });
 
- $('#section-methods-row').append(
-    formattedHTMLContentRow2 +
-    formattedHTMLContentRow3 +
-    formattedHTMLContentRow4
-);
+formattedHTMLMethodsMiddle.forEach(function(item) {
+    $('#section-methods-row').append(item);
+});
 
 formattedHTMLArrayBottom.forEach(function(item) {
     $('#main').append(item);
 });
+
 
 // Side menu for all methods
 $('#aside-menu-col').hide();

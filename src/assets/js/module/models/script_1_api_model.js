@@ -1,6 +1,15 @@
 //Model
 
-var API = function(prefix, request, q, k, amp, format, responseArray, callType) {
+var API = function(
+    prefix,
+    request,
+    q,
+    k,
+    amp,
+    format,
+    responseArray,
+    callType
+) {
     'use strict';
     this.prefix = prefix;
     this.request = request;
