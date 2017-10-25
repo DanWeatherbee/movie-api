@@ -6,6 +6,7 @@ API.prototype.renderFDA = function(
     formattedHTMLProduct,
     header
 ) {
+
     const self = this;
     console.log(this.callType);
     console.log(this.responseArray[0].results[0]);
@@ -44,3 +45,12 @@ API.prototype.renderFDA = function(
         });
     };
 };
+
+// Allow enter key vrs btn to call the API.
+$('#fda-search').on("keypress", function(e) {
+    $(this).fadeIn();
+    if (e.which == 13) {
+        $('#go-fda').click();
+        $('#go-fda').fadeToggle(300);
+    }
+});

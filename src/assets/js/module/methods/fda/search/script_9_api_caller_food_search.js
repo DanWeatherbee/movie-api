@@ -1,18 +1,18 @@
 API.prototype.callSearch = async function() {
     'use strict';
+
     var self = this;
     dom.$err.hide();
     dom.$content.html('');
     var StartTimeMs = Date.now();
     console.log("Start Execution Time Caller Method - " + StartTimeMs + " Milliseconds");
-    console.log(dom.$fdaSearch.val());
     var API_FOOD_SEARCH = new API(
         "https://api.fda.gov/",
         "food/event.json?",
         "api_key=",
         KEY,
         "&search=",
-        dom.$fdaSearch.val()
+        $('#fda-search').val()
     );
     this.responseArray = [];
     this.callType = API_FOOD_SEARCH;
@@ -33,12 +33,3 @@ API.prototype.callSearch = async function() {
     var TotalTime = EndTimeMs - StartTimeMs;
     console.log("Total Execution Time Caller Method - " + TotalTime + " Milliseconds");
 };
-
-// Allow enter key vrs btn to call the API.
-dom.$fdaSearch.on("keypress", function(e) {
-    dom.$goFda.fadeIn();
-    if (e.which == 13) {
-        dom.$goFda.click();
-        dom.$goFda.fadeToggle(300);
-    }
-});

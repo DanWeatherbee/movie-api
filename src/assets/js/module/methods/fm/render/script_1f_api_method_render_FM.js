@@ -12,6 +12,7 @@ API.prototype.renderFM = function(
     convertedTextName,
     buttonsAsideMenu
 ) {
+
     const self = this;
     console.log(this.callType);
     console.log(this.responseArray[0].artists.artist);

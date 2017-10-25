@@ -1,10 +1,6 @@
-/*
-
-TODO REFACTOR THIS FILE INTO SEPERATE PAGES AND MODULE
-
-*/
 
 // ==============================================================>
+// TODO build panel with inputs for this.
 // Link Controler Prefab ==>  Add the id you wish to be the controler.
 var buttonId = 'btn-layout-controler';
 // Add the Id of the container or div you wish to collapse.
@@ -50,6 +46,35 @@ var formattedHTMLLinkControlerMethods = '<!-- link controler  -->' + // Link Con
     buttonName +
     '</h3>' +
     '</i>';
+
+var errPanel = '<section class="container card col green black-background border opacity-9 fixed-err-panel" id="section-err-panel">' +
+
+    '<!-- err-panel row 1-->' +
+    '<div class="row" id="err-panel-row1">' +
+
+    '<!-- err-panel-row-1-col-1 -->' +
+    '<div class="col" id="err-panel-row-1-col-1">' +
+
+    '<!--  err-panel -->' +
+    '<div class="card-body">' +
+
+    '<h4 class="card-title">' +
+    'Error Panel' +
+    '</h4>' +
+
+    '</div>' +
+
+    '<section id="err-panel" class="overview-padding txt-shadow-black red-background white border">' +
+
+    '<article class="card-text" id="section-err-panel-card-text">Error checking for content existence.</article>' +
+
+    '</section>' +
+
+    '</div>' +
+    '<a class="btn btn-outline-primary txt-bold">X</a>' +
+    '</div>' +
+
+    '</section>';
 
 var appEntryPoint = '<!--  main -->' +
 
@@ -282,46 +307,3 @@ var formattedHTMLContentRow7 = '<!-- row 7 -->' + // row 7
     '</div>' +
 
     '</section>';
-// TODO Create cool error checking display UI --- Add all elements to DOM Object.
-
-var formattedHTMLArrayTop = [
-    formattedHTMLHeadRoot,
-    formattedHTMLContentRow1c,
-    formattedHTMLMethodsSection
-];
-
-
-var formattedHTMLMethodsMiddle = [
-    formattedHTMLContentRow2 +
-    formattedHTMLContentRow3 +
-    formattedHTMLContentRow4
-];
-
-var formattedHTMLArrayBottom = [
-    formattedHTMLContentRow5,
-    formattedHTMLContentRow6,
-    formattedHTMLContentRow7
-];
-
-// Append formatted Rows
-
-
-$('body').append(appEntryPoint);
-
-formattedHTMLArrayTop.forEach(function(item) {
-    $('#main').append(item);
-});
-
-formattedHTMLMethodsMiddle.forEach(function(item) {
-    $('#section-methods-row').append(item);
-});
-
-formattedHTMLArrayBottom.forEach(function(item) {
-    $('#main').append(item);
-});
-
-
-// Side menu for all methods
-$('#aside-menu-col').hide();
-$('#aside-controler').hide();
-$('#section-aside-menu').fadeOut();

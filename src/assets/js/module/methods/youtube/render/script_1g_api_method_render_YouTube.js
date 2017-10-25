@@ -2,6 +2,7 @@ API.prototype.renderYouTube = function(
     srcID,
     formattedHTMLContent
 ) {
+
     const self = this;
     console.log(this.callType);
     console.log(this.responseArray[0].items[0].snippet['title']);
@@ -61,3 +62,12 @@ API.prototype.renderYouTube = function(
         console.log('you tube render method running');
     };
 };
+
+// Allow enter key vrs btn to call the API.
+$('#video-search').on("keypress", function(e) {
+    $('#go-video').fadeIn();
+    if (e.which == 13) {
+        $('#go-video').click();
+        $('#go-video').fadeToggle(300);
+    }
+});

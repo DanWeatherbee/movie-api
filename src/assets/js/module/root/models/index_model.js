@@ -1,6 +1,6 @@
 //Model
 
-var INDEX_RENDER_ROW = function(
+var INDEX_RENDER_ROWS = function(
     errPanel,
     row1,
     row2,
@@ -9,6 +9,13 @@ var INDEX_RENDER_ROW = function(
     row5,
     row6,
     row7,
+    row8,
+    row9,
+    row10,
+    row11,
+    row12,
+    row13,
+    row14,
     pass,
     fail
 ) {
@@ -21,6 +28,13 @@ var INDEX_RENDER_ROW = function(
     this.row5 = row5;
     this.row6 = row6;
     this.row7 = row7;
+    this.row8 = row8;
+    this.row9 = row9;
+    this.row10 = row10;
+    this.row11 = row11;
+    this.row12 = row12;
+    this.row13 = row13;
+    this.row14 = row14;
     this.pass = pass;
     this.fail = fail;
 };

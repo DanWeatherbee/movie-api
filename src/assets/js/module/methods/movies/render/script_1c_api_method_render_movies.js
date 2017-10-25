@@ -1,3 +1,16 @@
+var dom = new DOM_OBJ_ELEM(
+    $('body'),
+    $('#main'),
+    $('#content'),
+    $('#error-msg'),
+    $("#video-search"),
+    $('#aside-menu'),
+    $('#aside-controler'),
+    $('#section-aside-menu'),
+    $('#section-methods-row'),
+    $('#aside-menu-col')
+);
+
 API.prototype.renderMovies = function(
     imgUrl,
     formattedHTMLName,
@@ -11,6 +24,7 @@ API.prototype.renderMovies = function(
     convertedTextName,
     name
 ) {
+
     console.log(this.callType);
     console.log(this.responseArray);
     var self = this;

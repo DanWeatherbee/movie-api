@@ -10,7 +10,7 @@ API.prototype.callSearchRest = async function(
     var KEY = "appId=ffa2c4b5&appKey=b9914a3ffda1ac8218e155c05cb52409";
     var API_RESTERAUNT_MENU = new API(
         "https://api.nutritionix.com/v1_1/search/",
-        dom.$restMenuSearch.val(),
+        $('#rest-menu-search').val(),
         "?results=0:50&fields=item_name,brand_name,item_id,nf_calories&",
         KEY,
         "&",
@@ -36,11 +36,3 @@ API.prototype.callSearchRest = async function(
     var TotalTime = EndTimeMs - StartTimeMs;
     console.log("Total Execution Time Caller Method - " + TotalTime + " Milliseconds");
 };
-// Allow enter key vrs btn to call the API.
-dom.$restMenuSearch.on("keypress", function(e) {
-    dom.$goRest.fadeIn();
-    if (e.which == 13) {
-        dom.$goRest.click();
-        dom.$goRest.fadeToggle(300);
-    }
-});

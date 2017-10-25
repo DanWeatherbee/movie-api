@@ -45,11 +45,3 @@ API.prototype.callSearchYouTube = async function(
 
 };
 
-// Allow enter key vrs btn to call the API.
-dom.$videoSearch.on("keypress", function(e) {
-    dom.$goVideo.fadeIn();
-    if (e.which == 13) {
-        dom.$goVideo.click();
-        dom.$goVideo.fadeToggle(300);
-    }
-});

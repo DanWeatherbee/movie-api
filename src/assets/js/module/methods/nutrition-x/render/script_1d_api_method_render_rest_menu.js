@@ -7,6 +7,18 @@ API.prototype.renderNutritionRestMenu = function(
     convertText,
     convertedTextName
 ) {
+    var dom = new DOM_OBJ_ELEM(
+        $('body'),
+        $('#main'),
+        $('#content'),
+        $('#error-msg'),
+        $("#video-search"),
+        $('#aside-menu'),
+        $('#aside-controler'),
+        $('#section-aside-menu'),
+        $('#section-methods-row'),
+        $('#aside-menu-col')
+    );
     var self = this;
     console.log(this.callType);
     console.log(this.responseArray);
@@ -15,8 +27,7 @@ API.prototype.renderNutritionRestMenu = function(
         return;
     } else {
         dom.$err.hide();
-
-
+        dom.$content.html('');
         dom.$sectionAsideMenu.fadeIn();
         dom.$asideControler.fadeIn();
         dom.$asideMenu.html('');
@@ -32,15 +43,15 @@ API.prototype.renderNutritionRestMenu = function(
         this.responseArray[0].hits.forEach(function(item) {
             self.name = item.fields.item_name;
 
-                self.convertText = self.name.replace(/\s/g, "-");
-                self.convertedTextName = self.convertText.toLowerCase();
+            self.convertText = self.name.replace(/\s/g, "-");
+            self.convertedTextName = self.convertText.toLowerCase();
 
 
             self.calories = item.fields.nf_calories;
             self.score = item._score;
             self.formmatedContent = '<section class="row text-left border-10 shadow overview-padding" id="' +
-            self.convertedTextName +
-            '">' +
+                self.convertedTextName +
+                '">' +
                 '<div class="col-sm-4 blue border black-background overview-padding">' +
                 '<h4>' +
                 self.name +
@@ -77,3 +88,12 @@ API.prototype.renderNutritionRestMenu = function(
         dom.$asideMenu.prepend('<a href="#root" class="btn btn-outline-info">Top</a>');
     };
 };
+
+// Allow enter key vrs btn to call the API.
+$('#rest-menu-search').on("keypress", function(e) {
+    $('#go-rest').fadeIn();
+    if (e.which == 13) {
+        $('#go-rest').click();
+        $('#go-rest').fadeToggle(300);
+    }
+});
