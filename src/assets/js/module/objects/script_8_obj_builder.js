@@ -1,14 +1,15 @@
+// https://getbootstrap.com/docs/4.0/components/card/
 this.card = '<!-- section-card-demo root col-->' + // section-card-demo col
     '<section class="container card col green border" id="section-card-demo">' +
-    '<em>Card Demo Body</em>' +
+    '<img class="card-img-top" src="..." alt="Card image cap">' +
     '<!--  card-demo-body -->' +
-    '<div class="card-demo-body">' +
-
-    '<h4 class="card-demo-title">' +
+    '<div class="card-body">' +
+    '<img class="card-img-top img-thumbnail" src="assets/images/profile-pic.jpg" alt="Card image profile pic">' +
+    '<h4 class="card-title">' +
     'Card Demo Title' +
     '</h4>' +
-    '<p>Card Demo Content text goes here...</p>' +
-    '<a class="btn btn-outline-success">Card Demo Button</a>' +
+    '<p class="card-text">Card Demo Content text goes here...</p>' +
+    '<a href="https://getbootstrap.com/docs/4.0/components/card/" class="btn btn-outline-primary">Bootstrap 4 Card Code</a>' +
 
     '</div>' +
 

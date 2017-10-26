@@ -1,3 +1,12 @@
+
+// TODO Build catch list.
+try {
+    formattedHTMLContentRow6;
+}
+catch(err) {
+    formattedHTMLContentRow6 = '<h1>formattedHTMLContentRow6 was not defined!</h1>';
+};
+
 var indexRender = new INDEX_RENDER_ROWS(
     errPanel,
     '<!-- row1 -->' +
@@ -16,11 +25,11 @@ var indexRender = new INDEX_RENDER_ROWS(
     formattedHTMLContentRow4,
     '<!-- row8 -->' +
     formattedHTMLContentRow5,
-    '<!-- row9 -->' +
-    formattedHTMLContentRow6,
+    '<!-- row9 -->',
     '<!-- row10 -->' +
     formattedHTMLContentRow7,
-    '<!-- row11 -->',
+    '<!-- row11 -->' +
+    formattedHTMLContentRow8,
     '<!-- row12 -->',
     '<!-- row13 -->',
     '<!-- row14 -->',
