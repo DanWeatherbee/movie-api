@@ -7,22 +7,11 @@ API.prototype.renderNutritionRestMenu = function(
     convertText,
     convertedTextName
 ) {
-    var dom = new DOM_OBJ_ELEM(
-        $('body'),
-        $('#main'),
-        $('#content'),
-        $('#error-msg'),
-        $("#video-search"),
-        $('#aside-menu'),
-        $('#aside-controler'),
-        $('#section-aside-menu'),
-        $('#section-methods-row'),
-        $('#aside-menu-col')
-    );
+
     var self = this;
     console.log(this.callType);
     console.log(this.responseArray);
-    $('#section-aside-menu').fadeOut();
+    dom.$sectionAsideMenu.fadeOut();
     if (this.responseArray[0].hits === undefined) {
         return;
     } else {
@@ -88,12 +77,12 @@ API.prototype.renderNutritionRestMenu = function(
         dom.$asideMenu.prepend('<a href="#root" class="btn btn-outline-info">Top</a>');
     };
 };
-
+var dom = new DOM_OBJ_ELEM();
 // Allow enter key vrs btn to call the API.
-$('#rest-menu-search').on("keypress", function(e) {
-    $('#go-rest').fadeIn();
+dom.$restMenuSearch.on("keypress", function(e) {
+    dom.$goRest.fadeIn();
     if (e.which == 13) {
-        $('#go-rest').click();
-        $('#go-rest').fadeToggle(300);
+        dom.$goRest.click();
+        dom.$goRest.fadeToggle(300);
     }
 });

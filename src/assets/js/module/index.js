@@ -19,7 +19,7 @@ var buttonId,
     formattedHTMLContentRow8;
 
 
-// TODO build panel with inputs for this.
+// TODO build a model and panel with inputs for this.
 // Link Controler Prefab ==>  Add the id you wish to be the controler.
 buttonId = 'btn-layout-controler';
 // Add the Id of the container or div you wish to collapse.

@@ -69,11 +69,12 @@ API.prototype.renderYouTube = function(
     };
 };
 
+var domVideo = new DOM_OBJ_ELEM();
 // Allow enter key vrs btn to call the API.
-$('#video-search').on("keypress", function(e) {
-    $('#go-video').fadeIn();
+domVideo.$videoSearch.on("keypress", function(e) {
+    domVideo.$goVideo.fadeIn();
     if (e.which == 13) {
-        $('#go-video').click();
-        $('#go-video').fadeToggle(300);
+        domVideo.$goVideo.click();
+        domVideo.$goVideo.fadeToggle(300);
     }
 });

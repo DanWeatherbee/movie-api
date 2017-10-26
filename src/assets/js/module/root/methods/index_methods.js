@@ -1,3 +1,4 @@
+var dom = new DOM_OBJ_ELEM();
 // Render panel and append to body.
 dom.$body.prepend(indexRender.errPanel);
 var $panel = $('#section-err-panel-card-text');
@@ -14,8 +15,9 @@ if (indexRender.row1 === "<!-- row1 -->") {
 } else {
     $panel.append('<h4>row1 appEntryPoint has been rendered.<h4>' +
         indexRender.pass);
-    $('body').append(appEntryPoint);
+    dom.$body.append(appEntryPoint);
 };
+dom = new DOM_OBJ_ELEM();
 
 if (indexRender.row2 === "<!-- row2 -->") {
     $panel.append('<h4>row2 is empty.</h4>' +
@@ -23,7 +25,7 @@ if (indexRender.row2 === "<!-- row2 -->") {
 } else {
     $panel.append('<h4>row2 formattedHTMLHeadRoot has been rendered.</h4>' +
         indexRender.pass);
-    $('#main').append(formattedHTMLHeadRoot);
+    dom.$main.append(formattedHTMLHeadRoot);
 };
 
 if (indexRender.row3 === "<!-- row3 -->") {
@@ -32,7 +34,7 @@ if (indexRender.row3 === "<!-- row3 -->") {
 } else {
     $panel.append('<h4>row3 formattedHTMLContentRow1c has been rendered.</h4>' +
         indexRender.pass);
-    $('#main').append(formattedHTMLContentRow1c);
+    dom.$main.append(formattedHTMLContentRow1c);
 };
 
 if (indexRender.row4 === "<!-- row4 -->") {
@@ -41,8 +43,9 @@ if (indexRender.row4 === "<!-- row4 -->") {
 } else {
     $panel.append('<h4>row4 formattedHTMLMethodsSection has been rendered.</h4>' +
         indexRender.pass);
-    $('#main').append(formattedHTMLMethodsSection);
+    dom.$main.append(formattedHTMLMethodsSection);
 };
+dom = new DOM_OBJ_ELEM();
 
 if (indexRender.row5 === "<!-- row5 -->") {
     $panel.append('<h4>row5 is empty.</h4>' +
@@ -50,7 +53,7 @@ if (indexRender.row5 === "<!-- row5 -->") {
 } else {
     $panel.append('<h4>row5 formattedHTMLContentRow2 has been rendered.</h4>' +
         indexRender.pass);
-    $('#section-methods-row').append(formattedHTMLContentRow2);
+    dom.$sectionMethodsRow.append(formattedHTMLContentRow2);
 };
 
 if (indexRender.row6 === "<!-- row6 -->") {
@@ -59,7 +62,7 @@ if (indexRender.row6 === "<!-- row6 -->") {
 } else {
     $panel.append('<h4>row6 formattedHTMLContentRow3 has been rendered.</h4>' +
         indexRender.pass);
-    $('#section-methods-row').append(formattedHTMLContentRow3);
+    dom.$sectionMethodsRow.append(formattedHTMLContentRow3);
 };
 
 if (indexRender.row7 === "<!-- row7 -->") {
@@ -68,7 +71,7 @@ if (indexRender.row7 === "<!-- row7 -->") {
 } else {
     $panel.append('<h4>row7 formattedHTMLContentRow4 has been rendered.</h4>' +
         indexRender.pass);
-    $('#section-methods-row').append(formattedHTMLContentRow4);
+    dom.$sectionMethodsRow.append(formattedHTMLContentRow4);
 };
 
 if (indexRender.row8 === "<!-- row8 -->") {
@@ -77,7 +80,7 @@ if (indexRender.row8 === "<!-- row8 -->") {
 } else {
     $panel.append('<h4>row8 formattedHTMLContentRow5 has been rendered.</h4>' +
         indexRender.pass);
-    $('#main').append(formattedHTMLContentRow5);
+    dom.$main.append(formattedHTMLContentRow5);
 };
 
 if (indexRender.row9 === "<!-- row9 -->") {
@@ -86,7 +89,7 @@ if (indexRender.row9 === "<!-- row9 -->") {
 } else {
     $panel.append('<h4>row9 formattedHTMLContentRow6 has been rendered.' +
         indexRender.pass);
-    $('#main').append(formattedHTMLContentRow6);
+    dom.$main.append(formattedHTMLContentRow6);
 };
 
 if (indexRender.row10 === "<!-- row10 -->") {
@@ -95,10 +98,10 @@ if (indexRender.row10 === "<!-- row10 -->") {
 } else {
     $panel.append('<h4>row10 formattedHTMLContentRow7 has been rendered.</h4>' +
         indexRender.pass);
-    $('#main').append(formattedHTMLContentRow7);
-    $('#aside-menu-col').hide();
-    $('#aside-controler').hide();
-    $('#section-aside-menu').fadeOut();
+    dom.$main.append(formattedHTMLContentRow7);
+    dom.$asideMenuCol.hide();
+    dom.$asideControler.hide();
+    dom.$sectionAsideMenu.fadeOut();
 };
 
 if (indexRender.row11 === "<!-- row11 -->") {
@@ -107,7 +110,7 @@ if (indexRender.row11 === "<!-- row11 -->") {
 } else {
     $panel.append('<h4>row11 has been rendered.</h4>' +
         indexRender.pass);
-     $('#main').append(formattedHTMLContentRow8);
+    dom.$main.append(formattedHTMLContentRow8);
 };
 
 if (indexRender.row12 === "<!-- row12 -->") {
@@ -138,6 +141,6 @@ $('#section-err-panel').on("click", function() {
     $(this).fadeOut();
 });
 
-$('#section-aside-menu-close').on("click", function() {
-    $('#section-aside-menu').fadeOut();
+dom.$sectionAsideMenuClose.on("click", function() {
+    dom.$sectionAsideMenu.fadeOut();
 });

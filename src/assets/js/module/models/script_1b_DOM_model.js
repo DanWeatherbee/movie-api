@@ -10,30 +10,25 @@ var DOM_OBJ_ELEM = function(
     $asideControler,
     $sectionAsideMenu,
     $sectionMethodsRow,
-    $asideMenuCol
+    $asideMenuCol,
+    $sectionAsideMenuClose,
+    $restMenuSearch,
+    $goRest,
+    $goVideo
 ) {
     'use strict';
-    this.$body = $body;
-    this.$main = $main;
-    this.$content = $content;
-    this.$err = $err;
-    this.$videoSearch = $videoSearch;
-    this.$asideMenu = $asideMenu;
-    this.$asideControler = $asideControler;
-    this.$sectionAsideMenu = $sectionAsideMenu;
-    this.$sectionMethodsRow = $sectionMethodsRow;
-    this.$asideMenuCol = $asideMenuCol;
+    this.$body = $('body');
+    this.$main = $('#main');
+    this.$content = $('#content');
+    this.$err = $('#error-msg');
+    this.$videoSearch = $("#video-search");
+    this.$asideMenu = $('#aside-menu');
+    this.$asideControler = $('#aside-controler');
+    this.$sectionAsideMenu = $('#section-aside-menu');
+    this.$sectionMethodsRow = $('#section-methods-row');
+    this.$asideMenuCol = $('#aside-menu-col');
+    this.$sectionAsideMenuClose = $('#section-aside-menu-close');
+    this.$restMenuSearch = $('#rest-menu-search');
+    this.$goRest = $('#go-rest');
+    this.$goVideo = $('#go-video');
 };
-
-// var dom = new DOM_OBJ_ELEM(
-//     $('body'),
-//     $('#main'),
-//     $('#content'),
-//     $('#error-msg'),
-//     $("#video-search"),
-//     $('#aside-menu'),
-//     $('#aside-controler'),
-//     $('#section-aside-menu'),
-//     $('#section-methods-row'),
-//     $('#aside-menu-col')
-// );
