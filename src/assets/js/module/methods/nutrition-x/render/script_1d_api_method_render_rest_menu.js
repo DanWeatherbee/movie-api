@@ -4,11 +4,11 @@ API.prototype.renderNutritionRestMenu = function(
     score,
     formmatedHeader,
     formmatedContent,
-    convertText,
-    convertedTextName
+    linkId
 ) {
 
     var self = this;
+    self.linkId = 1;
     console.log(this.callType);
     console.log(this.responseArray);
     dom.$sectionAsideMenu.fadeOut();
@@ -31,15 +31,10 @@ API.prototype.renderNutritionRestMenu = function(
         dom.$content.append(self.formmatedHeader);
         this.responseArray[0].hits.forEach(function(item) {
             self.name = item.fields.item_name;
-
-            self.convertText = self.name.replace(/\s/g, "-");
-            self.convertedTextName = self.convertText.toLowerCase();
-
-
             self.calories = item.fields.nf_calories;
             self.score = item._score;
             self.formmatedContent = '<section class="row text-left border-10 shadow overview-padding" id="' +
-                self.convertedTextName +
+                'aside-' + self.linkId +
                 '">' +
                 '<div class="col-sm-4 blue border black-background overview-padding">' +
                 '<h4>' +
@@ -62,14 +57,13 @@ API.prototype.renderNutritionRestMenu = function(
 
             // aside menu for movies and fm.
 
-            self.buttonsAsideMenu = '<a href="#' +
-                self.convertedTextName +
-                '" class="btn btn-outline-success" id="aside-menu-btn-' +
-                self.convertedTextName +
-                '">' +
+            self.buttonsAsideMenu = '<a href="#aside-' +
+                self.linkId +
+                '" class="btn btn-outline-success" id="btn-aside-' +
+                self.linkId + '">' +
                 self.name +
                 '</a>';
-
+                self.linkId++
             dom.$asideMenu.append(self.buttonsAsideMenu);
             dom.$content.append(self.formmatedContent);
         });

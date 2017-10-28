@@ -7,15 +7,17 @@ API.prototype.renderYouTube = function(
     titleArray,
     dataTitles,
     descriptionArray,
-    dataFormattedContainer
+    dataFormattedContainer,
+    elemId,
+    elemIdArray
 ) {
-
     const self = this;
     console.log(this.callType);
     console.log(this.responseArray[0].items[0].snippet['title']);
     self.titleArray = [];
     self.descriptionArray = [];
     self.videoArray = [];
+    self.elemIdArray = [];
     dom.$content.html('');
     dom.$sectionAsideMenu.fadeIn();
     dom.$asideControler.fadeIn();
@@ -29,17 +31,20 @@ API.prototype.renderYouTube = function(
         } else {
             dom.$err.hide();
             self.id = 1;
+
             this.responseArray[0].items.forEach(function(item) {
+                self.elemId = '#section-card-youtube-video-' +
+                    self.id;
 
                 self.dataVideoIframe = '<iframe src="https://www.youtube.com/embed/' +
                     item.id['videoId'] +
-                    '" alt="Card image cap"' +
                     '" frameborder="0" allowfullscreen></iframe>';
 
                 self.dataFormattedContainer = '<!-- section-card-youtube-video col-->' +
-                    '<section class="container card card-width col overview-padding border" id="section-card-youtube-video">' +
-
-                    // '<img class="card-img-top" src="..." alt="Card image cap">' +
+                    '<section class="container card card-width col overview-padding border" ' +
+                    'id="section-card-youtube-video-' +
+                    self.id +
+                    '">' +
                     self.dataVideoIframe +
                     '<!--  card-demo-body -->' +
                     '<div class="card-body green-background ">' +
@@ -52,22 +57,33 @@ API.prototype.renderYouTube = function(
                     item.snippet['description'] +
                     '</p>' +
 
-                    // '<a class="btn btn-outline-primary">' +
-                    // 'Card Demo Button' +
-                    // '</a>' +
-
                     '</div>' +
 
                     '</section>' +
                     '<br />';
-
+                self.elemIdArray.push(self.elemId);
                 dom.$asideMenu.append(self.dataFormattedContainer);
                 self.id++;
             });
         };
+        console.log(self.elemIdArray);
+
+        self.elemIdArray.forEach(function(item) {
+            $(item).on("click", function(){
+                console.log(this.children[0]);
+                if (this.children[0] === undefined) {
+                    $(this).fadeOut();
+                    return;
+                };
+                dom.$content.append(this.children[0]);
+            });
+
+        });
         console.log('you tube render method running');
     };
 };
+
+
 
 var domVideo = new DOM_OBJ_ELEM();
 // Allow enter key vrs btn to call the API.
