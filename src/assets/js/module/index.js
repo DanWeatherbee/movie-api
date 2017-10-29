@@ -118,7 +118,7 @@ appEntryPoint = '<!--  main -->' +
     '<div class="row gradient-blue-bar">' +
 
     '<!-- col 1 -->' + // col 1
-    '<section class="col border" id="section-row-1a">' +
+    '<section class="col" id="section-row-1a">' +
     '<!-- head  -->' +
     '<section id="main">' +
     '<!--  content -->' +
@@ -148,14 +148,23 @@ formattedHTMLHeadRoot = '<!-- head  -->' +
     '<div class="row overview-padding gradient-linear-green border-5-color-dark-green-rad-15">' +
 
     '<!-- col 1 -->' + // col 1
-    '<a href="/"><div class="col txt-shadow-black white">' +
-    '<h4>' +
-    'Developer Dan Weatherbee' +
-    '</h4>' +
-    '<h1>' +
+    '<div class="col">' +
+
+    '<h1 class="txt-shadow-black">' +
     'Api Prefab Class BETA V 1.0' +
     '</h1>' +
-    '</div></a>' +
+
+    '<small class="text-muted white-background">' +
+    'Developer Dan Weatherbee' +
+    '</small>' +
+    '<img id="profile-pic" class="rounded-circle shadow" src="assets/images/profile-pic.jpg" />' +
+    '</div>' +
+
+    '<!-- col 2 -->' + // col 2
+    '<div class="col">' +
+    '<img src="assets/images/desktop.png" class="img-responsive" />' +
+    '<br /><p class="txt-shadow-black">This App is Mobile friendly.<i class="fa fa-check-square" aria-hidden="true"></i></p>'
+    '</div>' +
 
     '</div>' +
 
@@ -182,17 +191,18 @@ formattedHTMLContentRow1c = '<!-- row methods dropdown list 1c -->' + // row 1c
     '<div class="row overview-padding">' +
 
     '<!-- col 1 -->' + // col 1
-
-    '<div class="col animate">' +
-
-    '<select autofocus id="calltype" name="call" onChange="API_CALLER.call()">' +
+    '<div class="col-6 animate">' +
+    '<select autofocus class="form-control" id="calltype" name="call" onChange="API_CALLER.call()">' +
     '<option value="none">Choose Call Type</option>' +
     '<option value="API_CALL_MOVIES_THEATERS">Movies in Theaters</option>' +
     '<option value="API_CALL_TV_POPULAR">Popular Tv</option>' +
     '<option value="API_FM">Top Artists</option>' +
     '</select>' +
-    formattedHTMLLinkControlerLayoutMethods +
+    '</div>' +
 
+    '<!-- col 2 -->' + // col 2
+    '<div class="col-6 animate">' +
+    formattedHTMLLinkControlerLayoutMethods +
     '</div>' +
 
     '</div>';
