@@ -14,7 +14,18 @@ var DOM_OBJ_ELEM = function(
     $sectionAsideMenuClose,
     $restMenuSearch,
     $goRest,
-    $goVideo
+    $goVideo,
+    $layoutBuilderContent,
+    $btnCardCreate,
+    $btnRowCreate,
+    $codeBox,
+    $btnColCreate,
+    $sectionCardDemo,
+    $btnNavbarCreate,
+    $btnCarouselCreate,
+    $cardDemoRow1,
+    $sectionErrPanel,
+    $sectionErrPanelCardText
 ) {
     'use strict';
     this.$body = $('body');
@@ -31,4 +42,15 @@ var DOM_OBJ_ELEM = function(
     this.$restMenuSearch = $('#rest-menu-search');
     this.$goRest = $('#go-rest');
     this.$goVideo = $('#go-video');
+    this.$layoutBuilderContent = $('#layout-builder-content');
+    this.$btnCardCreate = $('#btn-card-create');
+    this.$btnRowCreate = $('#btn-row-create');
+    this.$codeBox = $('#code-box');
+    this.$btnColCreate = $('#btn-col-create');
+    this.$sectionCardDemo = $('#section-card-demo');
+    this.$btnNavbarCreate = $('#btn-navbar-create');
+    this.$btnCarouselCreate = $('#btn-carousel-create');
+    this.$cardDemoRow1 = $('#card-demo-row1');
+    this.$sectionErrPanel = $('#section-err-panel');
+    this.$sectionErrPanelCardText = $('#section-err-panel-card-text');
 };

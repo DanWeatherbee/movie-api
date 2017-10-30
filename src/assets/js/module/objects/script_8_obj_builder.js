@@ -252,6 +252,29 @@ this.carouselBody = '<!-- carousel-body -->' + // carousel-body
     '<span class="sr-only">Next</span>' +
     '</a>' +
     '</div>';
+
+//  Error checking -- you can wipe code out above and this will pick it up.
+API.prototype.errChecking = function(check) {
+    if (!check) {
+        alert('One or more of the Variables are ' +
+            check +
+            ' on obj_builder.js, Layout Builder will not work!');
+    }
+};
+var varify = new API();
+var varArray = [
+    this.card,
+    this.row,
+    this.col,
+    this.nav,
+    this.carousel,
+    this.cardBody,
+    this.navBody,
+    this.carouselBody
+];
+varArray.forEach(function(item) {
+    varify.errChecking(item);
+});
 var builder = new LAYOUT_BUILDER_OBJ(
     card,
     row,
@@ -262,6 +285,4 @@ var builder = new LAYOUT_BUILDER_OBJ(
     navBody,
     carouselBody
 );
-
-
 console.log(builder);

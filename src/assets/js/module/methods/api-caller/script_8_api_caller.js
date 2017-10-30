@@ -65,3 +65,4 @@ API.prototype.call = async function(
     var TotalTime = EndTimeMs - StartTimeMs;
     console.log("Total Execution Time Caller Method - " + TotalTime + " Milliseconds");
 };
+

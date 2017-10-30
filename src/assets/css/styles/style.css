@@ -120,12 +120,6 @@
 #profile-pic {
     max-width: 50px;
     max-height: 50px;
-    /* Rotate div */
-    -ms-transform: rotate(-60deg);
-    /* IE 9 */
-    -webkit-transform: rotate(-60deg);
-    /* Chrome, Safari, Opera */
-    transform: rotate(-60deg);
 }
 
 .animate {
@@ -461,12 +455,10 @@ div>ol>li>a:hover {
 
 .row {
     background-color: black;
-    -webkit-animation: mymove 1s ease;
-    /* Safari 4.0 - 8.0 */
-    animation: mymove 1s ease;
     color: white;
 }
 
+.row,
 .col {
     -webkit-animation: mymove 1s ease;
     /* Safari 4.0 - 8.0 */

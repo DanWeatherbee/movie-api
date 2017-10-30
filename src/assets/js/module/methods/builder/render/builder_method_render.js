@@ -1,44 +1,65 @@
-
-
+var fadeFactor500 = 500;
 LAYOUT_BUILDER_OBJ.prototype.createCard = function() {
     dom.$content.html('');
     dom.$sectionAsideMenu.fadeOut();
-    $('#layout-builder-content').append(this.card);
-    $('#code-box').html(this.card);
-    $('#btn-card-create').hide();
-    $('#btn-row-create').show();
-    console.log('create card is working.');
+    dom.$layoutBuilderContent.append(this.card);
+    dom.$codeBox.html(this.card);
+    dom.$btnCardCreate.fadeOut(fadeFactor500);
+    dom.$btnRowCreate.fadeIn(fadeFactor500);
+    dom.$sectionErrPanel.fadeIn(fadeFactor500);
+    dom.$sectionErrPanelCardText.prepend(
+        '<h4>Create Card Method </h4>' +
+        indexRender.pass
+    );
 };
 
 LAYOUT_BUILDER_OBJ.prototype.createRow = function() {
-    $('#section-card-demo').append(this.row);
-    $('#code-box').html(this.row);
-    $('#btn-row-create').hide();
-    $('#btn-col-create').show();
-    console.log('create row is working.');
+    dom.$sectionCardDemo.append(this.row);
+    dom.$codeBox.html(this.row);
+    dom.$btnRowCreate.fadeOut(fadeFactor500);
+    dom.$btnColCreate.fadeIn(fadeFactor500);
+    dom.$sectionErrPanel.fadeIn(fadeFactor500);
+    dom.$sectionErrPanelCardText.prepend(
+        '<h4>Create Row Method </h4>' +
+        indexRender.pass
+    );
 };
 
 LAYOUT_BUILDER_OBJ.prototype.createCol = function() {
-    $('#card-demo-row1').append(this.col);
-    $('#code-box').html(this.col);
-    $('#btn-col-create').hide();
-    $('#btn-navbar-create').show();
-    console.log('create col is working.');
+    dom.$cardDemoRow1.append(this.col);
+    dom.$codeBox.html(this.col);
+    dom.$btnColCreate.fadeOut(fadeFactor500);
+    dom.$btnNavbarCreate.fadeIn(fadeFactor500);
+        dom.$sectionErrPanel.fadeIn(fadeFactor500);
+    dom.$sectionErrPanelCardText.prepend(
+        '<h4>Create Col Method </h4>' +
+        indexRender.pass
+    );
 };
 
 LAYOUT_BUILDER_OBJ.prototype.createNav = function() {
-    console.log('create nav is working.');
-    $('#code-box').html(this.nav);
-    $('#section-card-demo').prepend(this.nav);
+
+    dom.$codeBox.html(this.nav);
+    dom.$sectionCardDemo.prepend(this.nav);
     dom.$body.prepend(this.navBody);
-    $('#btn-navbar-create').hide();
-    $('#btn-carousel-create').show();
+    dom.$btnNavbarCreate.fadeOut(fadeFactor500);
+    dom.$btnCarouselCreate.fadeIn(fadeFactor500);
+        dom.$sectionErrPanel.fadeIn(fadeFactor500);
+    dom.$sectionErrPanelCardText.prepend(
+        '<h4>Create Nav Method </h4>' +
+        indexRender.pass
+    );
 };
 
 LAYOUT_BUILDER_OBJ.prototype.createCarousel = function() {
     console.log('create carousel is working.');
-    $('#section-card-demo').prepend(this.carousel);
+    dom.$sectionCardDemo.prepend(this.carousel);
     dom.$body.prepend(this.carouselBody);
-    $('#code-box').html(this.carousel);
-    $('#btn-carousel-create').hide();
+    dom.$codeBox.html(this.carousel);
+    dom.$btnCarouselCreate.fadeOut(fadeFactor500);
+        dom.$sectionErrPanel.fadeIn(fadeFactor500);
+    dom.$sectionErrPanelCardText.prepend(
+        '<h4>Create Carousel Method </h4>' +
+        indexRender.pass
+    );
 };
