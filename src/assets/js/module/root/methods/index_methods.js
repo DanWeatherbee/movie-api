@@ -137,10 +137,20 @@ if (indexRender.row14 === "<!-- row14 -->") {
         indexRender.pass);
 };
 
-$('#section-err-panel').on("click", function() {
+dom.$sectionErrPanel.on("click", function() {
     $(this).fadeOut();
 });
-
+dom.$sectionAsideMenuOpen.hide();
 dom.$sectionAsideMenuClose.on("click", function() {
-    dom.$sectionAsideMenu.fadeOut();
+    dom.$sectionAsideMenuOpen.fadeIn(500);
+    $(this).fadeOut(500);
+    dom.$sectionAsideMenu.removeClass('maximize-menu');
+    dom.$sectionAsideMenu.addClass('minimize-menu');
+});
+
+dom.$sectionAsideMenuOpen.on("click", function() {
+    dom.$sectionAsideMenuClose.fadeIn(500);
+    $(this).fadeOut(500);
+    dom.$sectionAsideMenu.removeClass('minimize-menu');
+    dom.$sectionAsideMenu.addClass('maximize-menu');
 });

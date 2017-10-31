@@ -25,7 +25,8 @@ var DOM_OBJ_ELEM = function(
     $btnCarouselCreate,
     $cardDemoRow1,
     $sectionErrPanel,
-    $sectionErrPanelCardText
+    $sectionErrPanelCardText,
+    $sectionAsideMenuOpen
 ) {
     'use strict';
     this.$body = $('body');
@@ -53,4 +54,5 @@ var DOM_OBJ_ELEM = function(
     this.$cardDemoRow1 = $('#card-demo-row1');
     this.$sectionErrPanel = $('#section-err-panel');
     this.$sectionErrPanelCardText = $('#section-err-panel-card-text');
+    this.$sectionAsideMenuOpen = $('#section-aside-menu-open');
 };

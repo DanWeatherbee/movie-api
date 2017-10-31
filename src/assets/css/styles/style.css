@@ -14,6 +14,7 @@
 
 
 
+
 /*Card Style*/
 
 .card-width {
@@ -25,11 +26,13 @@
 
 
 
+
 /*Opacity*/
 
 .opacity-9 {
     opacity: .7;
 }
+
 
 
 
@@ -58,6 +61,7 @@
 
 
 
+
 /* Standard syntax */
 
 @keyframes mymove {
@@ -74,6 +78,7 @@
         top: 100px;
     }
 }
+
 
 
 
@@ -106,6 +111,7 @@
 
 
 
+
 /*carousel*/
 
 .w-100 {
@@ -133,6 +139,7 @@
 
 
 
+
 /*hide builder buttons*/
 
 #btn-row-create,
@@ -141,6 +148,7 @@
 #btn-carousel-create {
     display: none;
 }
+
 
 
 
@@ -160,6 +168,7 @@
 
 
 
+
 /* nav */
 
 .fixed-nav {
@@ -169,6 +178,7 @@
     top: 0;
     opacity: .9;
 }
+
 
 
 
@@ -192,11 +202,13 @@
 
 
 
+
 /*Text*/
 
 .txt-bold {
     font-weight: 900;
 }
+
 
 
 
@@ -223,6 +235,7 @@
 
 
 
+
 /*Gradients*/
 
 .gradient-blue-circle {
@@ -236,6 +249,7 @@
     background-image: repeating-radial-gradient(circle 10em at left top, rgb(172, 205, 212) 0%, rgb(24, 154, 177) 50%, rgb(8, 123, 149) 51%, rgb(112, 192, 209) 100%);
     background-image: -ms-repeating-radial-gradient(left top, 10em 10em, rgb(172, 205, 212) 0%, rgb(24, 154, 177) 50%, rgb(8, 123, 149) 51%, rgb(112, 192, 209) 100%);
 }
+
 
 
 
@@ -268,6 +282,7 @@ screen\9 {
 
 
 
+
 /* IE8- CSS hack */
 
 @media \0screen\,
@@ -294,6 +309,7 @@ screen\9 {
 
 
 
+
 /* IE8- CSS hack */
 
 @media \0screen\,
@@ -302,6 +318,7 @@ screen\9 {
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff7fff9e", endColorstr="#ff0094ae", GradientType=0);
     }
 }
+
 
 
 
@@ -333,6 +350,7 @@ screen\9 {
 
 
 
+
 /*aside menu*/
 
 .fixed-aside-menu {
@@ -340,9 +358,17 @@ screen\9 {
     z-index: 1;
 }
 
-#section-aside-menu {
-    height: 100%;
+.minimize-menu {
+    width: 20%;
+    height: 20%;
+}
+
+.maximize-menu {
+    height: 80%;
     width: 250px;
+}
+
+#section-aside-menu {
     top: 0;
     right: 0;
     opacity: .9;
@@ -359,9 +385,11 @@ i {
 
 
 
+
 /*Links*/
 
-.fa-times-circle-o:hover {
+.fa-bars:hover,
+.fa-window-minimize:hover {
     background-color: red;
     color: black;
     border-radius: 0%;
@@ -375,12 +403,14 @@ i {
     text-shadow: 1px 2px 1px black;
 }
 
+.fa-bars,
 .fa-chevron-circle-down,
-.fa-times-circle-o {
+.fa-window-minimize {
     border-radius: 100%;
     font-size: 2em;
     padding: 5%;
 }
+
 
 
 
@@ -395,6 +425,7 @@ i {
 .padding-2 {
     padding: 2%;
 }
+
 
 
 
@@ -451,6 +482,7 @@ div>ol>li>a:hover {
 
 
 
+
 /*grid*/
 
 .row {
@@ -463,11 +495,4 @@ div>ol>li>a:hover {
     -webkit-animation: mymove 1s ease;
     /* Safari 4.0 - 8.0 */
     animation: mymove 1s ease;
-}
-
-@media screen and (max-width: 500px) {
-    #section-aside-menu {
-        height: 99%;
-        min-width: 260px;
-    }
 }

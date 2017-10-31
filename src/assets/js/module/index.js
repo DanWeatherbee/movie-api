@@ -126,19 +126,24 @@ appEntryPoint = '<!--  main -->' +
     '</section>' +
 
     '<!-- aside-menu section-->' + // aside-menu section
-    '<section class="col fixed-aside-menu green-background border" id="section-aside-menu">' +
+    '<section class="col fixed-aside-menu green-background border maximize-menu" id="section-aside-menu">' +
 
     '<i class="fa fa-chevron-circle-down border black-background" aria-hidden="true" id="aside-controler" ' +
     ' data-toggle="collapse" href="#aside-menu" aria-expanded="false" ' +
     'aria-controls="aside-controler"><h5>Menu</h5>' +
-    '</i>' +
+    '</i><br /><br />' +
     '<aside id="aside-menu" class="black-background collapse overflow-aside-menu padding-2">' +
     '</aside>' +
-    '<br />' +
+
     '<a id="section-aside-menu-close">' +
-    '<i class="fa fa-times-circle-o border overview-padding black-background" aria-hidden="true">' +
+    '<i class="fa fa-window-minimize border overview-padding black-background" aria-hidden="true">' +
     '</i>' +
     '</a>' +
+    '<a id="section-aside-menu-open">' +
+    '<i class="fa fa-bars border overview-padding black-background" aria-hidden="true">' +
+    '</i>' +
+    '</a>' +
+
     '</section>' +
 
     '</section>';
@@ -158,6 +163,11 @@ formattedHTMLHeadRoot = '<!-- head  -->' +
     'Developer Dan Weatherbee' +
     '</small>' +
     '<img id="profile-pic" class="rounded-circle shadow" src="assets/images/profile-pic.jpg" />' +
+    '<br />' +
+    '<a class="btn btn-success" href="http://danweatherbee-front-end-web-developer.com">My Website</a>' +
+    '<br /><br />' +
+    '<a class="btn btn-success" href="https://github.com/DanWeatherbee/movie-api">Github</a>' +
+
     '</div>' +
 
     '<!-- col 2 -->' + // col 2
