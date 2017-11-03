@@ -14,6 +14,17 @@ API.prototype.renderMovies = function(
 
     console.log(this.callType);
     console.log(this.responseArray);
+    console.log("idArray line 17 movie method.");
+
+    var callerId = new API();
+    this.responseArray[0].results.forEach(function(item) {
+        callerId.idArray.push(item.id);
+    });
+    console.log("callerId.idArray line 23 movie render");
+
+    // TODO this is for the new video search function -- an array of id's.
+    console.log(callerId.idArray);
+
     var self = this;
     self.imgUrl = "https://image.tmdb.org/t/p/w500";
     self.elemIdArray = [];

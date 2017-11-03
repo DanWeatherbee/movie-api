@@ -13,4 +13,16 @@ var API_CALL_MOVIES_THEATERS = new API(
     "&",
     "format=json"
 );
+
+var movieId = "";
+var API_CALL_MOVIES_THEATERS_VIDEOS = new API(
+    "https://api.themoviedb.org/3/movie/",
+    movieId,
+    "?",
+    "api_key=06f6d11f6cf9b366cb459ecbdfdc75a3",
+    "&append_to_response=videos&",
+    "format=json"
+);
+
 console.log(API_CALL_MOVIES_THEATERS);
+console.log(API_CALL_MOVIES_THEATERS_VIDEOS);

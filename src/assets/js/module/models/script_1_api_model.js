@@ -8,7 +8,8 @@ var API = function(
     amp,
     format,
     responseArray,
-    callType
+    callType,
+    idArray
 ) {
     'use strict';
     this.prefix = prefix;
@@ -20,4 +21,5 @@ var API = function(
     this.url = this.prefix + this.request + this.q + this.k + this.amp + this.format;
     this.responseArray = [];
     this.callType = callType;
+    this.idArray = [];
 };

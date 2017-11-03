@@ -1,4 +1,5 @@
 var fadeFactor500 = 500;
+
 LAYOUT_BUILDER_OBJ.prototype.createCard = function() {
     dom.$content.html('');
     dom.$sectionAsideMenu.fadeOut();
@@ -14,6 +15,7 @@ LAYOUT_BUILDER_OBJ.prototype.createCard = function() {
 };
 
 LAYOUT_BUILDER_OBJ.prototype.createRow = function() {
+    var dom = new DOM_OBJ_ELEM();
     dom.$sectionCardDemo.append(this.row);
     dom.$codeBox.html(this.row);
     dom.$btnRowCreate.fadeOut(fadeFactor500);
@@ -26,11 +28,12 @@ LAYOUT_BUILDER_OBJ.prototype.createRow = function() {
 };
 
 LAYOUT_BUILDER_OBJ.prototype.createCol = function() {
+    var dom = new DOM_OBJ_ELEM();
     dom.$cardDemoRow1.append(this.col);
     dom.$codeBox.html(this.col);
     dom.$btnColCreate.fadeOut(fadeFactor500);
     dom.$btnNavbarCreate.fadeIn(fadeFactor500);
-        dom.$sectionErrPanel.fadeIn(fadeFactor500);
+    dom.$sectionErrPanel.fadeIn(fadeFactor500);
     dom.$sectionErrPanelCardText.prepend(
         '<h4>Create Col Method </h4>' +
         indexRender.pass
@@ -38,13 +41,13 @@ LAYOUT_BUILDER_OBJ.prototype.createCol = function() {
 };
 
 LAYOUT_BUILDER_OBJ.prototype.createNav = function() {
-
+    var dom = new DOM_OBJ_ELEM();
     dom.$codeBox.html(this.nav);
     dom.$sectionCardDemo.prepend(this.nav);
     dom.$body.prepend(this.navBody);
     dom.$btnNavbarCreate.fadeOut(fadeFactor500);
     dom.$btnCarouselCreate.fadeIn(fadeFactor500);
-        dom.$sectionErrPanel.fadeIn(fadeFactor500);
+    dom.$sectionErrPanel.fadeIn(fadeFactor500);
     dom.$sectionErrPanelCardText.prepend(
         '<h4>Create Nav Method </h4>' +
         indexRender.pass
@@ -52,12 +55,12 @@ LAYOUT_BUILDER_OBJ.prototype.createNav = function() {
 };
 
 LAYOUT_BUILDER_OBJ.prototype.createCarousel = function() {
-    console.log('create carousel is working.');
+    var dom = new DOM_OBJ_ELEM();
     dom.$sectionCardDemo.prepend(this.carousel);
     dom.$body.prepend(this.carouselBody);
     dom.$codeBox.html(this.carousel);
     dom.$btnCarouselCreate.fadeOut(fadeFactor500);
-        dom.$sectionErrPanel.fadeIn(fadeFactor500);
+    dom.$sectionErrPanel.fadeIn(fadeFactor500);
     dom.$sectionErrPanelCardText.prepend(
         '<h4>Create Carousel Method </h4>' +
         indexRender.pass

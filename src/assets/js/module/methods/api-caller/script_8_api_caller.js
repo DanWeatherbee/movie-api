@@ -1,5 +1,4 @@
-API.prototype.call = async function(
-) {
+API.prototype.call = async function() {
     'use strict';
     var StartTimeMs = Date.now();
     console.log("Start Execution Time Caller Method - " + StartTimeMs + " Milliseconds");
@@ -34,11 +33,13 @@ API.prototype.call = async function(
             break;
     }
     this.responseArray = [];
+
     console.log(this.callType);
     try {
         const response = await fetch(this.callType.url);
         const text = await response.json()
         this.responseArray.push(text);
+
         // Determine method to call.
         switch (txt) {
             case "Movies in Theaters":
@@ -65,4 +66,3 @@ API.prototype.call = async function(
     var TotalTime = EndTimeMs - StartTimeMs;
     console.log("Total Execution Time Caller Method - " + TotalTime + " Milliseconds");
 };
-
