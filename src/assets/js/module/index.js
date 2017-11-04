@@ -123,6 +123,31 @@ appEntryPoint = '<!--  main -->' +
     '<section id="main">' +
     '<!--  content -->' +
     '</section>' +
+
+    '</section>' +
+
+    '<!-- row footer -->' + // footer
+    '<section id="footer" class="row container text-center">' +
+
+    '<!-- col 1 -->' + // col 1
+    '<section class="col" id="section-footer-col-1">' +
+    '<a href="https://www.linkedin.com/in/danweatherbee-web-developer/" class="btn btn-linkedin">' +
+    '<span class="fa fa-linkedin"></span> linkedin</a>' +
+    '</section>' +
+
+    '<!-- col 2 -->' + // col 2
+    '<section class="col" id="section-footer-col-2">' +
+    '<a href="https://www.facebook.com/danweatherbeeDeveloper" class="btn btn-facebook">' +
+    '<span class="fa fa-facebook"></span> Facebook</a>' +
+    '</section>' +
+
+
+    '<!-- col 3 -->' + // col 3
+    '<section class="col" id="section-footer-col-3">' +
+    '<a href="https://github.com/DanWeatherbee" class="btn btn-github">' +
+    '<span class="fa fa-github"></span> Github</a>' +
+    '</section>' +
+
     '</section>' +
 
     '<!-- aside-menu section-->' + // aside-menu section
@@ -167,13 +192,16 @@ formattedHTMLHeadRoot = '<!-- head  -->' +
     '<a class="btn btn-success" href="http://danweatherbee-front-end-web-developer.com">My Website</a>' +
     '<br /><br />' +
     '<a class="btn btn-success" href="https://github.com/DanWeatherbee/movie-api">Github</a>' +
-
     '</div>' +
-
     '<!-- col 2 -->' + // col 2
     '<div class="col">' +
+
     '<img src="assets/images/desktop.png" class="img-responsive" />' +
-    '<br /><p class="txt-shadow-black">This App is Mobile friendly.<i class="fa fa-check-square" aria-hidden="true"></i></p>'
+
+    '<br />' +
+
+    '<p class="txt-shadow-black">This App is Mobile friendly.' +
+    '<i class="fa fa-check-square" aria-hidden="true"></i></p>' +
     '</div>' +
 
     '</div>' +
@@ -183,11 +211,12 @@ formattedHTMLHeadRoot = '<!-- head  -->' +
 
     '<!-- col 1 -->' + // col 1
     '<div class="col animate">' +
+
     '<a class="btn btn-success" href="http://danweatherbee-front-end-web-developer.com">' +
     'My React Website' +
     '</a>' +
     '</div>' +
-
+    '<div class="loader"></div>' +
     '<!-- col 2 -->' + // col 2
     '<div class="col animate">' +
     '<a class="btn btn-success" href="https://github.com/DanWeatherbee/movie-api">' +

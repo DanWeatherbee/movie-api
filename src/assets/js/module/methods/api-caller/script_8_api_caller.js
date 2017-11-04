@@ -1,6 +1,8 @@
 API.prototype.call = async function() {
     'use strict';
     var StartTimeMs = Date.now();
+    // TODO add this new spinner to dom  model and other caller methods.
+    $('.loader').fadeIn();
     console.log("Start Execution Time Caller Method - " + StartTimeMs + " Milliseconds");
     var txt = $("#calltype option:selected").text();
     switch (txt) {
@@ -33,7 +35,6 @@ API.prototype.call = async function() {
             break;
     }
     this.responseArray = [];
-
     console.log(this.callType);
     try {
         const response = await fetch(this.callType.url);
@@ -65,4 +66,5 @@ API.prototype.call = async function() {
     console.log("End Execution Time Caller Method - " + EndTimeMs + " Milliseconds");
     var TotalTime = EndTimeMs - StartTimeMs;
     console.log("Total Execution Time Caller Method - " + TotalTime + " Milliseconds");
+     $('.loader').fadeOut();
 };
