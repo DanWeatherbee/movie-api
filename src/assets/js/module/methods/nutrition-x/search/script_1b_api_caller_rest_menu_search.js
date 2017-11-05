@@ -2,7 +2,8 @@ API.prototype.callSearchRest = async function(
 ) {
     'use strict';
     var self = this;
-    $('#error-msg').hide();
+    dom.$loader.fadeIn();
+    dom.$err.hide();
     dom.$content.html('');
     var StartTimeMs = Date.now();
     console.log("Start Execution Time Caller Method - " + StartTimeMs + " Milliseconds");
@@ -35,4 +36,5 @@ API.prototype.callSearchRest = async function(
     console.log("End Execution Time Caller Method - " + EndTimeMs + " Milliseconds");
     var TotalTime = EndTimeMs - StartTimeMs;
     console.log("Total Execution Time Caller Method - " + TotalTime + " Milliseconds");
+    dom.$loader.fadeOut();
 };

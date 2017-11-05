@@ -9,27 +9,19 @@ API.prototype.renderMovies = function(
     id,
     elemId,
     elemIdArray,
-    name
+    name,
+    videoArray
 ) {
 
     console.log(this.callType);
     console.log(this.responseArray);
-    console.log("idArray line 17 movie method.");
-
-    var callerId = new API();
-    this.responseArray[0].results.forEach(function(item) {
-        callerId.idArray.push(item.id);
-    });
-    console.log("callerId.idArray line 23 movie render");
-
-    // TODO this is for the new video search function -- an array of id's.
-    console.log(callerId.idArray);
 
     var self = this;
     self.imgUrl = "https://image.tmdb.org/t/p/w500";
     self.elemIdArray = [];
+    self.videoArray = [];
     dom.$content.html('');
-    $('#section-aside-menu').fadeOut();
+    dom.$sectionAsideMenu.fadeOut();
     if (this.responseArray[0].results === undefined) {
         alert('this.responseArray[0].results === undefined');
         return;
@@ -40,10 +32,12 @@ API.prototype.renderMovies = function(
         dom.$asideControler.fadeIn();
         dom.$asideMenu.html('');
         self.id = 1;
+
         this.responseArray[0].results.forEach(function(item) {
+
+            self.videoArray.push(item.id);
+
             self.elemId = '#section-' + self.id;
-
-
             if (item.title === undefined) {
 
                 self.name = item.name;
@@ -53,9 +47,9 @@ API.prototype.renderMovies = function(
                     '</h3>';
             } else {
                 self.name = item.title;
-                self.formattedHTMLName = '<h3 class="green">' +
+                self.formattedHTMLName = '<h4 class="card-title">' +
                     self.name +
-                    '</h3>';
+                    '</h4>';
             };
             self.formattedHTMLCollapseLink = '<a class=' +
                 '"btn btn-outline-info" ' +
@@ -70,12 +64,12 @@ API.prototype.renderMovies = function(
                 self.id + '">' + // collapse controler
                 'Description' +
                 '</a>';
-            self.formattedHTMLPoster = '<img class="img-fluid img-thumbnail" id="popular-lg" src="' +
+            self.formattedHTMLPoster = '<img class="card-img-top img-thumbnail black-background" id="popular-lg" src="' +
                 self.imgUrl +
                 item.poster_path +
                 '">';
 
-            self.formattedHTMLOverview = '<p class="collapse" id="item-overview-' +
+            self.formattedHTMLOverview = '<p class="card-text collapse" id="item-overview-' +
                 self.id +
                 '">' +
                 item.overview +
@@ -95,20 +89,22 @@ API.prototype.renderMovies = function(
                     item.release_date +
                     '</span>';
             };
-            self.formattedHTMLContent = '<section id="section-' + self.id + '" class="row overview-padding">' +
 
-                '<div class="col col-sm-10 shadow border overview-padding">' +
+            self.formattedHTMLContent = '<section class="container card gradient-black row" id="' +
+                'section-' + self.id +
+                '">' +
+                '<!--  card-body -->' +
+
+                '<div class="card-body">' +
+                self.formattedHTMLPoster +
                 self.formattedHTMLName +
-                self.formattedHTMLCollapseLink + '<br />' +
                 self.formattedHTMLOverview +
                 self.formattedHTMLVotes +
-                '</div>' +
-                '<div class="col col-sm-2 center-block">' +
-                self.formattedHTMLPoster +
+                '<br />' +
+                self.formattedHTMLCollapseLink +
                 '</div>' +
 
                 '</section>';
-
 
             // aside menu for movies and fm.
 
@@ -128,26 +124,51 @@ API.prototype.renderMovies = function(
         });
         console.log(self.elemIdArray);
 
-        self.elemIdArray.forEach(function(item) {
+        /*
+                self.elemIdArray.forEach(function(item) {
 
-            $(item).on("click", function() {
+                    $(item).on("click", function() {
 
-                $(item).animate({
-                    width: '100%',
-                    opacity: 0.1
+                        $(item).animate({
+                            width: '100%',
+                            opacity: 0.1
 
-                }, 10, function() {
-                    // Animation complete.
+                        }, 10, function() {
+                            // Animation complete.
 
-                    $(item).animate({
-                        width: '80%',
-                        opacity: 0.9
-                    }, "slow");
+                            $(item).animate({
+                                width: '80%',
+                                opacity: 0.9
+                            }, "slow");
+                        });
+                    });
+
                 });
-            });
-
-        });
+                */
 
         dom.$asideMenu.prepend('<a href="#root" class="btn btn-outline-info">Top</a>');
     };
+
+    /* TODO figure out how to render this.
+
+    console.log('self.videoArray 125 render movies.');
+    console.log(self.videoArray);
+    self.videoArray.forEach(function(item) {
+
+        console.log(item);
+        var KEY = "api_key=06f6d11f6cf9b366cb459ecbdfdc75a3";
+        var API_CALL_MOVIE_VIDEOS = new API(
+            "https://api.themoviedb.org/3/movie/",
+            item,
+            "?",
+            KEY,
+            "&append_to_response=videos&",
+            "format=json"
+        );
+        API_CALL_MOVIE_VIDEOS.callType = API_CALL_MOVIE_VIDEOS;
+        API_CALL_MOVIE_VIDEOS.callSearchMovieVideos();
+    });
+
+    console.log(this.responseArray[0]['videos'].results[0].id);
+    */
 };

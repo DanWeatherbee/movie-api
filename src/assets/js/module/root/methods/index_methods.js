@@ -1,5 +1,6 @@
 var dom = new DOM_OBJ_ELEM();
 // Render panel and append to body.
+
 dom.$body.prepend(indexRender.errPanel);
 var $panel = $('#section-err-panel-card-text');
 

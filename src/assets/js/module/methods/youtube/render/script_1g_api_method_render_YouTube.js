@@ -11,6 +11,7 @@ API.prototype.renderYouTube = function(
     elemId,
     elemIdArray
 ) {
+    dom.$loader.fadeIn();
     const self = this;
     console.log(this.callType);
     console.log(this.responseArray[0].items[0].snippet['title']);
@@ -69,7 +70,7 @@ API.prototype.renderYouTube = function(
         console.log(self.elemIdArray);
 
         self.elemIdArray.forEach(function(item) {
-            $(item).on("click", function(){
+            $(item).on("click", function() {
                 console.log(this.children[0]);
                 if (this.children[0] === undefined) {
                     $(this).fadeOut();
@@ -81,16 +82,11 @@ API.prototype.renderYouTube = function(
         });
         console.log('you tube render method running');
     };
+    dom.$loader.fadeOut();
 };
-
-
 
 var domVideo = new DOM_OBJ_ELEM();
 // Allow enter key vrs btn to call the API.
 domVideo.$videoSearch.on("keypress", function(e) {
-    domVideo.$goVideo.fadeIn();
-    if (e.which == 13) {
-        domVideo.$goVideo.click();
-        domVideo.$goVideo.fadeToggle(300);
-    }
+    dom.$goVideo.fadeIn();
 });

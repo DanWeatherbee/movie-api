@@ -6,8 +6,8 @@ API.prototype.renderNutritionRestMenu = function(
     formmatedContent,
     linkId
 ) {
-
     var self = this;
+    dom.$loader.fadeIn();
     self.linkId = 1;
     console.log(this.callType);
     console.log(this.responseArray);
@@ -75,8 +75,5 @@ var dom = new DOM_OBJ_ELEM();
 // Allow enter key vrs btn to call the API.
 dom.$restMenuSearch.on("keypress", function(e) {
     dom.$goRest.fadeIn();
-    if (e.which == 13) {
-        dom.$goRest.click();
-        dom.$goRest.fadeToggle(300);
-    }
 });
+dom.$loader.fadeOut();

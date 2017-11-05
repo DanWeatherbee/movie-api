@@ -1,37 +1,24 @@
-API.prototype.callSearchYouTube = async function() {
+API.prototype.callSearchMovieVideos = async function() {
     'use strict';
     var self = this;
+    var dom = new DOM_OBJ_ELEM();
     dom.$loader.fadeIn();
-    $('#error-msg').hide();
+    dom.$err.hide();
     dom.$content.html('');
     var StartTimeMs = Date.now();
     console.log("Start Execution Time Caller Method - " + StartTimeMs + " Milliseconds");
-    var artistName = $("#video-search").val();
-    // console.log(txt);
-
-    var KEY = "&key=AIzaSyBTi0oe7u39BGm7WSXc45MJ99p06hO5Sng";
-
-    var API_YOU_TUBE_SEARCH = new API(
-        "https://www.googleapis.com/youtube/v3/search?",
-        "part=snippet&q=",
-        artistName,
-        KEY,
-        "&",
-        "format=json"
-    );
-
     this.responseArray = [];
-    this.callType = API_YOU_TUBE_SEARCH;
+    // this.callType = API_CALL_MOVIE_VIDEOS;
     console.log(this.callType);
-    // Determine call type. e.g.  self.callType = API_CALL_MOVIES_THEATERS
-    // code here
     try {
         const response = await fetch(this.callType.url);
         const text = await response.json()
         this.responseArray.push(text);
+        console.log('this.responseArray line 32 video search.');
+        console.log(this.responseArray[0]['videos'].results[0].id);
         // Determine method to call. e.g. renderFDA();
         // code here.
-        this.renderYouTube();
+        // this.callSearchMovieVideos();
     } catch (err) {
         console.log('fetch failed', err);
 
@@ -41,5 +28,6 @@ API.prototype.callSearchYouTube = async function() {
     console.log("End Execution Time Caller Method - " + EndTimeMs + " Milliseconds");
     var TotalTime = EndTimeMs - StartTimeMs;
     console.log("Total Execution Time Caller Method - " + TotalTime + " Milliseconds");
+
     dom.$loader.fadeOut();
 };

@@ -151,7 +151,7 @@ appEntryPoint = '<!--  main -->' +
     '</section>' +
 
     '<!-- aside-menu section-->' + // aside-menu section
-    '<section class="col fixed-aside-menu green-background border maximize-menu" id="section-aside-menu">' +
+    '<section class="col fixed-aside-menu gradient-black border maximize-menu" id="section-aside-menu">' +
 
     '<i class="fa fa-chevron-circle-down border black-background" aria-hidden="true" id="aside-controler" ' +
     ' data-toggle="collapse" href="#aside-menu" aria-expanded="false" ' +
@@ -210,15 +210,15 @@ formattedHTMLHeadRoot = '<!-- head  -->' +
     '<div class="row overview-padding">' +
 
     '<!-- col 1 -->' + // col 1
-    '<div class="col animate">' +
+    '<div class="col animate overview-padding">' +
 
     '<a class="btn btn-success" href="http://danweatherbee-front-end-web-developer.com">' +
     'My React Website' +
     '</a>' +
     '</div>' +
-    '<div class="loader"></div>' +
+    '<div class="loader gradient-blue-circle"></div>' +
     '<!-- col 2 -->' + // col 2
-    '<div class="col animate">' +
+    '<div class="col animate overview-padding">' +
     '<a class="btn btn-success" href="https://github.com/DanWeatherbee/movie-api">' +
     'Project Code' +
     '</a>' +

@@ -26,7 +26,10 @@ var DOM_OBJ_ELEM = function(
     $cardDemoRow1,
     $sectionErrPanel,
     $sectionErrPanelCardText,
-    $sectionAsideMenuOpen
+    $sectionAsideMenuOpen,
+    $loader,
+    $fdaSearch,
+    $goFda
 ) {
     'use strict';
     this.$body = $('body');
@@ -55,4 +58,7 @@ var DOM_OBJ_ELEM = function(
     this.$sectionErrPanel = $('#section-err-panel');
     this.$sectionErrPanelCardText = $('#section-err-panel-card-text');
     this.$sectionAsideMenuOpen = $('#section-aside-menu-open');
+    this.$loader = $('.loader');
+    this.$fdaSearch = $('#fda-search');
+    this.$goFda = $('#go-fda');
 };

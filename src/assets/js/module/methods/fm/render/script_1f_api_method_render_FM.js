@@ -12,7 +12,7 @@ API.prototype.renderFM = function(
     convertedTextName,
     buttonsAsideMenu
 ) {
-
+    dom.$loader.fadeIn();
     const self = this;
     console.log(this.callType);
     console.log(this.responseArray[0].artists.artist);
@@ -103,4 +103,5 @@ API.prototype.renderFM = function(
         });
         dom.$asideMenu.prepend('<a href="#root" class="btn btn-outline-info">Top</a>');
     };
+    dom.$loader.fadeOut();
 };

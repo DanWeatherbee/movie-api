@@ -6,13 +6,13 @@ API.prototype.renderFDA = function(
     formattedHTMLProduct,
     header
 ) {
-
+dom.$loader.fadeIn();
     const self = this;
     console.log(this.callType);
     console.log(this.responseArray[0].results[0]);
 
     dom.$content.html('');
-    $('#section-aside-menu').fadeOut();
+    dom.$sectionAsideMenu.fadeOut();
     self.header = '<h2>FDA Food Search</h2><h4>Beta - Under Consruction.</h4>'
     dom.$content.append(self.header);
 
@@ -47,10 +47,7 @@ API.prototype.renderFDA = function(
 };
 
 // Allow enter key vrs btn to call the API.
-$('#fda-search').on("keypress", function(e) {
-    $(this).fadeIn();
-    if (e.which == 13) {
-        $('#go-fda').click();
-        $('#go-fda').fadeToggle(300);
-    }
+dom.$fdaSearch.on("keypress", function(e) {
+    dom.$goFda.fadeIn();
 });
+dom.$loader.fadeOut();

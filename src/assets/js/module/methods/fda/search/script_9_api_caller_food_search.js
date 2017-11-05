@@ -2,6 +2,7 @@ API.prototype.callSearch = async function() {
     'use strict';
 
     var self = this;
+    dom.$loader.fadeIn();
     dom.$err.hide();
     dom.$content.html('');
     var StartTimeMs = Date.now();
@@ -12,7 +13,7 @@ API.prototype.callSearch = async function() {
         "api_key=",
         KEY,
         "&search=",
-        $('#fda-search').val()
+        dom.$fdaSearch.val()
     );
     this.responseArray = [];
     this.callType = API_FOOD_SEARCH;
@@ -32,4 +33,5 @@ API.prototype.callSearch = async function() {
     console.log("End Execution Time Caller Method - " + EndTimeMs + " Milliseconds");
     var TotalTime = EndTimeMs - StartTimeMs;
     console.log("Total Execution Time Caller Method - " + TotalTime + " Milliseconds");
+    dom.$loader.fadeOut();
 };
