@@ -1,3 +1,19 @@
+        /*
+                self.elemIdArray.forEach(function(item) {
+                    $(item).on("click", function() {
+                        $(item).animate({
+                            width: '100%',
+                            opacity: 0.1
+                        }, 10, function() {
+                            // Animation complete.
+                            $(item).animate({
+                                width: '80%',
+                                opacity: 0.9
+                            }, "slow");
+                        });
+                    });
+                });
+                */
 API.prototype.renderMovies = function(
     imgUrl,
     formattedHTMLName,
@@ -9,17 +25,14 @@ API.prototype.renderMovies = function(
     id,
     elemId,
     elemIdArray,
-    name,
-    videoArray
+    name
 ) {
-
     console.log(this.callType);
     console.log(this.responseArray);
 
     var self = this;
     self.imgUrl = "https://image.tmdb.org/t/p/w500";
     self.elemIdArray = [];
-    self.videoArray = [];
     dom.$content.html('');
     dom.$sectionAsideMenu.fadeOut();
     if (this.responseArray[0].results === undefined) {
@@ -27,7 +40,6 @@ API.prototype.renderMovies = function(
         return;
     } else {
         dom.$err.hide();
-
         dom.$sectionAsideMenu.fadeIn();
         dom.$asideControler.fadeIn();
         dom.$asideMenu.html('');
@@ -35,11 +47,8 @@ API.prototype.renderMovies = function(
 
         this.responseArray[0].results.forEach(function(item) {
 
-            self.videoArray.push(item.id);
-
             self.elemId = '#section-' + self.id;
             if (item.title === undefined) {
-
                 self.name = item.name;
                 self.formattedHTMLName = '<h3 class="green">' +
                     // TODO do this id fix on aside menu ids.
@@ -107,7 +116,6 @@ API.prototype.renderMovies = function(
                 '</section>';
 
             // aside menu for movies and fm.
-
             self.buttonsAsideMenu = '<a href="#section-' +
                 self.id +
                 '" class="btn btn-outline-success" id="aside-menu-btn-' +
@@ -115,60 +123,13 @@ API.prototype.renderMovies = function(
                 '">' +
                 self.name +
                 '</a>';
-
             dom.$asideMenu.append(self.buttonsAsideMenu);
-
             dom.$content.append(self.formattedHTMLContent);
             self.elemIdArray.push(self.elemId);
             self.id++;
         });
         console.log(self.elemIdArray);
-
-        /*
-                self.elemIdArray.forEach(function(item) {
-
-                    $(item).on("click", function() {
-
-                        $(item).animate({
-                            width: '100%',
-                            opacity: 0.1
-
-                        }, 10, function() {
-                            // Animation complete.
-
-                            $(item).animate({
-                                width: '80%',
-                                opacity: 0.9
-                            }, "slow");
-                        });
-                    });
-
-                });
-                */
-
         dom.$asideMenu.prepend('<a href="#root" class="btn btn-outline-info">Top</a>');
     };
-
-    /* TODO figure out how to render this.
-
-    console.log('self.videoArray 125 render movies.');
-    console.log(self.videoArray);
-    self.videoArray.forEach(function(item) {
-
-        console.log(item);
-        var KEY = "api_key=06f6d11f6cf9b366cb459ecbdfdc75a3";
-        var API_CALL_MOVIE_VIDEOS = new API(
-            "https://api.themoviedb.org/3/movie/",
-            item,
-            "?",
-            KEY,
-            "&append_to_response=videos&",
-            "format=json"
-        );
-        API_CALL_MOVIE_VIDEOS.callType = API_CALL_MOVIE_VIDEOS;
-        API_CALL_MOVIE_VIDEOS.callSearchMovieVideos();
-    });
-
-    console.log(this.responseArray[0]['videos'].results[0].id);
-    */
 };
+
