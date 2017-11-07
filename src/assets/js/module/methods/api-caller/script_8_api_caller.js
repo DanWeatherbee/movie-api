@@ -40,7 +40,6 @@ API.prototype.call = async function() {
         const response = await fetch(this.callType.url);
         const text = await response.json()
         this.responseArray.push(text);
-
         // Determine method to call.
         switch (txt) {
             case "Movies in Theaters":
@@ -69,23 +68,3 @@ API.prototype.call = async function() {
     console.log("Total Execution Time Caller Method - " + TotalTime + " Milliseconds");
     dom.$loader.fadeOut();
 };
-
-// console.log('this.idVideoSearch(343611) line 17 video search.')
-// this.idVideoSearch(343611);
-// API.prototype.idVideoSearch = function(id) {
-//     this.id = id;
-
-//     console.log(this.id);
-//     var KEY = "api_key=06f6d11f6cf9b366cb459ecbdfdc75a3";
-//     var API_CALL_MOVIE_VIDEOS = new API(
-//         "https://api.themoviedb.org/3/movie/",
-//         this.id,
-//         "?",
-//         KEY,
-//         "&append_to_response=videos&",
-//         "format=json"
-//     );
-//     API_CALL_MOVIE_VIDEOS.callType = API_CALL_MOVIE_VIDEOS;
-//     API_CALL_MOVIE_VIDEOS.callSearchMovieVideos();
-
-// };

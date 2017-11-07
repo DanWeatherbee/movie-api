@@ -1,135 +1,189 @@
         /*
-                self.elemIdArray.forEach(function(item) {
-                    $(item).on("click", function() {
-                        $(item).animate({
-                            width: '100%',
-                            opacity: 0.1
-                        }, 10, function() {
-                            // Animation complete.
-                            $(item).animate({
-                                width: '80%',
-                                opacity: 0.9
-                            }, "slow");
-                        });
-                    });
+                                                                                                self.elemIdArray.forEach(function(item) {
+                                                                                                    $(item).on("click", function() {
+                                                                                                        $(item).animate({
+                                                                                                            width: '100%',
+                                                                                                            opacity: 0.1
+                                                                                                        }, 10, function() {
+                                                                                                            // Animation complete.
+                                                                                                            $(item).animate({
+                                                                                                                width: '80%',
+                                                                                                                opacity: 0.9
+                                                                                                            }, "slow");
+                                                                                                        });
+                                                                                                    });
+                                                                                                });
+                                                                                                */
+        API.prototype.renderMovies = function(
+            imgUrl,
+            formattedHTMLName,
+            formattedHTMLPoster,
+            formattedHTMLOverview,
+            formattedHTMLVotes,
+            formattedHTMLContent,
+            formattedHTMLCollapseLink,
+            id,
+            elemId,
+            elemIdArray,
+            name,
+            idArray,
+            videoIframeArray
+        ) {
+            console.log(this.callType);
+            console.log(this.responseArray);
+
+            var self = this;
+            self.imgUrl = "https://image.tmdb.org/t/p/w500";
+            self.elemIdArray = [];
+            self.idArray = [];
+            self.videoIframeArray = [];
+            dom.$content.html('');
+            dom.$sectionAsideMenu.fadeOut();
+            if (this.responseArray[0].results === undefined) {
+                alert('this.responseArray[0].results === undefined');
+                return;
+            } else {
+                dom.$err.hide();
+                dom.$sectionAsideMenu.fadeIn();
+                dom.$asideControler.fadeIn();
+                dom.$asideMenu.html('');
+                self.id = 1;
+
+                this.responseArray[0].results.forEach(function(item) {
+
+                    self.elemId = '#section-' + self.id;
+                    if (item.title === undefined) {
+                        self.name = item.name;
+                        self.formattedHTMLName = '<h3 class="green">' +
+                            self.name +
+                            '</h3>';
+                    } else {
+                        self.name = item.title;
+                        self.formattedHTMLName = '<h4 class="card-title">' +
+                            self.name +
+                            '</h4>';
+                    };
+                    self.formattedHTMLCollapseLink = '<a class=' +
+                        '"btn btn-outline-info" ' +
+                        'id="btn-toggle-overview-' +
+                        self.id + '" ' +
+                        'data-toggle="collapse"' +
+                        ' href="#' +
+                        'item-overview-' +
+                        self.id + // target div to collapse
+                        '" aria-expanded="false" ' + // default closed
+                        'aria-controls="btn-toggle-overview-' +
+                        self.id + '">' + // collapse controler
+                        'Description' +
+                        '</a>';
+                    self.formattedHTMLPoster = '<img class="card-img-top img-thumbnail black-background" id="popular-lg" src="' +
+                        self.imgUrl +
+                        item.poster_path +
+                        '">';
+
+                    self.formattedHTMLOverview = '<p class="card-text collapse" id="item-overview-' +
+                        self.id +
+                        '">' +
+                        item.overview +
+                        '</p>';
+                    if (item.release_date === undefined) {
+                        self.formattedHTMLVotes = '<span class="blue">Votes: ' +
+                            item.vote_count + ' | Vote Average: ' +
+                            item.vote_average +
+                            '% | Air Date: ' +
+                            item.first_air_date +
+                            '</span>';
+                    } else {
+                        self.formattedHTMLVotes = '<span class="blue">Votes: ' +
+                            item.vote_count + ' | Vote Average: ' +
+                            item.vote_average +
+                            '% | Air Date: ' +
+                            item.release_date +
+                            '</span>';
+                    };
+
+                    self.formattedHTMLContent = '<section class="container card gradient-black row" id="' +
+                        'section-' + self.id +
+                        '">' +
+                        '<!--  card-body -->' +
+
+                        '<div class="card-body">' +
+                        self.formattedHTMLPoster +
+                        self.formattedHTMLName +
+                        self.formattedHTMLOverview +
+                        self.formattedHTMLVotes +
+                        '<br />' +
+                        self.formattedHTMLCollapseLink +
+                        '</div>' +
+
+                        '</section>';
+
+                    // aside menu for movies and fm.
+                    self.buttonsAsideMenu = '<a href="#section-' +
+                        self.id +
+                        '" class="btn btn-outline-success" id="aside-menu-btn-' +
+                        self.id +
+                        '">' +
+                        self.name +
+                        '</a>';
+                    dom.$asideMenu.append(self.buttonsAsideMenu);
+                    dom.$content.append(self.formattedHTMLContent);
+                    self.elemIdArray.push(self.elemId);
+                    console.log('this.idVideoSearch(item.id) line 128 video search.')
+
+                    self.id++;
                 });
-                */
-API.prototype.renderMovies = function(
-    imgUrl,
-    formattedHTMLName,
-    formattedHTMLPoster,
-    formattedHTMLOverview,
-    formattedHTMLVotes,
-    formattedHTMLContent,
-    formattedHTMLCollapseLink,
-    id,
-    elemId,
-    elemIdArray,
-    name
-) {
-    console.log(this.callType);
-    console.log(this.responseArray);
+                var i = 0;
+                this.responseArray[0].results.forEach(function(item) {
 
-    var self = this;
-    self.imgUrl = "https://image.tmdb.org/t/p/w500";
-    self.elemIdArray = [];
-    dom.$content.html('');
-    dom.$sectionAsideMenu.fadeOut();
-    if (this.responseArray[0].results === undefined) {
-        alert('this.responseArray[0].results === undefined');
-        return;
-    } else {
-        dom.$err.hide();
-        dom.$sectionAsideMenu.fadeIn();
-        dom.$asideControler.fadeIn();
-        dom.$asideMenu.html('');
-        self.id = 1;
+                    self.idVideoSearch(item.id, i);
+                    i++
+                });
 
-        this.responseArray[0].results.forEach(function(item) {
 
-            self.elemId = '#section-' + self.id;
-            if (item.title === undefined) {
-                self.name = item.name;
-                self.formattedHTMLName = '<h3 class="green">' +
-                    // TODO do this id fix on aside menu ids.
-                    self.name +
-                    '</h3>';
-            } else {
-                self.name = item.title;
-                self.formattedHTMLName = '<h4 class="card-title">' +
-                    self.name +
-                    '</h4>';
+                console.log(self.elemIdArray);
+                console.log('this.idArray line 135 render movies.');
+                console.log(this.idArray);
+                dom.$asideMenu.prepend('<a href="#root" class="btn btn-outline-info">Top</a>');
             };
-            self.formattedHTMLCollapseLink = '<a class=' +
-                '"btn btn-outline-info" ' +
-                'id="btn-toggle-overview-' +
-                self.id + '" ' +
-                'data-toggle="collapse"' +
-                ' href="#' +
-                'item-overview-' +
-                self.id + // target div to collapse
-                '" aria-expanded="false" ' + // default closed
-                'aria-controls="btn-toggle-overview-' +
-                self.id + '">' + // collapse controler
-                'Description' +
-                '</a>';
-            self.formattedHTMLPoster = '<img class="card-img-top img-thumbnail black-background" id="popular-lg" src="' +
-                self.imgUrl +
-                item.poster_path +
-                '">';
+        };
 
-            self.formattedHTMLOverview = '<p class="card-text collapse" id="item-overview-' +
-                self.id +
-                '">' +
-                item.overview +
-                '</p>';
-            if (item.release_date === undefined) {
-                self.formattedHTMLVotes = '<span class="blue">Votes: ' +
-                    item.vote_count + ' | Vote Average: ' +
-                    item.vote_average +
-                    '% | Air Date: ' +
-                    item.first_air_date +
-                    '</span>';
-            } else {
-                self.formattedHTMLVotes = '<span class="blue">Votes: ' +
-                    item.vote_count + ' | Vote Average: ' +
-                    item.vote_average +
-                    '% | Air Date: ' +
-                    item.release_date +
-                    '</span>';
-            };
+        API.prototype.idVideoSearch = async function(
+            movieId,
+            i
+        ) {
+            var self = this
+            self.movieId = movieId;
+            self.i = 0;
+            var KEY = "api_key=06f6d11f6cf9b366cb459ecbdfdc75a3";
+            var API_CALL_MOVIE_VIDEOS = new API(
+                "https://api.themoviedb.org/3/movie/",
+                self.movieId,
+                "?",
+                KEY,
+                "&append_to_response=videos&",
+                "format=json"
+            );
+            this.callType = API_CALL_MOVIE_VIDEOS;
+            console.log('this.callType line 158 render movies.');
+            console.log(this.callType);
+            try {
+                const response = await fetch(this.callType.url);
+                const text = await response.json()
+                this.idArray.push(text);
+                console.log('this.idArray line 171 render movies.');
+                console.log(this.idArray[i].videos['results'][0].key);
 
-            self.formattedHTMLContent = '<section class="container card gradient-black row" id="' +
-                'section-' + self.id +
-                '">' +
-                '<!--  card-body -->' +
 
-                '<div class="card-body">' +
-                self.formattedHTMLPoster +
-                self.formattedHTMLName +
-                self.formattedHTMLOverview +
-                self.formattedHTMLVotes +
-                '<br />' +
-                self.formattedHTMLCollapseLink +
-                '</div>' +
+                var contentIframe = '<iframe width="420" height="315" ' +
+                    'src="https://www.youtube.com/embed/' +
+                    this.idArray[i].videos['results'][0].key +
+                    '">' +
+                    '</iframe>';
+                //dom.$content.prepend(contentIframe);
 
-                '</section>';
-
-            // aside menu for movies and fm.
-            self.buttonsAsideMenu = '<a href="#section-' +
-                self.id +
-                '" class="btn btn-outline-success" id="aside-menu-btn-' +
-                self.id +
-                '">' +
-                self.name +
-                '</a>';
-            dom.$asideMenu.append(self.buttonsAsideMenu);
-            dom.$content.append(self.formattedHTMLContent);
-            self.elemIdArray.push(self.elemId);
-            self.id++;
-        });
-        console.log(self.elemIdArray);
-        dom.$asideMenu.prepend('<a href="#root" class="btn btn-outline-info">Top</a>');
-    };
-};
-
+            } catch (err) {
+                console.log('fetch failed', err);
+                dom.$err.show();
+            }
+        };
