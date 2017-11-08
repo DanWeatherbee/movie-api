@@ -17,8 +17,11 @@
     background: none;
 }
 
-
-
+#tv-bg,
+.iframe-videos {
+    height: 600px;
+    width: 100%;
+}
 
 
 
@@ -27,6 +30,7 @@
 .card-width {
     width: 20rem;
 }
+
 
 
 
@@ -73,11 +77,13 @@
 
 
 
+
 /*Opacity*/
 
 .opacity-9 {
     opacity: .7;
 }
+
 
 
 
@@ -114,6 +120,7 @@
 
 
 
+
 /* Standard syntax */
 
 @keyframes mymove {
@@ -130,6 +137,7 @@
         top: 100px;
     }
 }
+
 
 
 
@@ -162,12 +170,13 @@
     background-size: cover;
 }
 
+.parallax-videos {
 
-
-
-
-
-
+    background-image: url("tv.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 
 /*carousel*/
@@ -202,15 +211,6 @@
     animation: mymove 1s ease;
 }
 
-
-
-
-
-
-
-
-
-
 /*hide builder buttons*/
 
 #btn-row-create,
@@ -219,16 +219,6 @@
 #btn-carousel-create {
     display: none;
 }
-
-
-
-
-
-
-
-
-
-
 /*scocial buttons*/
 
 .fb-like {
@@ -236,12 +226,6 @@
     background-color: #b5e3f9;
     border-radius: 10%;
 }
-
-
-
-
-
-
 
 
 
@@ -255,10 +239,6 @@
     top: 0;
     opacity: .9;
 }
-
-
-
-
 
 
 
@@ -283,20 +263,11 @@
 
 
 
-
-
-
-
 /*Text*/
 
 .txt-bold {
     font-weight: 900;
 }
-
-
-
-
-
 
 
 
@@ -318,14 +289,6 @@
 }
 
 
-
-
-
-
-
-
-
-
 /*Gradients*/
 
 .gradient-blue-circle {
@@ -339,10 +302,6 @@
     background-image: repeating-radial-gradient(circle 10em at left top, rgb(172, 205, 212) 0%, rgb(24, 154, 177) 50%, rgb(8, 123, 149) 51%, rgb(112, 192, 209) 100%);
     background-image: -ms-repeating-radial-gradient(left top, 10em 10em, rgb(172, 205, 212) 0%, rgb(24, 154, 177) 50%, rgb(8, 123, 149) 51%, rgb(112, 192, 209) 100%);
 }
-
-
-
-
 
 
 
@@ -369,13 +328,6 @@ screen\9 {
     background-image: linear-gradient(248deg, rgba(1, 205, 202, 0) 13.4%, rgb(1, 205, 202) 14.5%, rgb(1, 95, 158) 19.3%, rgba(1, 205, 202, 0) 20.5%);
     background-image: -ms-linear-gradient(202deg, rgba(1, 205, 202, 0) 13.4%, rgb(1, 205, 202) 14.5%, rgb(1, 95, 158) 19.3%, rgba(1, 205, 202, 0) 20.5%);
 }
-
-
-
-
-
-
-
 
 
 
@@ -421,6 +373,7 @@ screen\9 {
 
 
 
+
 /* IE8- CSS hack */
 
 @media \0screen\,
@@ -429,6 +382,7 @@ screen\9 {
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff7fff9e", endColorstr="#ff0094ae", GradientType=0);
     }
 }
+
 
 
 
@@ -459,6 +413,7 @@ screen\9 {
     border-radius: 15% 15% 2% 2%;
     margin-top: 2%;
 }
+
 
 
 
@@ -506,6 +461,7 @@ i {
 
 
 
+
 /*Links*/
 
 .fa-bars:hover,
@@ -539,6 +495,7 @@ i {
 
 
 
+
 /*padding*/
 
 .overview-padding {
@@ -548,6 +505,7 @@ i {
 .padding-2 {
     padding: 2%;
 }
+
 
 
 
@@ -603,6 +561,7 @@ div>ol>li>a:hover {
     border-color: #8e804e;
     border-radius: 66.66%;
 }
+
 
 
 

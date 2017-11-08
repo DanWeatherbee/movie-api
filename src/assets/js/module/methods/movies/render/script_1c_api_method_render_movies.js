@@ -1,19 +1,19 @@
         /*
-                                                                                                                                                                self.elemIdArray.forEach(function(item) {
-                                                                                                                                                                    $(item).on("click", function() {
-                                                                                                                                                                        $(item).animate({
-                                                                                                                                                                            width: '100%',
-                                                                                                                                                                            opacity: 0.1
-                                                                                                                                                                        }, 10, function() {
-                                                                                                                                                                            // Animation complete.
-                                                                                                                                                                            $(item).animate({
-                                                                                                                                                                                width: '80%',
-                                                                                                                                                                                opacity: 0.9
-                                                                                                                                                                            }, "slow");
-                                                                                                                                                                        });
-                                                                                                                                                                    });
-                                                                                                                                                                });
-                                                                                                                                                                */
+                                                                                                                                                                                                                                        self.elemIdArray.forEach(function(item) {
+                                                                                                                                                                                                                                            $(item).on("click", function() {
+                                                                                                                                                                                                                                                $(item).animate({
+                                                                                                                                                                                                                                                    width: '100%',
+                                                                                                                                                                                                                                                    opacity: 0.1
+                                                                                                                                                                                                                                                }, 10, function() {
+                                                                                                                                                                                                                                                    // Animation complete.
+                                                                                                                                                                                                                                                    $(item).animate({
+                                                                                                                                                                                                                                                        width: '80%',
+                                                                                                                                                                                                                                                        opacity: 0.9
+                                                                                                                                                                                                                                                    }, "slow");
+                                                                                                                                                                                                                                                });
+                                                                                                                                                                                                                                            });
+                                                                                                                                                                                                                                        });
+                                                                                                                                                                                                                                        */
         API.prototype.renderMovies = function(
             imgUrl,
             formattedHTMLName,
@@ -27,7 +27,11 @@
             elemIdArray,
             name,
             idArray,
-            videoIframeArray
+            videoIframeArray,
+            carouselVideosPart1,
+            carouselVideosPart2,
+            carouselVideosPart3,
+            videoCarouselBuilt
         ) {
             console.log(this.callType);
             console.log(this.responseArray);
@@ -49,10 +53,34 @@
                 dom.$asideMenu.html('');
                 self.id = 1;
 
+
+
                 // videos created from response array.
+                // Carousel
+                self.carouselVideosPart1 = '<!-- carousel part 1-->' +
+                    '<div id="carousel" class="carousel slide animate" data-ride="carousel">' +
+                    '<div class="carousel-inner" id="video-carousel">';
+                self.carouselVideosPart3 = '</div>' +
+                    '<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">' +
+                    '<span class="carousel-control-prev-icon" aria-hidden="true">' +
+                    '</span>' +
+                    '<span class="sr-only">Previous</span>' +
+                    '</a>' +
+                    '<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">' +
+                    '<span class="carousel-control-next-icon" aria-hidden="true">' +
+                    '</span><span class="sr-only">Next</span>' +
+                    '</a>' +
+                    '</div>';
+                self.videoCarouselBuilt = self.carouselVideosPart1 +
+                    self.carouselVideosPart3;
+
+                dom.$content.prepend(self.videoCarouselBuilt);
+
                 var i = 0;
                 this.responseArray[0].results.forEach(function(item) {
-
+                    if (item.id === undefined) {
+                        return
+                    };
                     self.idVideoSearch(item.id, i);
                     i++
                 });
@@ -142,12 +170,26 @@
 
                     self.id++;
                 });
+                $('#video-carousel').prepend('<!-- carousel item -->' +
+                    '<div class="carousel-item active" id="item-' +
+                    'first' +
+                    '">' +
+                    '<img id="tv-bg" ' +
+                    'src="assets/images/tv.png">' +
+                    '</div>' +
+                    '<div class="carousel-caption d-none d-md-block txt-shadow-black">' +
+                    '<h1>Video Trailers</h1>' +
+                    '</div>');
+
+                $('#video-carousel').append(self.carouselVideosPart2);
 
                 console.log(self.elemIdArray);
                 console.log('this.idArray line 135 render movies.');
                 console.log(this.idArray);
                 dom.$asideMenu.prepend('<a href="#root" class="btn btn-outline-info">Top</a>');
+
             };
+
         };
 
         API.prototype.idVideoSearch = async function(
@@ -174,72 +216,20 @@
                 const text = await response.json()
                 this.idArray.push(text);
 
-                var carouselVideosPart1 = '<!-- carousel part 1-->' +
-                    '<div id="carousel" class="carousel slide animate" data-ride="carousel">' +
-                    '<ol class="carousel-indicators">' +
-                    '<li data-target="#carousel" data-slide-to="0" class="active">' +
-                    '</li><li data-target="#carousel" data-slide-to="1">' +
-                    '</li>' +
-                    '<li data-target="#carousel" data-slide-to="2">' +
-                    '</li>' +
-                    '</ol>' +
-                    '<div class="carousel-inner">';
-
-                var carouselVideosPart2 = '<!-- carousel item -->' +
-
-
-                    '<div class="carousel-item active">' +
-                    '<iframe width="420" height="315" ' +
-                    'src="https://www.youtube.com/embed/' +
-                    this.idArray[0].videos['results'][0].key +
+                self.carouselVideosPart2 = '<!-- carousel item -->' +
+                    '<div class="carousel-item" id="item-' +
+                    i +
                     '">' +
-                    '</iframe>' +
-                    '</div>' +
-
-
-
-                    '<div class="carousel-item">' +
-                    '<iframe width="420" height="315" ' +
+                    '<iframe class="iframe-videos" ' +
                     'src="https://www.youtube.com/embed/' +
-                    this.idArray[1].videos['results'][0].key +
+                    this.idArray[i].videos['results'][0].key +
                     '">' +
                     '</iframe>' +
                     '</div>';
+                $('#video-carousel').append(self.carouselVideosPart2);
 
-                var carouselVideosPart3 = '</div>' +
-                    '<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">' +
-                    '<span class="carousel-control-prev-icon" aria-hidden="true">' +
-                    '</span>' +
-                    '<span class="sr-only">Previous</span>' +
-                    '</a>' +
-                    '<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">' +
-                    '<span class="carousel-control-next-icon" aria-hidden="true">' +
-                    '</span><span class="sr-only">Next</span>' +
-                    '</a>' +
-                    '</div>';
-
-
-
-                var videoCarouselBuilt = carouselVideosPart1 +
-                    carouselVideosPart2 +
-                    carouselVideosPart3;
                 console.log('this.idArray line 226 render movies.');
                 console.log(this.idArray[i].videos['results'][0].key);
-                // dom.$content.prepend(videoCarouselBuilt);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             } catch (err) {
                 console.log('fetch failed', err);
