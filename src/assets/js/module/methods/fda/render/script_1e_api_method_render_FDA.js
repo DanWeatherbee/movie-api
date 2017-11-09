@@ -8,9 +8,6 @@ API.prototype.renderFDA = function(
 ) {
 dom.$loader.fadeIn();
     const self = this;
-    console.log(this.callType);
-    console.log(this.responseArray[0].results[0]);
-
     dom.$content.html('');
     dom.$sectionAsideMenu.fadeOut();
     self.header = '<h2>FDA Food Search</h2><h4>Beta - Under Consruction.</h4>'

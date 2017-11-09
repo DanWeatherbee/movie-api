@@ -16,4 +16,3 @@ var API_CALL_TV_POPULAR = new API(
     "&",
     "format=json"
 );
-console.log(API_CALL_TV_POPULAR);

@@ -19,7 +19,6 @@ API.prototype.callSearchRest = async function(
     );
     this.responseArray = [];
     this.callType = API_RESTERAUNT_MENU;
-    console.log(this.callType);
     try {
         const response = await fetch(this.callType.url);
         const text = await response.json()
@@ -29,8 +28,7 @@ API.prototype.callSearchRest = async function(
         this.renderNutritionRestMenu();
     } catch (err) {
         console.log('fetch failed', err);
-
-        $('#error-msg').show();
+        dom.$err.show();
     }
     var EndTimeMs = Date.now();
     console.log("End Execution Time Caller Method - " + EndTimeMs + " Milliseconds");

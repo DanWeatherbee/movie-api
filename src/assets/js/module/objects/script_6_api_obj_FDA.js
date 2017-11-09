@@ -7,10 +7,7 @@ Your API key should be passed to the API as the value of the api_key parameter. 
 https://api.fda.gov/drug/event.json?api_key=yourAPIKeyHere&search=...
 https://api.fda.gov/food/event.json
 */
-
 var KEY = "QkObiIV92ifvZIbtHFevB6QULgkmp9RW7oUljfe6";
-
-
 var API_FDA = new API(
     "https://api.fda.gov/",
     "food/event.json?",
@@ -19,4 +16,3 @@ var API_FDA = new API(
     "&search=",
     "cereal"
 );
-console.log(API_FDA);

@@ -17,7 +17,7 @@ API.prototype.callSearch = async function() {
     );
     this.responseArray = [];
     this.callType = API_FOOD_SEARCH;
-    console.log(this.callType);
+
     try {
         const response = await fetch(this.callType.url);
         const text = await response.json()

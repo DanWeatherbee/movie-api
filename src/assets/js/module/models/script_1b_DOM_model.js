@@ -29,7 +29,8 @@ var DOM_OBJ_ELEM = function(
     $sectionAsideMenuOpen,
     $loader,
     $fdaSearch,
-    $goFda
+    $goFda,
+    $videoCarousel
 ) {
     'use strict';
     this.$body = $('body');
@@ -61,4 +62,5 @@ var DOM_OBJ_ELEM = function(
     this.$loader = $('.loader');
     this.$fdaSearch = $('#fda-search');
     this.$goFda = $('#go-fda');
+    this.$videoCarousel = $('#video-carousel');
 };

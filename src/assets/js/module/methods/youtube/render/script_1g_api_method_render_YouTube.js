@@ -12,9 +12,7 @@ API.prototype.renderYouTube = function(
     elemIdArray
 ) {
     dom.$loader.fadeIn();
-    const self = this;
-    console.log(this.callType);
-    console.log(this.responseArray[0].items[0].snippet['title']);
+    const self = this
     self.titleArray = [];
     self.descriptionArray = [];
     self.videoArray = [];
@@ -32,7 +30,6 @@ API.prototype.renderYouTube = function(
         } else {
             dom.$err.hide();
             self.id = 1;
-
             this.responseArray[0].items.forEach(function(item) {
                 self.elemId = '#section-card-youtube-video-' +
                     self.id;
@@ -67,11 +64,8 @@ API.prototype.renderYouTube = function(
                 self.id++;
             });
         };
-        console.log(self.elemIdArray);
-
         self.elemIdArray.forEach(function(item) {
             $(item).on("click", function() {
-                console.log(this.children[0]);
                 if (this.children[0] === undefined) {
                     $(this).fadeOut();
                     return;
@@ -80,7 +74,6 @@ API.prototype.renderYouTube = function(
             });
 
         });
-        console.log('you tube render method running');
     };
     dom.$loader.fadeOut();
 };

@@ -1,238 +1,131 @@
-        /*
-                                                                                                                                                                                                                                        self.elemIdArray.forEach(function(item) {
-                                                                                                                                                                                                                                            $(item).on("click", function() {
-                                                                                                                                                                                                                                                $(item).animate({
-                                                                                                                                                                                                                                                    width: '100%',
-                                                                                                                                                                                                                                                    opacity: 0.1
-                                                                                                                                                                                                                                                }, 10, function() {
-                                                                                                                                                                                                                                                    // Animation complete.
-                                                                                                                                                                                                                                                    $(item).animate({
-                                                                                                                                                                                                                                                        width: '80%',
-                                                                                                                                                                                                                                                        opacity: 0.9
-                                                                                                                                                                                                                                                    }, "slow");
-                                                                                                                                                                                                                                                });
-                                                                                                                                                                                                                                            });
-                                                                                                                                                                                                                                        });
-                                                                                                                                                                                                                                        */
-        API.prototype.renderMovies = function(
-            imgUrl,
-            formattedHTMLName,
-            formattedHTMLPoster,
-            formattedHTMLOverview,
-            formattedHTMLVotes,
-            formattedHTMLContent,
-            formattedHTMLCollapseLink,
-            id,
-            elemId,
-            elemIdArray,
-            name,
-            idArray,
-            videoIframeArray,
-            carouselVideosPart1,
-            carouselVideosPart2,
-            carouselVideosPart3,
-            videoCarouselBuilt
-        ) {
-            console.log(this.callType);
-            console.log(this.responseArray);
-
-            var self = this;
-            self.imgUrl = "https://image.tmdb.org/t/p/w500";
-            self.elemIdArray = [];
-            self.idArray = [];
-            self.videoIframeArray = [];
-            dom.$content.html('');
-            dom.$sectionAsideMenu.fadeOut();
-            if (this.responseArray[0].results === undefined) {
-                alert('this.responseArray[0].results === undefined');
-                return;
+API.prototype.renderMovies = function(
+    imgUrl,
+    formattedHTMLName,
+    formattedHTMLPoster,
+    formattedHTMLOverview,
+    formattedHTMLVotes,
+    formattedHTMLContent,
+    formattedHTMLCollapseLink,
+    id,
+    elemId,
+    elemIdArray,
+    name,
+    idArray,
+    videoIframeArray
+) {
+    dom.$loader.show();
+    var self = this;
+    self.imgUrl = "https://image.tmdb.org/t/p/w500";
+    self.elemIdArray = [];
+    self.idArray = [];
+    self.videoIframeArray = [];
+    dom.$content.html('');
+    dom.$sectionAsideMenu.fadeOut();
+    if (this.responseArray[0].results === undefined) {
+        alert('this.responseArray[0].results === undefined');
+        return;
+    } else {
+        dom.$err.hide();
+        dom.$sectionAsideMenu.fadeIn();
+        dom.$asideControler.fadeIn();
+        dom.$asideMenu.html('');
+        self.id = 1;
+        self.renderCarousel();
+        this.responseArray[0].results.forEach(function(item) {
+            self.elemId = '#section-' + self.id;
+            if (item.title === undefined) {
+                self.name = item.name;
+                self.formattedHTMLName = '<h3 class="green">' +
+                    self.name +
+                    '</h3>';
             } else {
-                dom.$err.hide();
-                dom.$sectionAsideMenu.fadeIn();
-                dom.$asideControler.fadeIn();
-                dom.$asideMenu.html('');
-                self.id = 1;
-
-
-
-                // videos created from response array.
-                // Carousel
-                self.carouselVideosPart1 = '<!-- carousel part 1-->' +
-                    '<div id="carousel" class="carousel slide animate" data-ride="carousel">' +
-                    '<div class="carousel-inner" id="video-carousel">';
-                self.carouselVideosPart3 = '</div>' +
-                    '<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">' +
-                    '<span class="carousel-control-prev-icon" aria-hidden="true">' +
-                    '</span>' +
-                    '<span class="sr-only">Previous</span>' +
-                    '</a>' +
-                    '<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">' +
-                    '<span class="carousel-control-next-icon" aria-hidden="true">' +
-                    '</span><span class="sr-only">Next</span>' +
-                    '</a>' +
-                    '</div>';
-                self.videoCarouselBuilt = self.carouselVideosPart1 +
-                    self.carouselVideosPart3;
-
-                dom.$content.prepend(self.videoCarouselBuilt);
-
-                var i = 0;
-                this.responseArray[0].results.forEach(function(item) {
-                    if (item.id === undefined) {
-                        return
-                    };
-                    self.idVideoSearch(item.id, i);
-                    i++
-                });
-
-
-                this.responseArray[0].results.forEach(function(item) {
-
-                    self.elemId = '#section-' + self.id;
-                    if (item.title === undefined) {
-                        self.name = item.name;
-                        self.formattedHTMLName = '<h3 class="green">' +
-                            self.name +
-                            '</h3>';
-                    } else {
-                        self.name = item.title;
-                        self.formattedHTMLName = '<h4 class="card-title">' +
-                            self.name +
-                            '</h4>';
-                    };
-                    self.formattedHTMLCollapseLink = '<a class=' +
-                        '"btn btn-outline-info" ' +
-                        'id="btn-toggle-overview-' +
-                        self.id + '" ' +
-                        'data-toggle="collapse"' +
-                        ' href="#' +
-                        'item-overview-' +
-                        self.id + // target div to collapse
-                        '" aria-expanded="false" ' + // default closed
-                        'aria-controls="btn-toggle-overview-' +
-                        self.id + '">' + // collapse controler
-                        'Description' +
-                        '</a>';
-                    self.formattedHTMLPoster = '<img class="card-img-top img-thumbnail black-background" id="popular-lg" src="' +
-                        self.imgUrl +
-                        item.poster_path +
-                        '">';
-
-                    self.formattedHTMLOverview = '<p class="card-text collapse" id="item-overview-' +
-                        self.id +
-                        '">' +
-                        item.overview +
-                        '</p>';
-                    if (item.release_date === undefined) {
-                        self.formattedHTMLVotes = '<span class="blue">Votes: ' +
-                            item.vote_count + ' | Vote Average: ' +
-                            item.vote_average +
-                            '% | Air Date: ' +
-                            item.first_air_date +
-                            '</span>';
-                    } else {
-                        self.formattedHTMLVotes = '<span class="blue">Votes: ' +
-                            item.vote_count + ' | Vote Average: ' +
-                            item.vote_average +
-                            '% | Air Date: ' +
-                            item.release_date +
-                            '</span>';
-                    };
-
-                    self.formattedHTMLContent = '<section class="container card gradient-black row" id="' +
-                        'section-' + self.id +
-                        '">' +
-                        '<!--  card-body -->' +
-
-                        '<div class="card-body">' +
-                        self.formattedHTMLPoster +
-                        self.formattedHTMLName +
-                        self.formattedHTMLOverview +
-                        self.formattedHTMLVotes +
-                        '<br />' +
-                        self.formattedHTMLCollapseLink +
-                        '</div>' +
-
-                        '</section>';
-
-                    // aside menu for movies and fm.
-                    self.buttonsAsideMenu = '<a href="#section-' +
-                        self.id +
-                        '" class="btn btn-outline-success" id="aside-menu-btn-' +
-                        self.id +
-                        '">' +
-                        self.name +
-                        '</a>';
-                    dom.$asideMenu.append(self.buttonsAsideMenu);
-                    dom.$content.append(self.formattedHTMLContent);
-                    self.elemIdArray.push(self.elemId);
-                    console.log('this.idVideoSearch(item.id) line 128 video search.')
-
-                    self.id++;
-                });
-                $('#video-carousel').prepend('<!-- carousel item -->' +
-                    '<div class="carousel-item active" id="item-' +
-                    'first' +
-                    '">' +
-                    '<img id="tv-bg" ' +
-                    'src="assets/images/tv.png">' +
-                    '</div>' +
-                    '<div class="carousel-caption d-none d-md-block txt-shadow-black">' +
-                    '<h1>Video Trailers</h1>' +
-                    '</div>');
-
-                $('#video-carousel').append(self.carouselVideosPart2);
-
-                console.log(self.elemIdArray);
-                console.log('this.idArray line 135 render movies.');
-                console.log(this.idArray);
-                dom.$asideMenu.prepend('<a href="#root" class="btn btn-outline-info">Top</a>');
-
+                self.name = item.title;
+                self.formattedHTMLName = '<h4 class="card-title">' +
+                    self.name +
+                    '</h4>';
             };
-
-        };
-
-        API.prototype.idVideoSearch = async function(
-            movieId,
-            i
-        ) {
-            var self = this
-            self.movieId = movieId;
-            self.i = 0;
-            var KEY = "api_key=06f6d11f6cf9b366cb459ecbdfdc75a3";
-            var API_CALL_MOVIE_VIDEOS = new API(
-                "https://api.themoviedb.org/3/movie/",
-                self.movieId,
-                "?",
-                KEY,
-                "&append_to_response=videos&",
-                "format=json"
-            );
-            this.callType = API_CALL_MOVIE_VIDEOS;
-            console.log('this.callType line 158 render movies.');
-            console.log(this.callType);
-            try {
-                const response = await fetch(this.callType.url);
-                const text = await response.json()
-                this.idArray.push(text);
-
-                self.carouselVideosPart2 = '<!-- carousel item -->' +
-                    '<div class="carousel-item" id="item-' +
-                    i +
-                    '">' +
-                    '<iframe class="iframe-videos" ' +
-                    'src="https://www.youtube.com/embed/' +
-                    this.idArray[i].videos['results'][0].key +
-                    '">' +
-                    '</iframe>' +
-                    '</div>';
-                $('#video-carousel').append(self.carouselVideosPart2);
-
-                console.log('this.idArray line 226 render movies.');
-                console.log(this.idArray[i].videos['results'][0].key);
-
-            } catch (err) {
-                console.log('fetch failed', err);
-                dom.$err.show();
-            }
-        };
+            self.formattedHTMLCollapseLink = '<a class=' +
+                '"btn btn-outline-info" ' +
+                'id="btn-toggle-overview-' +
+                self.id + '" ' +
+                'data-toggle="collapse"' +
+                ' href="#' +
+                'item-overview-' +
+                self.id + // target div to collapse
+                '" aria-expanded="false" ' + // default closed
+                'aria-controls="btn-toggle-overview-' +
+                self.id + '">' + // collapse controler
+                'Description' +
+                '</a>';
+            self.formattedHTMLPoster = '<img class="card-img-top img-thumbnail black-background" ' +
+                'id="popular-lg" src="' +
+                self.imgUrl +
+                item.poster_path +
+                '">';
+            self.formattedHTMLOverview = '<p class="card-text collapse" id="item-overview-' +
+                self.id +
+                '">' +
+                item.overview +
+                '</p>';
+            if (item.release_date === undefined) {
+                self.formattedHTMLVotes = '<span class="blue">Votes: ' +
+                    item.vote_count + ' | Vote Average: ' +
+                    item.vote_average +
+                    '% | Air Date: ' +
+                    item.first_air_date +
+                    '</span>';
+            } else {
+                self.formattedHTMLVotes = '<span class="blue">Votes: ' +
+                    item.vote_count + ' | Vote Average: ' +
+                    item.vote_average +
+                    '% | Air Date: ' +
+                    item.release_date +
+                    '</span>';
+            };
+            self.formattedHTMLContent = '<section class="container card gradient-black row" id="' +
+                'section-' + self.id +
+                '">' +
+                '<!--  card-body -->' +
+                '<div class="card-body">' +
+                self.formattedHTMLPoster +
+                self.formattedHTMLName +
+                self.formattedHTMLOverview +
+                self.formattedHTMLVotes +
+                '<br />' +
+                self.formattedHTMLCollapseLink +
+                '</div>' +
+                '</section>';
+            dom.$content.append(self.formattedHTMLContent);
+            // aside menu for movies and fm.
+            self.buttonsAsideMenu = '<a href="#section-' +
+                self.id +
+                '" class="btn btn-outline-success" id="aside-menu-btn-' +
+                self.id +
+                '">' +
+                self.name +
+                '</a>';
+            dom.$asideMenu.append(self.buttonsAsideMenu);
+            self.elemIdArray.push(self.elemId);
+            self.id++;
+        });
+        self.renderCarouselBottom();
+        dom.$asideMenu.prepend('<a href="#root" class="btn btn-outline-info">Top</a>');
+    };
+    dom.$loader.hide();
+};
+/*
+self.elemIdArray.forEach(function(item) {
+$(item).on("click", function() {
+$(item).animate({
+width: '100%',
+opacity: 0.1
+}, 10, function() {
+// Animation complete.
+$(item).animate({
+width: '80%',
+opacity: 0.9
+}, "slow");
+});
+});
+});
+*/

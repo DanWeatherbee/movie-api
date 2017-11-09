@@ -14,8 +14,6 @@ API.prototype.renderFM = function(
 ) {
     dom.$loader.fadeIn();
     const self = this;
-    console.log(this.callType);
-    console.log(this.responseArray[0].artists.artist);
     dom.$content.html('');
     self.header = '<h2>Last FM Top 50 Search</h2>';
     dom.$content.append(self.header);

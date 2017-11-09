@@ -1,4 +1,4 @@
-//  Error checking -- you can wipe code out above and this will pick it up.
+//  Error checking
 var i;
 API.prototype.errChecking = function(check) {
     if (!check) {
@@ -18,8 +18,6 @@ var varNameArray = [
     "this.navBody",
     "this.carouselBody"
 ];
-
-
 var varArray = [
     this.card,
     this.row,
@@ -45,4 +43,3 @@ var builder = new LAYOUT_BUILDER_OBJ(
     navBody,
     carouselBody
 );
-console.log(builder);

@@ -9,8 +9,6 @@ API.prototype.renderNutritionRestMenu = function(
     var self = this;
     dom.$loader.fadeIn();
     self.linkId = 1;
-    console.log(this.callType);
-    console.log(this.responseArray);
     dom.$sectionAsideMenu.fadeOut();
     if (this.responseArray[0].hits === undefined) {
         return;
